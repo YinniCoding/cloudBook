@@ -1,0 +1,77 @@
+/*
+ * Des：首页css样式
+ * Author： njhxzhangjihong@126.com
+ * Date：2016/1/11
+ */
+
+#rightPic {
+	position: fixed;
+	height: 100%;
+	min-width: 200px;
+	right: 0;
+	background-repeat: no-repeat;
+	z-index: -10;
+	background-image: url("./../book.jpg");
+}
+
+.row > span {
+	margin-right: -20px;
+	color: white;
+}
+
+.row > input {
+	width: 80%;
+	background-color: rgb(175,195,204);
+	color: white;
+	margin: 5px 0 5px 0;
+	padding-left: 30px;
+	outline: none;
+}
+
+#codeInput {
+	width: 50%;
+}
+
+#code {
+	display: inline-block;
+	background-color: rgb(175,195,204);
+	margin: 20px;
+	width: 23%;
+	line-height: 25px;
+	color: white;
+	border: 1px solid #6d6d6d
+}
+
+#autoLogin {
+	display: inline-block;
+	border: 1px solid #9d9d9d;
+	width: 11px;
+	height: 11px;
+	font-size: 0;
+}
+
+/*placeholder*/
+input::-webkit-input-placeholder {
+　　color: #D6D0CA !important; /* WebKit browsers */
+}
+input:-moz-placeholder {
+　　color: #D6D0CA !important; /* Mozilla Firefox 4 to 18 */
+}
+input::-moz-placeholder {
+　　color: #D6D0CA !important; /* Mozilla Firefox 19+ */
+}
+input:-ms-input-placeholder {
+　　color: #D6D0CA !important; /* Internet Explorer 10+ */
+}
+
+#loginTips > span {
+	color: black;
+}
+
+#loginNext {
+	margin-left: 25px;
+}
+
+#forgetPwd {
+	margin-left: 100px;
+}
