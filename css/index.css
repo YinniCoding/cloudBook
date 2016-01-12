@@ -4,23 +4,35 @@
  * Date：2016/1/11
  */
 
+.wrap {
+	text-align: center;
+	width: 1024px;
+	height: 768px;
+}
+
 #rightPic {
 	position: fixed;
 	height: 100%;
 	min-width: 200px;
 	right: 0;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	z-index: -10;
-	background-image: url("./../book.jpg");
+	background: url("./../img/book.png");
 }
 
-.row > span {
-	margin-right: -20px;
+.row {
+	margin: 0;
+	padding: 0;
+}
+
+.row  span {
+	margin-right: -25px;
 	color: white;
 }
 
-.row > input {
-	width: 80%;
+.row  input {
+	width: 310px;
+	height: 40px;
 	background-color: rgb(175,195,204);
 	color: white;
 	margin: 5px 0 5px 0;
@@ -29,16 +41,16 @@
 }
 
 #codeInput {
-	width: 50%;
+	width: 100%;
 }
 
 #code {
 	display: inline-block;
-	background-color: rgb(175,195,204);
-	margin: 20px;
-	width: 23%;
-	line-height: 25px;
-	color: white;
+	/*background-color: rgb(175,195,204);*/
+	margin: 5px 0 0 20px;
+	width: 100%;
+	line-height: 35px;
+	color: black;
 	border: 1px solid #6d6d6d
 }
 
@@ -74,4 +86,9 @@ input:-ms-input-placeholder {
 
 #forgetPwd {
 	margin-left: 100px;
+}
+
+#loginBtn {
+	background-color: #0074D9;
+	height: 40px;
 }

@@ -1,0 +1,48 @@
+/*
+ * Des：概述页css样式
+ * Author： njhxzhangjihong@126.com
+ * Date：2016/1/12
+ */
+
+.wrap {
+	margin: 0 auto;
+	width: 1024px;
+	height: 768px;
+	background-color: #e4e4e4;
+}
+
+#headNav {
+	background-color: white;
+	font-size: 16px;
+}
+
+#rightNav {
+	margin-right: 10%;
+}
+
+#leftNav {
+	margin-left: 2%;
+}
+
+#info {
+	margin: 0 auto;
+	font-size: 16px;
+	text-align: center;
+	margin-top: 100px;
+}
+
+#info span {
+	font-size: 2em;
+}
+
+ul > li {
+	display: none;
+}
+
+ul > li img {
+	margin: -50px 0 80px 0;
+}
+
+.on {
+	display: block;
+}

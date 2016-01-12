@@ -10,35 +10,44 @@
 	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6" id="login">
-				<h2>云书</h2>
-				<h3>YunShu</h3>
-				<span>云书有你  请您登录</span>
-				<div class="row">
-					<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					<input type="text" placeholder="请输入用户名">
+	<div class="wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6" id="login" style="vertical-align: middle">
+					<img src="./img/logo.jpg" alt="" width="200px" style="margin-top: 20px;">
+					<span>云书有你  请您登录</span>
+					<div class="row">
+						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+						<input type="text" placeholder="请输入用户名">
+					</div>
+					<div class="row">
+						<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+						<input type="text" placeholder="请输入密码">
+					</div>
+
+					<div class="row">
+						<div class="col-md-7">
+							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+							<input type="text" id="codeInput" placeholder="请输入验证码">
+						</div>
+						<div class="col-md-4">
+							<div id="code">12345</div>
+						</div>
+					</div>
+					<div class="row" id="loginTips">
+						<span id="autoLogin"></span>
+						<span id="loginNext">下次自动登入</span>
+						<span id="forgetPwd">忘记密码？</span>
+					</div>
+					<div class="row">
+						<input type="button" class="btn btn-default btn-primary" id="loginBtn" value="确定登录">
+					</div>
 				</div>
-				<div class="row">
-					<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-					<input type="text" placeholder="请输入密码">
-				</div>
-				<div class="row">
-					<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-					<input type="text" id="codeInput" placeholder="请输入验证码">
-					<div id="code">12345</div>
-				</div>
-				<div class="row" id="loginTips">
-					<span id="autoLogin"></span>
-					<span id="loginNext">下次自动登入</span>
-					<span id="forgetPwd">忘记密码？</span>
-				</div>
-				<button class="btn btn-default">确定登录</button>
+				<div class="col-md-6" id="rightPic"></div>
 			</div>
-			<div class="col-lg-6" id="rightPic"></div>
 		</div>
 	</div>
+
 	<script src="./js/jquery.min.js"></script>
 </body>
 </html>

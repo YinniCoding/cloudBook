@@ -1,0 +1,24 @@
+/*
+ * Des：头部导航css样式
+ * Author： njhxzhangjihong@126.com
+ * Date：2016/1/12
+ */
+
+.wrap {
+	margin: 0 auto;
+	width: 1024px;
+	height: 768px;
+}
+
+#headNav {
+	background-color: white;
+	font-size: 16px;
+}
+
+#rightNav {
+	margin-right: 10%;
+}
+
+#leftNav {
+	margin-left: 2%;
+}
