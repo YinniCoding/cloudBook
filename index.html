@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>云书管理后台</title>
-	<link href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./css/base.min.css">
 <!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css">
  -->	<!-- <link rel="stylesheet" href="./css/common.css"> -->
@@ -13,9 +13,12 @@
 	<div class="wrap">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6" id="login" style="vertical-align: middle">
-					<img src="./img/logo.jpg" alt="" width="200px" style="margin-top: 20px;">
-					<span>云书有你  请您登录</span>
+				<div class="col-md-6" id="login">
+					<div id="loginTitle">
+						<img src="./img/logo.jpg" alt="" width="200px">
+						<div>云书有你  请您登录</div>
+					</div>
+
 					<div class="row">
 						<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						<input type="text" placeholder="请输入用户名">
@@ -26,16 +29,14 @@
 					</div>
 
 					<div class="row">
-						<div class="col-md-7">
-							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-							<input type="text" id="codeInput" placeholder="请输入验证码">
-						</div>
-						<div class="col-md-4">
-							<div id="code">12345</div>
-						</div>
+						<span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
+						<input type="text" id="codeInput" placeholder="请输入验证码">
+						<div id="code">12345</div>
 					</div>
 					<div class="row" id="loginTips">
-						<span id="autoLogin"></span>
+						<span id="autoLogin">
+							<span class="glyphicon glyphicon-ok" aria-hidden="true" id="autoChecked"></span>
+						</span>
 						<span id="loginNext">下次自动登入</span>
 						<span id="forgetPwd">忘记密码？</span>
 					</div>

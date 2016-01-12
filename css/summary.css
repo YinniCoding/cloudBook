@@ -6,9 +6,13 @@
 
 .wrap {
 	margin: 0 auto;
-	width: 1024px;
-	height: 768px;
+	width: 90%;
+	/*height: 768px;*/
 	background-color: #e4e4e4;
+}
+
+.container {
+	width: inherit;
 }
 
 #headNav {
@@ -24,11 +28,31 @@
 	margin-left: 2%;
 }
 
+#leftNav > span {
+	color: orange;
+	font-weight: bold;
+}
+
+.navbar-brand {
+	float: none;
+}
+
 #info {
 	margin: 0 auto;
 	font-size: 16px;
 	text-align: center;
-	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.thumbnail {
+	height: 150px;
+	padding: 30px;
+}
+
+.thumbnail.shadow {
+	-webkit-box-shadow: 0 0 25px black;
+	-moz-box-shadow: 0 0 25px black;
+	box-shadow: 0 0 25px black;
 }
 
 #info span {

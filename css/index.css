@@ -7,7 +7,20 @@
 .wrap {
 	text-align: center;
 	width: 1024px;
-	height: 768px;
+	/*height: 768px;*/
+}
+
+#login {
+	margin-top: 10%;
+}
+
+#loginTitle {
+	margin-bottom: 10%;
+}
+
+#loginTitle > div {
+	color: #888;
+	font-size: 2em;
 }
 
 #rightPic {
@@ -25,7 +38,7 @@
 	padding: 0;
 }
 
-.row  span {
+.glyphicon {
 	margin-right: -25px;
 	color: white;
 }
@@ -41,14 +54,14 @@
 }
 
 #codeInput {
-	width: 100%;
+	width: 155px;
 }
 
 #code {
 	display: inline-block;
 	/*background-color: rgb(175,195,204);*/
 	margin: 5px 0 0 20px;
-	width: 100%;
+	width: 133px;
 	line-height: 35px;
 	color: black;
 	border: 1px solid #6d6d6d
@@ -59,21 +72,32 @@
 	border: 1px solid #9d9d9d;
 	width: 11px;
 	height: 11px;
-	font-size: 0;
+	cursor: pointer;
+	margin: 0;
+}
+
+#autoChecked {
+	display: none;
+	margin-left: -22px;
+	margin-top: -10px;
+	color: black;
+	top: -2px;
 }
 
 /*placeholder*/
-input::-webkit-input-placeholder {
-　　color: #D6D0CA !important; /* WebKit browsers */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: white;
 }
-input:-moz-placeholder {
-　　color: #D6D0CA !important; /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: white;
+	opacity: 1;
 }
-input::-moz-placeholder {
-　　color: #D6D0CA !important; /* Mozilla Firefox 19+ */
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: white;
+	opacity: 1;
 }
-input:-ms-input-placeholder {
-　　color: #D6D0CA !important; /* Internet Explorer 10+ */
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: white;
 }
 
 #loginTips > span {
