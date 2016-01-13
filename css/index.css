@@ -5,13 +5,16 @@
  */
 
 .wrap {
-	text-align: center;
-	width: 1024px;
-	/*height: 768px;*/
+	/*text-align: center;*/
+	/*width: 90%;*/
+	/*/!*height: 768px;*!/*/
+	/*margin: 0 auto;*/
+	width: 90%;
+	min-height: 768px;
 }
 
 #login {
-	margin-top: 10%;
+	margin-top: 20%;
 }
 
 #loginTitle {
@@ -25,12 +28,13 @@
 
 #rightPic {
 	position: fixed;
-	height: 100%;
-	min-width: 200px;
+	height: 1080px;
+	/*min-width: 200px;*/
 	right: 0;
-	background-repeat: repeat-y;
+
 	z-index: -10;
 	background: url("./../img/book.png");
+	background-repeat: repeat-y;
 }
 
 .row {
@@ -59,12 +63,15 @@
 
 #code {
 	display: inline-block;
+	text-align: center;
 	/*background-color: rgb(175,195,204);*/
 	margin: 5px 0 0 20px;
 	width: 133px;
 	line-height: 35px;
 	color: black;
-	border: 1px solid #6d6d6d
+	border: 1px solid #6d6d6d;
+	background-image:-webkit-linear-gradient(to left, red, orange,yellow,green,blue,indigo);
+	background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo);
 }
 
 #autoLogin {
@@ -78,7 +85,7 @@
 
 #autoChecked {
 	display: none;
-	margin-left: -22px;
+	/*margin-left: -22px;*/
 	margin-top: -10px;
 	color: black;
 	top: -2px;
@@ -100,8 +107,9 @@
 	color: white;
 }
 
-#loginTips > span {
-	color: black;
+#loginTips > span, #loginTips > span > a  {
+	color: #83a3aa;
+	font-weight: bold;
 }
 
 #loginNext {
@@ -115,4 +123,5 @@
 #loginBtn {
 	background-color: #0074D9;
 	height: 40px;
+	margin-left: -10px;
 }

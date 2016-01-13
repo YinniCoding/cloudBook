@@ -1,0 +1,124 @@
+/*
+ * Des：公共css样式
+ * Author： njhxzhangjihong@126.com
+ * Date：2016/1/13
+ */
+/*头部*/
+.wrap {
+    margin: 0 auto;
+    width: 90%;
+    min-height: 768px;
+    background-color: #e5e5e5;
+}
+
+.container {
+    width: inherit;
+}
+
+#headNav {
+    background-color: white;
+    font-size: 16px;
+}
+
+#rightNav {
+    margin-right: 10%;
+}
+
+#rightNav a {
+    color: #83a3aa;
+}
+
+#rightNav a.active {
+    color: #27a3ff;
+}
+
+#leftNav {
+    margin-left: 2%;
+}
+
+#leftNav > span {
+    color: orange;
+    font-weight: bold;
+}
+
+#leftNav a {
+    color: #898989;
+}
+
+.navbar-brand {
+    float: none;
+}
+
+.navbar {
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 32px;
+}
+
+/*左侧导航*/
+#sidebar {
+    background-color: white;
+    width: 145px;
+    /*margin-left: 40px;*/
+    padding: 0 10px 0 10px;
+    text-align: center;
+}
+
+#sidebar li {
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+#sidebar li.active {
+    border-left: 5px solid orange;
+    margin-left: -10px;
+    padding-left: 5px;
+}
+
+#sidebar li:last-child {
+    border-bottom: none;
+}
+
+#sidebar > ul > li > a {
+    display: inline-block ;
+    color: #83a3aa;
+    /*background-color: white;*/
+}
+
+li.active > a {
+    color: #27a3ff !important;
+    background-color: white !important;
+}
+
+#sidebar a {
+    text-align: left;
+}
+
+/*内容容器*/
+#contentWrap {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/*placeholder*/
+input[type='text'] {
+    background-color: rgb(175,195,204) !important;
+    color: white;
+    outline: none;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity: 1;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    opacity: 1;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+}

@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="./css/elegantFonts/style.css">
 	<link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/base.css">
-<!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css">
- -->	<!-- <link rel="stylesheet" href="./css/common.css"> -->
+<!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css"-->
+	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/credit.css">
 	<link href="//cdn.bootcss.com/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
@@ -16,7 +16,8 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid" id="headNav">
 				<div class="navbar-header" id="leftNav">
-					<img src="" alt="">
+					<img src="./img/logo.jpg" alt="云书logo" width="100px">
+					<span> | </span>
 					<a class="navbar-brand" href="#">校园CEO管理系统</a>
 				</div>
 
@@ -33,7 +34,7 @@
 			</div>
 		</nav>
 
-		<div class="row">
+		<div class="row" id="contentWrap">
 			<div class="col-md-2" id="sidebar">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active">
@@ -58,71 +59,201 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-md-9" id="infoWrap">
-				<div class="row">
-					<div class="col-md-5">
-						<span>真实姓名</span>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-7" style="padding-left: 50px;">
-						<input type="radio" checked>女
-						<input type="radio">男
+			<div class="col-md-10" id="infoWrap">
+				<div class="panel panel-default">
+					<div class="panel-heading">身份证信息</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-5">
+								<span>真实姓名</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7" style="padding-left: 50px;">
+								<input type="radio" checked>女
+								<input type="radio">男
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>手机</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>寝室地址</span>
+								<input type="text" class="form-control" placeholder="如：西区1号楼101寝室">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>身份证号码</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>身份证地址</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>身份证正面照片</span>
+								<form method="post" action="" enctype="multipart/form-data">
+									<input type="file" class="form-control">
+								</form>
+								<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
+							</div>
+							<div class="col-md-7">
+								<span>样例图</span>
+								<img src="./img/front.png" alt="正面">
+								<span class="tips">1. 请上传身份证正面扫描件或高清照片；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>身份证反面照片</span>
+								<input type="file" class="form-control">
+								<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
+							</div>
+							<div class="col-md-7">
+								<span>样例图</span>
+								<img src="./img/back.png" alt="反面">
+								<span class="tips">1. 请上传身份证反面扫描件或高清照片；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>手持身份证照片</span>
+								<input type="file" class="form-control">
+								<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
+							</div>
+							<div class="col-md-7">
+								<span>样例图</span>
+								<img src="./img/handin.png" alt="手持">
+								<span class="tips">1. 请上传手持身份证正面高清照片，照片需平举拍摄，不能挡住脸部；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>学生证内页照片</span>
+								<input type="file" class="form-control">
+								<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
+							</div>
+							<div class="col-md-7">
+								<span>样例图</span>
+								<img src="./img/stuCard.png" alt="学生证">
+								<span class="tips">1. 请上传学生证内页扫描件或高清照片；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<span>手机</span>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-7">
-						<span>寝室地址</span>
-						<input type="text" class="form-control" placeholder="如：西区1号楼101寝室">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<span>身份证号码</span>
-						<input type="text" class="form-control">
-					</div>
-					<div class="col-md-7">
-						<span>身份证地址</span>
-						<input type="text" class="form-control">
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<span>身份证正面照片</span>
-						<input type="file" class="form-control">
-						<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
-					</div>
-					<div class="col-md-7">
-						<span>样例图</span>
-						<img src="./img/front.png" alt="正面">
-						<span class="tips">1. 请上传身份证正面扫描件或高清照片；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+				<div class="panel panel-default">
+					<div class="panel-heading">学生证信息</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-5">
+								<span>学生证号</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>在读学历</span>
+								<input type="text" class="form-control" placeholder="如：本科">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>入学年份</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>学校名称</span>
+								<input type="text" class="form-control" placeholder="请填写学校全称">
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<span>身份证反面照片</span>
-						<input type="file" class="form-control">
-						<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
-					</div>
-					<div class="col-md-7">
-						<span>样例图</span>
-						<img src="./img/back.png" alt="反面">
-						<span class="tips">1. 请上传身份证反面扫描件或高清照片；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+				<div class="panel panel-default">
+					<div class="panel-heading">银行卡信息</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-5">
+								<span>开户银行</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>银行卡号</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5">
+								<span>开户城市</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-7">
+								<span>预留电话</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-5">
-						<span>手持身份证照片</span>
-						<input type="file" class="form-control">
-						<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
-					</div>
-					<div class="col-md-7">
-						<span>样例图</span>
-						<img src="./img/handin.png" alt="手持">
-						<span class="tips">1. 请上传手持身份证正面高清照片，照片需平举拍摄，不能挡住脸部；<br>2. 照片格式为JPG/PNG/GIF，大小请不要超过2M；</span>
+				<div class="panel panel-default">
+					<div class="panel-heading">联系人信息（至少填3组）</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3">
+								<span>父亲姓名</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>电话号码</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>身份证地址</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<span>母亲姓名</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>电话号码</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>身份证地址</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<span>朋友姓名</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>电话号码</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>身份证地址</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-3">
+								<span>朋友姓名</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>电话号码</span>
+								<input type="text" class="form-control">
+							</div>
+							<div class="col-md-4">
+								<span>身份证地址</span>
+								<input type="text" class="form-control">
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -130,6 +261,6 @@
 	</div>
 	<script src="./js/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>
-	<script src="./js/detail.js" charset="utf-8"></script>
+	<script src="./js/credit.js"></script>
 </body>
 </html>

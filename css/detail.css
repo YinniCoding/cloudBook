@@ -4,26 +4,6 @@
  * Date：2016/1/12
  */
 
-.wrap {
-	margin: 0 auto;
-	width: 1024px;
-	height: 768px;
-	background-color: #e4e4e4;
-}
-
-#headNav {
-	background-color: white;
-	font-size: 16px;
-}
-
-#rightNav {
-	margin-right: 10%;
-}
-
-#leftNav {
-	margin-left: 2%;
-}
-
 #info {
 	margin: 0 auto;
 	font-size: 16px;
@@ -47,45 +27,43 @@ ul > li img {
 	display: block;
 }
 
-#sidebar {
-	background-color: white;
-	width: 140px;
-	margin-left: 40px;
-	padding-top: 10px;
-}
-
-#sidebar > ul > li > a {
-	display: inline-block ;
-	color: #000;
-	/*background-color: white;*/
-}
-
-li.active > a {
-	color: #428bca !important;
-	background-color: white !important;
-}
-
 #notice {
 	background-color: white;
 	/*margin-left: 20%;*/
 	z-index: 10;
 	height: 30px;
-	border-right: 2px solid #e4e4e4;
+	border-right: 2px solid #e5e5e5;
 
-}
-
-#notice > span {
-	margin: 10px;
 }
 
 #msg {
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #428bca;
+	color: #27a3ff !important;
+}
+
+#notice > span,#tableWrap span,#tableWrap input {
+	margin: 10px;
+	color: #5e6a70;
+}
+
+#content {
+	margin-left: 30px;
 }
 
 #tableWrap {
 	margin-top: 30px;
+	background-color: white;
+	padding: 29px;
+}
+
+td,th {
+	color: #5e6a70;
+}
+
+.form-control {
+	display: inline-block;
+	width: auto;
 }
 
 #searchNav {
@@ -103,5 +81,5 @@ li.active > a {
 #searchNav > select	{
 	margin: 5px;
 	width: 150px;
-	height: 25px;
+	height: 34px;
 }

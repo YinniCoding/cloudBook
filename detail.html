@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="./css/base.css">
 <!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css">
  -->	<!-- <link rel="stylesheet" href="./css/common.css"> -->
+	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/detail.css">
 	<link href="//cdn.bootcss.com/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
@@ -15,24 +16,25 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid" id="headNav">
 				<div class="navbar-header" id="leftNav">
-					<img src="" alt="">
+					<img src="./img/logo.jpg" alt="云书logo" width="100px">
+					<span> | </span>
 					<a class="navbar-brand" href="#">校园CEO管理系统</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="rightNav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#" class="" role="button">首页</a></li>
-						<li><a href="#" class="" role="button">配单</a></li>
-						<li><a href="#" class="" role="button">推广</a></li>
-						<li><a href="#" class="" role="button">收书</a></li>
-						<li><a href="#" class="" role="button">我的</a></li>
+						<li><a href="/index.html" class="" role="button">首页</a></li>
+						<li><a href="/detail.html" class="" role="button">配单</a></li>
+						<li><a href="/tuiguang.html" class="" role="button">推广</a></li>
+						<li><a href="/" class="" role="button">收书</a></li>
+						<li><a href="/profile.html" class="" role="button">我的</a></li>
 					</ul>
 					<img src="" alt="">
 				</div>
 			</div>
 		</nav>
 
-		<div class="row">
+		<div class="row" id="contentWrap">
 			<div class="col-md-2" id="sidebar">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active">
@@ -53,7 +55,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-10" id="content">
 				<div class="" id="notice">
 					<span id="msg">通知公告</span>
 					<span>陈秘书长说：请务必将教材送至客户手中，否则晚上去他办公室。</span>
@@ -61,16 +63,16 @@
 				<div id="tableWrap">
 					<div class="row" id="searchNav">
 						<span>日期</span>
-						<input type="date">
+						<input type="date" class="form-control">
 						<span>订单状态</span>
-						<select name="" id="">
+						<select name="" class="form-control">
 							<option value="0" selected>全部</option>
 							<option value="1">待出库</option>
 							<option value="2">待配送</option>
 							<option value="3">已配送</option>
 						</select>
 						<span>关键词</span>
-						<input type="search">
+						<input type="search" class="form-control">
 						<a href="javascript:;" class="btn btn-default btn-primary">搜索</a>
 					</div>
 					<table id="dataTable">
@@ -94,12 +96,10 @@
 
 			</div>
 		</div>
-
-
-
 	</div>
 	<script src="./js/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>
-	<script src="./js/detail.js" charset="utf-8"></script>
+	<script src="./js/common.js"></script>
+	<script src="./js/detail.js"></script>
 </body>
 </html>
