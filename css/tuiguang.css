@@ -4,26 +4,6 @@
  * Date：2016/1/12
  */
 
-.wrap {
-	margin: 0 auto;
-	width: 1024px;
-	height: 768px;
-	background-color: #e4e4e4;
-}
-
-#headNav {
-	background-color: white;
-	font-size: 16px;
-}
-
-#rightNav {
-	margin-right: 10%;
-}
-
-#leftNav {
-	margin-left: 2%;
-}
-
 #info {
 	margin: 0 auto;
 	font-size: 16px;
@@ -45,19 +25,6 @@ ul > li img {
 
 .on {
 	display: block;
-}
-
-#sidebar {
-	background-color: white;
-	width: 140px;
-	margin-left: 40px;
-	padding-top: 10px;
-}
-
-#sidebar > ul > li > a {
-	display: inline-block ;
-	color: #000;
-	/*background-color: white;*/
 }
 
 li.active > a {

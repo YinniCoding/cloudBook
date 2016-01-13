@@ -7,7 +7,7 @@
 .wrap {
     margin: 0 auto;
     width: 90%;
-    min-height: 768px;
+    /*min-height: 768px;*/
     background-color: #e5e5e5;
 }
 

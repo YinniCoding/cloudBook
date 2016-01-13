@@ -3,14 +3,13 @@
  * Author： njhxzhangjihong@126.com
  * Date：2016/1/11
  */
-
 .wrap {
 	/*text-align: center;*/
 	/*width: 90%;*/
 	/*/!*height: 768px;*!/*/
-	/*margin: 0 auto;*/
+	margin: 0;
 	width: 90%;
-	min-height: 768px;
+	/*min-height: 768px;*/
 }
 
 #login {
@@ -31,7 +30,6 @@
 	height: 1080px;
 	/*min-width: 200px;*/
 	right: 0;
-
 	z-index: -10;
 	background: url("./../img/book.png");
 	background-repeat: repeat-y;

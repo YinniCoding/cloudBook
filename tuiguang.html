@@ -6,7 +6,7 @@
 	<link href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/base.css">
 <!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css">
- -->	<!-- <link rel="stylesheet" href="./css/common.css"> -->
+ -->	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/tuiguang.css">
 	<link href="//cdn.bootcss.com/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
@@ -15,24 +15,25 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid" id="headNav">
 				<div class="navbar-header" id="leftNav">
-					<img src="" alt="">
+					<img src="./img/logo.jpg" alt="云书logo" width="100px">
+					<span> | </span>
 					<a class="navbar-brand" href="#">校园CEO管理系统</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="rightNav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#" class="" role="button">首页</a></li>
-						<li><a href="#" class="" role="button">配单</a></li>
-						<li><a href="#" class="" role="button">推广</a></li>
-						<li><a href="#" class="" role="button">收书</a></li>
-						<li><a href="#" class="" role="button">我的</a></li>
+						<li><a href="/index.html" class="" role="button">首页</a></li>
+						<li><a href="/detail.html" class="" role="button">配单</a></li>
+						<li><a href="/tuiguang.html" class="" role="button">推广</a></li>
+						<li><a href="/" class="" role="button">收书</a></li>
+						<li><a href="/profile.html" class="" role="button">我的</a></li>
 					</ul>
 					<img src="" alt="">
 				</div>
 			</div>
 		</nav>
 
-		<div class="row">
+		<div class="row" id="contentWrap">
 			<div class="col-md-2" id="sidebar">
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active">
@@ -53,7 +54,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-md-9">
+			<div class="col-md-10" id="content">
 				<div class="" id="notice">
 					<span id="msg">通知公告</span>
 					<span>陈秘书长说：请务必将教材送至客户手中，否则晚上去他办公室。</span>
