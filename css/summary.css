@@ -26,14 +26,34 @@
 	font-size: 2em;
 }
 
-#banner > li {
-	display: none;
-}
+/*.banner li {*/
+	/*display: none;*/
+/*}*/
 
-#banner > li img {
+.banner li img {
 	margin: -50px 0 80px 0;
 }
 
-#banner .on {
-	display: block;
+.banner ol {
+	margin-left: 50%;
 }
+
+.banner ol li {
+	position: relative;
+	float: left;
+	width: 10px;
+	height: 10px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	top: -100px;
+	margin: 5px;
+	background: white;
+}
+
+.banner ol li.seleted {
+	background-color: #1AA4CA;
+}
+/*.banner .on {*/
+	/*display: block;*/
+/*}*/
