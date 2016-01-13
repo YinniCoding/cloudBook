@@ -4,6 +4,10 @@
  * Date：2016/1/12
  */
 
+#content {
+	margin-bottom: 20px;
+}
+
 /*通告栏*/
 #notice {
 	background-color: white;
