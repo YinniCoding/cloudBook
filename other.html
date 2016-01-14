@@ -5,8 +5,7 @@
 	<title>云书管理后台</title>
 	<link href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/base.css">
-<!-- 	<link rel="stylesheet" href="./css/font-awesome.min.css">
- -->	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/other.css">
 	<link href="//cdn.bootcss.com/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
@@ -56,11 +55,13 @@
 			</div>
 			<div class="col-md-10" id="content">
 				<div class="row">
-					<div class="col-md-8">
-						<div class="" id="notice">
-							<span id="msg">通知公告</span>
-							<span>陈秘书长说：请务必将教材送至客户手中，否则晚上去他办公室。</span>
-						</div>
+					<div class="" id="notice">
+						<span id="msg">通知公告</span>
+						<span>陈秘书长说：请务必将教材送至客户手中，否则晚上去他办公室。</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9">
 						<div id="tableWrap">
 							<table id="dataTable">
 								<thead>
@@ -78,28 +79,21 @@
 							</table>
 						</div>
 					</div>
-					<div class="col-md-3 col-md-push-1" id="salaryApplyWrap">
-						<div style="margin: 15px 0 15px 15px;">
+					<div class="col-md-3" id="salaryApplyWrap">
+						<div id="salaryApplyContent">
 							<h2 class="text-center">推广工资申请</h2>
-							<div>
-								<span>申请人：</span>
-								<input type="text" class="form-control">
-							</div>
-							<div>
-								<span>推广方式：</span>
-								<select name="" style="display: block;" class="form-control">
-									<option value="0">请点击选择</option>
-									<option value="1">商务推广</option>
-									<option value="2">合作校方谈成</option>
-									<option value="3">合作学生组织谈成</option>
-									<option value="4">自媒体推广</option>
-								</select>
-							</div>
-							<div>
-								<span>备注说明：</span>
-								<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-							</div>
-
+							<span>申请人</span>
+							<input type="text" class="form-control">
+							<span>推广方式：</span>
+							<select name="" class="form-control">
+							<option value="0">请点击选择</option>
+							<option value="1">商务推广</option>
+							<option value="2">合作校方谈成</option>
+							<option value="3">合作学生组织谈成</option>
+							<option value="4">自媒体推广</option>
+							</select>
+							<span>备注说明</span>
+							<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
 							<input type="button" class="btn btn-default btn-primary" value="确定提交">
 						</div>
 					</div>
@@ -109,9 +103,6 @@
 
 			</div>
 		</div>
-
-
-
 	</div>
 	<script src="./js/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>

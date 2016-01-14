@@ -3,35 +3,6 @@
  * Author： njhxzhangjihong@126.com
  * Date：2016/1/12
  */
-
-#info {
-	margin: 0 auto;
-	font-size: 16px;
-	text-align: center;
-	margin-top: 100px;
-}
-
-#info span {
-	font-size: 2em;
-}
-
-ul > li {
-	display: none;
-}
-
-ul > li img {
-	margin: -50px 0 80px 0;
-}
-
-.on {
-	display: block;
-}
-
-li.active > a {
-	color: #428bca !important;
-	background-color: white !important;
-}
-
 #notice {
 	background-color: white;
 	/*margin-left: 20%;*/
@@ -43,16 +14,23 @@ li.active > a {
 
 #notice > span {
 	margin: 10px;
+	color: #5e6a70;
 }
 
 #msg {
 	font-size: 1.5em;
 	font-weight: bold;
-	color: #428bca;
+	color: #27a3ff !important;
+}
+
+#content {
+	margin-bottom: 20px;
 }
 
 #tableWrap {
 	margin-top: 30px;
+	background-color: white;
+	padding: 29px;
 }
 
 #searchNav {
@@ -71,4 +49,10 @@ li.active > a {
 	margin: 5px;
 	width: 150px;
 	height: 25px;
+}
+
+.form-control {
+	width: 20%;
+	display: inline-block;
+	margin: 2px;
 }

@@ -19,14 +19,18 @@
 	width: 100px;
 }
 
+#infoWrap img {
+	width: 35%;
+}
+
 .form-control {
-	width: 180px;
+	width: 45%;
 	display: inline-block;
 	margin: 2px;
 }
 
-#infoWrap img {
-	width: 200px;
+.short {
+	width: 40%;
 }
 
 input[type='file'] {
@@ -34,9 +38,9 @@ input[type='file'] {
 }
 
 input[type='submit'] {
-	display: block;
-	margin-left: 150px;
-	margin-top: 20px;
+	/*display: block;*/
+	margin-left: 20%;
+	/*margin-top: 20px;*/
 }
 
 form {
