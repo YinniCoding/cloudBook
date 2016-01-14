@@ -3,63 +3,12 @@
  * Author： njhxzhangjihong@126.com
  * Date：2016/1/12
  */
-
-#content {
-	margin-bottom: 20px;
-}
-
-/*通告栏*/
-#notice {
-	background-color: white;
-	/*margin-left: 20%;*/
-	z-index: 10;
-	height: 30px;
-	border-right: 2px solid #e5e5e5;
-
-}
-
-#msg {
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #27a3ff !important;
-}
-
-#notice > span,#tableWrap span,#tableWrap input {
+#tableWrap span,#tableWrap input {
 	margin: 10px;
 	color: #5e6a70;
 }
 
 .form-control {
-	display: inline-block;
-	width: auto;
-}
-
-/*表格*/
-#tableWrap {
-	margin-top: 30px;
-	background-color: white;
-	padding: 29px;
-}
-
-td,th {
-	color: #5e6a70;
-}
-
-/*搜索栏*/
-#searchNav {
-	margin: 10px;
-}
-
-#searchNav > span {
-	margin: 5px;
-}
-
-#searchNav > input {
-	line-height: inherit;
-}
-
-#searchNav > select	{
-	margin: 5px;
 	width: 20%;
-	height: 34px;
 }
+

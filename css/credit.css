@@ -3,13 +3,6 @@
  * Author： njhxzhangjihong@126.com
  * Date：2016/1/12
  */
-
-#infoWrap {
-	padding: 20px;
-	margin-left: 20px;
-	background-color: white;
-}
-
 #infoWrap span {
 	display: inline-block;
 	margin-top: 10px;
@@ -21,12 +14,6 @@
 
 #infoWrap img {
 	width: 35%;
-}
-
-.form-control {
-	width: 45%;
-	display: inline-block;
-	margin: 2px;
 }
 
 .short {

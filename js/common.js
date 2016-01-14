@@ -1,8 +1,25 @@
-/**Des: ¹«¹²jsÎÄ¼þ
- * Author£ºnjhxzhangjihong@126.com
- * Date£º2016/1/13.
+/**Des: å…¬å…±jsæ–‡ä»¶
+ * Authorï¼šnjhxzhangjihong@126.com
+ * Dateï¼š2016/1/13.
  */
-//sidebar¸ßÁÁ
+//å¤´éƒ¨èœå•é«˜äº®
+(function () {
+    var curUrl = window.location.pathname.split("/");
+    curUrl = curUrl[curUrl.length - 1];
+    var pattern,href;
+    $("#rightNav > ul > li > a").each(function (index, ele) {
+        href = $(ele).attr("href");
+        if(href){
+            pattern = new RegExp(href,"i");
+            if(pattern.test(curUrl)){
+                $(".active").removeClass("active");
+                $(this).parent().addClass("active");
+            }
+        }
+    });
+})();
+
+//sidebaré«˜äº®
 (function () {
     $("#sidebar li").on("click", function () {
         $(".active").removeClass("active");
@@ -10,7 +27,7 @@
     });
 })();
 
-//Í·²¿¸ßÁÁ
+//å¤´éƒ¨é«˜äº®
 (function () {
     var curUrl = window.location.pathname;
     var navLocation = ["index","detail","tuiguang","shoushu","profile"];

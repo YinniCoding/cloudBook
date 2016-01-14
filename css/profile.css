@@ -18,11 +18,7 @@ select {
 	height: 30px;
 }
 
-#infoWrap {
-	padding: 20px;
-	margin-left: 20px;
-	background-color: white;
-}
+
 
 #infoWrap div {
 	margin-top: 10px;
@@ -36,13 +32,9 @@ select {
 	width: 80px;
 }
 
-.form-control {
-	width: 200px;
-	display: inline-block;
-}
-
 #inviteCode {
 	background-color: #428bca;
 	text-align: center;
-	margin: 0 50px 0 50px;
+	width: 40%;
+	margin: 0 auto;
 }

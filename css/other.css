@@ -3,56 +3,6 @@
  * Author： njhxzhangjihong@126.com
  * Date：2016/1/12
  */
-
-#notice {
-	background-color: white;
-	/*margin-left: 20%;*/
-	z-index: 10;
-	height: 30px;
-	border-right: 2px solid #e4e4e4;
-
-}
-
-#notice > span {
-	margin: 10px;
-	color: #5e6a70;
-}
-
-#msg {
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #428bca;
-}
-
-#content {
-	margin-bottom: 20px;
-}
-
-#tableWrap {
-	margin-top: 30px;
-	background-color: white;
-	padding: 29px;
-	min-height: 400px;
-}
-
-#searchNav {
-	margin: 10px;
-}
-
-#searchNav > span {
-	margin: 5px;
-}
-
-#searchNav > input {
-	line-height: inherit;
-}
-
-#searchNav > select	{
-	margin: 5px;
-	width: 150px;
-	height: 25px;
-}
-
 #salaryApplyWrap {
 	background-color: white;
 	margin-top: 30px;

@@ -95,9 +95,20 @@ li.active > a {
 }
 
 /*ÄÚÈÝÈÝÆ÷*/
+#infoWrap {
+    padding: 20px;
+    margin-left: 20px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
 #contentWrap {
     width: 95%;
     margin: 0 auto;
+}
+
+#content {
+    margin-bottom: 20px;
 }
 
 /*placeholder*/
@@ -121,4 +132,63 @@ input[type='text'] {
 }
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: white;
+}
+
+/*ÊäÈë¿ò*/
+.form-control {
+    width: 45%;
+    display: inline-block;
+    margin: 2px;
+}
+
+/*Í¨¸æÀ¸*/
+#notice {
+    background-color: white;
+    /*margin-left: 20%;*/
+    z-index: 10;
+    height: 30px;
+    border-right: 2px solid #e5e5e5;
+
+}
+
+#notice > span {
+    margin: 10px;
+    color: #5e6a70;
+}
+
+#msg {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #27a3ff !important;
+}
+
+/*±í¸ñÈÝÆ÷*/
+#tableWrap {
+    margin-top: 30px;
+    background-color: white;
+    padding: 29px;
+    min-height: 600px;
+}
+
+td,th {
+    color: #5e6a70;
+}
+
+/*ËÑË÷À¸*/
+#searchNav {
+    margin: 10px;
+}
+
+#searchNav > span {
+    margin: 5px;
+}
+
+#searchNav > input {
+    line-height: inherit;
+}
+
+#searchNav > select	{
+    margin: 5px;
+    width: 20%;
+    height: 34px;
 }
