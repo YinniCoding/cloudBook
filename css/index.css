@@ -13,16 +13,29 @@
 }
 
 #login {
-	margin-top: 20%;
+	position: absolute;
+	width: 500px;
+	height: 400px;
+	left: 20%;
+	top: 20%;
 }
 
 #loginTitle {
-	margin-bottom: 10%;
+	margin-left: 10%;
+	margin-bottom: 5%;
 }
 
 #loginTitle > div {
 	color: #888;
 	font-size: 2em;
+}
+
+#loginTitle #left {
+	margin-right: 10px;
+}
+
+#loginTitle #right {
+	margin-left: 10px;
 }
 
 #rightPic {
