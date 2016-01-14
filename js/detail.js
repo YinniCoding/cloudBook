@@ -1,5 +1,6 @@
-/**
- * Created by 休竹 on 2016/1/12.
+/**Des: detail页js文件
+ * Author：njhxzhangjihong@126.com
+ * Date：2016/1/12
  */
 function dataTable(){
     $(document).ready( function () {

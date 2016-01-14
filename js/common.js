@@ -1,8 +1,8 @@
-/**Des: 鍏叡js鏂囦欢
- * Author锛歯jhxzhangjihong@126.com
- * Date锛?2016/1/13.
+/**Des: 公共js文件
+ * Author：jhxzhangjihong@126.com
+ * Date：2016/1/13.
  */
-//澶撮儴鑿滃崟楂樹寒
+//头部菜单高亮
 (function () {
     var curUrl = window.location.pathname.split("/");
     curUrl = curUrl[curUrl.length - 1];
@@ -19,21 +19,10 @@
     });
 })();
 
-//sidebar楂樹寒
+//sidebar高亮
 (function () {
     $("#sidebar li").on("click", function () {
         $(".active").removeClass("active");
         $(this).addClass("active");
     });
-})();
-
-//澶撮儴楂樹寒
-(function () {
-    var curUrl = window.location.pathname;
-    var navLocation = ["index","detail","tuiguang","shoushu","profile"];
-    for(var i in navLocation){
-        if(new RegExp(navLocation[i]).test(curUrl)){
-            $("#" + navLocation[i]).addClass("active");
-        }
-    }
 })();
