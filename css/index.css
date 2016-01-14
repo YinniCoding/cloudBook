@@ -56,20 +56,23 @@
 }
 
 #codeInput {
-	width: 155px;
+	width: 50%;
 }
 
 #code {
 	display: inline-block;
 	text-align: center;
-	/*background-color: rgb(175,195,204);*/
+	background-color: rgb(175,195,204);
 	margin: 5px 0 0 20px;
-	width: 133px;
+	width: 45%;
 	line-height: 35px;
 	color: black;
 	border: 1px solid #6d6d6d;
-	background-image:-webkit-linear-gradient(to left, red, orange,yellow,green,blue,indigo);
-	background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo);
+	font-size: 2em;
+	text-shadow: 0 0 10px #000;
+	text-decoration: line-through;
+	/*background-image:-webkit-linear-gradient(to left, red, orange,yellow,green,blue,indigo);*/
+	/*background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo);*/
 }
 
 #autoLogin {

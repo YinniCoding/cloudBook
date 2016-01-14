@@ -1,6 +1,6 @@
 /**Des: 公共js文件
  * Author：njhxzhangjihong@126.com
- * Date：2016/1/13.
+ * Date�?2016/1/13.
  */
 //头部菜单高亮
 (function () {
@@ -12,7 +12,7 @@
         if(href){
             pattern = new RegExp(href,"i");
             if(pattern.test(curUrl)){
-                $(".active").removeClass("active");
+                $("#rightNav .active").removeClass("active");
                 $(this).parent().addClass("active");
             }
         }

@@ -21,7 +21,25 @@ function randomStr(len) {
     var exp = new Date();
     exp.setTime(exp.getTime() + 3*60*1000);
     document.cookie = "code=" + randomCode + ";expires=" + exp.toGMTString();
-    $("#code").text(randomCode);
+    $("#code > div").text(randomCode);
+
+    //设置验证码样式，默认旋转7deg
+    var luckyNum = Math.floor(Math.random()*500);
+    var maxDeg = 0,rotateDeg = 7;
+    if(luckyNum > 200){
+        maxDeg = 30;
+    }else {
+        maxDeg = -30;
+    }
+    rotateDeg = Math.floor(Math.random() * maxDeg);
+    $("#code > div").css({
+        "transform" : "rotate(" + rotateDeg + "deg)",
+        "-webkit-transform" : "rotate(" + rotateDeg + "deg)",
+        "-moz-transform" : "rotate(" + rotateDeg + "deg)",
+        "-ms-transform" : "rotate(" + rotateDeg + "deg)",
+        "-o-transform" : "rotate(" + rotateDeg + "deg)"
+    });
+
 
     $("#loginBtn").on("click", function () {
         if(!$("input[name='userName']").val() || !$("input[name='passwd']").val()){
