@@ -44,8 +44,12 @@
 	/*min-width: 200px;*/
 	right: 0;
 	z-index: -10;
-	background: url("./../img/book.png");
+	/*background: url("./../img/book.png");*/
 	/*background-repeat: repeat-y;*/
+}
+
+#rightPic > img {
+	width: 100%;
 }
 
 .row {
@@ -69,21 +73,25 @@
 }
 
 #codeInput {
-	width: 50%;
+	width: inherit;
+	min-width: 160px;
 }
 
 #code {
-	display: inline-block;
+	/*display: inline-block;*/
 	text-align: center;
 	background-color: rgb(175,195,204);
 	margin: 5px 0 0 20px;
-	width: 45%;
-	line-height: 35px;
+	/*width: 45%;*/
+	line-height: 38px;
 	color: black;
-	border: 1px solid #6d6d6d;
+	/*border: 1px solid #6d6d6d;*/
 	font-size: 2em;
 	text-shadow: 0 0 10px #000;
 	text-decoration: line-through;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 	/*background-image:-webkit-linear-gradient(to left, red, orange,yellow,green,blue,indigo);*/
 	/*background-image:linear-gradient(to left, red, orange,yellow,green,blue,indigo);*/
 }
@@ -103,22 +111,6 @@
 	margin-top: -10px;
 	color: black;
 	top: -2px;
-}
-
-/*placeholder*/
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-	color: white;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	color: white;
-	opacity: 1;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-	color: white;
-	opacity: 1;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-	color: white;
 }
 
 #loginTips > span, #loginTips > span > a  {

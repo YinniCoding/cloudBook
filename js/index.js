@@ -15,6 +15,12 @@ function randomStr(len) {
     return pwd;
 }
 
+//获取屏幕高宽设置图片
+function setBgdPic() {
+    var height = $(document).height();
+    $("#rightPic > img").attr("height",height);
+}
+
 (function () {
     //生成验证码
     var randomCode = randomStr(4);
@@ -61,5 +67,13 @@ function randomStr(len) {
 
     $("#autoLogin").on("click", function () {
         $("#autoChecked").toggle();
+    });
+
+    //右侧图片自动拉伸
+    $(window).load(function () {
+        setBgdPic();
+    });
+    $(window).resize(function () {
+        setBgdPic();
     });
 })();
