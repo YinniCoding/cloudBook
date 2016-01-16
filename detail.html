@@ -7,7 +7,8 @@
 	<link rel="stylesheet" href="./css/base.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/detail.css">
-	<link href="//cdn.bootcss.com/datatables/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.css" rel="stylesheet">
+
 	<base href="/cloudBook/">
 </head>
 <body>
@@ -62,7 +63,7 @@
 				<div id="tableWrap">
 					<div class="row" id="searchNav">
 						<span>日期</span>
-						<input type="date" class="form-control">
+						<input type="text" value="2012/05/15" id="datetimepicker" class="form-control" data-date-format="yyyy-mm-dd">
 						<span>订单状态</span>
 						<select name="" class="form-control">
 							<option value="0" selected>全部</option>
@@ -74,30 +75,45 @@
 						<input type="search" class="form-control">
 						<a href="javascript:;" class="btn btn-default btn-primary">搜索</a>
 					</div>
-					<table id="dataTable">
+					<table id="dataTable" class="table table-striped table-hover table-bordered table-responsive">
 						<thead>
-						<tr>
-							<th>订单号</th>
-							<th>时间</th>
-							<th>收书人</th>
-							<th>联系方式</th>
-							<th>详细地址</th>
-							<th>留言</th>
-							<th>邀请码</th>
-							<th>订单状态</th>
-						</tr>
+							<tr>
+								<th>订单号</th>
+								<th>时间</th>
+								<th>收书人</th>
+								<th>联系方式</th>
+								<th>详细地址</th>
+								<th>留言</th>
+								<th>邀请码</th>
+								<th>订单状态</th>
+							</tr>
 						</thead>
 						<tbody>
-
 						</tbody>
 					</table>
+					<div class="row" id="pageNav">
+						<div id="total">
+							共 <span id="totalNum">xxx</span> 条
+						</div>
+						<div class="pagination" id="paginationPages">
+							<li class="previous">
+								<a href="javascript:;" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li class="next">
+								<a href="javascript:;" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</div>
+					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
 	<script src="./js/jquery.min.js"></script>
-	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>
+	<script src="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.js"></script>
 	<script src="./js/common.js"></script>
 	<script src="./js/detail.js"></script>
 </body>

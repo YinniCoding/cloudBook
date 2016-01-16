@@ -1,8 +1,8 @@
-/**Des: ¹«¹²jsÎÄ¼ş
- * Author£ºjhxzhangjihong@126.com
- * Date£º2016/1/13.
+/**Des: ï¿½ï¿½ï¿½ï¿½jsï¿½Ä¼ï¿½
+ * Authorï¿½ï¿½jhxzhangjihong@126.com
+ * Dateï¿½ï¿½2016/1/13.
  */
-//Í·²¿²Ëµ¥¸ßÁÁ
+//Í·ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
 (function () {
     var curUrl = window.location.pathname.split("/");
     curUrl = curUrl[curUrl.length - 1];
@@ -19,10 +19,25 @@
     });
 })();
 
-//sidebar¸ßÁÁ
+//sidebarï¿½ï¿½ï¿½ï¿½
 (function () {
     $("#sidebar li").on("click", function () {
         $(".active").removeClass("active");
         $(this).addClass("active");
     });
 })();
+
+//datetimepickeræ ¼å¼è®¾ç½®
+$('#datetimepicker').datetimepicker({
+    lang: 'ch',              //ä¸­æ–‡åŒ–
+    timepicker: false,     //å…³é—­æ—¶é—´
+    yearStart: 2000,
+    yearEnd: 2050
+});
+
+$('#datetimepicker2').datetimepicker({
+    lang: 'ch',              //ä¸­æ–‡åŒ–
+    timepicker: false,     //å…³é—­æ—¶é—´
+    yearStart: 2000,
+    yearEnd: 2050
+});
