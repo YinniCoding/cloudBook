@@ -65,15 +65,18 @@
 						<span>日期</span>
 						<input type="text" value="2012/05/15" id="datetimepicker" class="form-control" data-date-format="yyyy-mm-dd">
 						<span>订单状态</span>
-						<select name="" class="form-control">
+						<select name="" class="form-control" id="orderStatus">
 							<option value="0" selected>全部</option>
 							<option value="1">待出库</option>
 							<option value="2">待配送</option>
-							<option value="3">已配送</option>
+							<option value="3">电话不通</option>
+							<option value="4">配送完成</option>
+							<option value="5">订单错误</option>
+							<option value="6">不在寝室</option>
 						</select>
 						<span>关键词</span>
-						<input type="search" class="form-control">
-						<a href="javascript:;" class="btn btn-default btn-primary">搜索</a>
+						<input type="search" class="form-control" id="query">
+						<a href="javascript:;" class="btn btn-default btn-primary" id="filter">搜索</a>
 					</div>
 					<table id="dataTable" class="table table-striped table-hover table-bordered table-responsive">
 						<thead>
@@ -96,12 +99,12 @@
 							共 <span id="totalNum">xxx</span> 条
 						</div>
 						<div class="pagination" id="paginationPages">
-							<li class="previous">
+							<li class="previous disabled">
 								<a href="javascript:;" aria-label="Previous">
 									<span aria-hidden="true">&laquo;</span>
 								</a>
 							</li>
-							<li class="next">
+							<li class="next disabled">
 								<a href="javascript:;" aria-label="Next">
 									<span aria-hidden="true">&raquo;</span>
 								</a>

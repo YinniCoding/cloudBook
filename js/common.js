@@ -29,15 +29,32 @@
 
 //datetimepicker格式设置
 $('#datetimepicker').datetimepicker({
-    lang: 'ch',              //中文化
+    lang: 'ch',              //中文�?
     timepicker: false,     //关闭时间
     yearStart: 2000,
     yearEnd: 2050
 });
 
 $('#datetimepicker2').datetimepicker({
-    lang: 'ch',              //中文化
+    lang: 'ch',              //中文�?
     timepicker: false,     //关闭时间
     yearStart: 2000,
     yearEnd: 2050
 });
+
+//根据订单状态调整颜色
+function changeColor(){
+    $("#dataTable td.order").css({
+        "text-align": "center",
+        "vertical-align": "center",
+        "color": "#ffb000"
+    });
+
+    $("#dataTable td:contains('配送完成')").css({
+        "color": "#32a555"
+    });
+
+    $("#dataTable td:contains('订单错误')").css({
+        "color": "red"
+    });
+}
