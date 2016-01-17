@@ -28,21 +28,43 @@
 })();
 
 //datetimepicker格式设置
-$('#datetimepicker').datetimepicker({
-    lang: 'ch',              //中文化
-    format:"Y-m-d",      //格式化日期
-    timepicker: false,     //关闭时间
-    yearStart: 2000,
-    yearEnd: 2050
-});
+if($("datetimepicker").length){
+    $('#datetimepicker').datetimepicker({
+        lang: 'ch',              //中文化
+        format:"Y-m-d",      //格式化日期
+        timepicker: false,     //关闭时间
+        yearStart: 2000,
+        yearEnd: 2050
+    });
 
-$('#datetimepicker2').datetimepicker({
-    lang: 'ch',              //中文化
-    format:"Y-m-d",      //格式化日期
-    timepicker: false,     //关闭时间
-    yearStart: 2000,
-    yearEnd: 2050
-});
+    $('#datetimepicker2').datetimepicker({
+        lang: 'ch',              //中文化
+        format:"Y-m-d",      //格式化日期
+        timepicker: false,     //关闭时间
+        yearStart: 2000,
+        yearEnd: 2050
+    });
+}
+
+//判断登录情况
+(function () {
+    var cookie = document.cookie.split(";");
+    for(var i in cookie){
+        if(/isLogin/.test(cookie[i])){
+            var v = cookir[i].split("=")[1];
+            if(v){
+                //已经登录直接跳转到summary
+                window.location.href = "summary.html";
+            }else {
+                //跳转登录页面
+                window.location.href = "index.html";
+            }
+            break;
+        }else {
+            window.location.href = "index.html";
+        }
+    }
+})();
 
 //根据订单状态调整颜色
 function changeColor(){

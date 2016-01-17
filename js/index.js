@@ -21,8 +21,12 @@ function setBgdPic() {
                 url: "http://test1.qess.me/ceo/userLogin.htm",
                 data: {loginName: $("#userName").val(),password: $("input[name='passwd']").val(),veriCode:$("#codeInput").val()},
                 success: function (ret) {
-                    //alert(ret);
-                    $("#loginInfo").text(ret);
+                    ret = JSON.parse(ret);
+                    if(ret.code){
+                        $("#loginInfo").text(ret.msg);
+                    }else {
+                        window.location.href = "summary.html";
+                    }
                 }
             });
         }
