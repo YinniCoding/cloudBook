@@ -52,11 +52,7 @@ if($("datetimepicker").length){
     for(var i in cookie){
         if(/isLogin/.test(cookie[i])){
             var v = cookie[i].split("=")[1];
-            if(v){
-                //已经登录直接跳转到summary
-                window.location.href = "summary.html";
-            }else {
-                //跳转登录页面
+            if(!v){
                 window.location.href = "index.html";
             }
             break;
