@@ -178,7 +178,7 @@ table {
 
 td,th {
     color: #5e6a70;
-    font-size: 0.5em;
+    /*font-size: 0.5em;*/
     word-break: break-all;
     /*min-width: 200px;*/
     /*max-width: 300px;*/
