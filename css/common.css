@@ -184,6 +184,11 @@ td,th {
     /*max-width: 300px;*/
 }
 
+#loading {
+    text-align: center;
+    display: none;
+}
+
 #pageNav {
     text-align: right;
 }

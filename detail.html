@@ -39,19 +39,19 @@
 				<ul class="nav nav-pills nav-stacked">
 					<li role="presentation" class="active">
 						<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-						<a class="menu_1" href="#">待配送</a>
+						<a class="menu_2" href="javascript:;">待配送</a>
 					</li>
 					<li role="presentation" class="">
 						<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-						<a class="menu_1" href="#">待出库</a>
+						<a class="menu_1" href="javascript:;">未出库</a>
 					</li>
 					<li role="presentation" class="">
 						<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-						<a class="menu_1" href="#">所有订单</a>
+						<a class="menu_0" href="javascript:;">所有订单</a>
 					</li>
 					<li role="presentation" class="">
 						<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-						<a class="menu_1" href="#">配单助手</a>
+						<a class="menu" href="#">配单助手</a>
 					</li>
 				</ul>
 			</div>
@@ -63,11 +63,11 @@
 				<div id="tableWrap">
 					<div class="row" id="searchNav">
 						<span>日期</span>
-						<input type="text" value="2012/05/15" id="datetimepicker" class="form-control" data-date-format="yyyy-mm-dd">
+						<input type="text" value="2016-05-15" id="datetimepicker" class="form-control" data-date-format="yyyy-mm-dd">
 						<span>订单状态</span>
 						<select name="" class="form-control" id="orderStatus">
-							<option value="0" selected>全部</option>
-							<option value="1">待出库</option>
+							<option value="" selected>全部</option>
+							<option value="1">未出库</option>
 							<option value="2">待配送</option>
 							<option value="3">电话不通</option>
 							<option value="4">配送完成</option>
@@ -75,7 +75,7 @@
 							<option value="6">不在寝室</option>
 						</select>
 						<span>关键词</span>
-						<input type="search" class="form-control" id="query">
+						<input type="search" class="form-control" id="query" placeholder="请输入姓名或手机号">
 						<a href="javascript:;" class="btn btn-default btn-primary" id="filter">搜索</a>
 					</div>
 					<table id="dataTable" class="table table-striped table-hover table-bordered table-responsive">
@@ -94,6 +94,10 @@
 						<tbody>
 						</tbody>
 					</table>
+					<div id="loading">
+						查询需要一段时间，请稍等....
+						<img src="img/loading.gif" alt="">
+					</div>
 					<div class="row" id="pageNav">
 						<div id="total">
 							共 <span id="totalNum">xxx</span> 条

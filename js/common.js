@@ -1,8 +1,8 @@
-/**Des: ����js�ļ�
- * Author��jhxzhangjihong@126.com
- * Date��2016/1/13.
+/**Des: 公共js
+ * Author: jhxzhangjihong@126.com
+ * Date: 2016/1/13.
  */
-//ͷ���˵�����
+//头部高亮
 (function () {
     var curUrl = window.location.pathname.split("/");
     curUrl = curUrl[curUrl.length - 1];
@@ -19,24 +19,26 @@
     });
 })();
 
-//sidebar����
+//sidebar高亮
 (function () {
     $("#sidebar li").on("click", function () {
-        $(".active").removeClass("active");
+        $("#sidebar .active").removeClass("active");
         $(this).addClass("active");
     });
 })();
 
 //datetimepicker格式设置
 $('#datetimepicker').datetimepicker({
-    lang: 'ch',              //中文�?
+    lang: 'ch',              //中文化
+    format:"Y-m-d",      //格式化日期
     timepicker: false,     //关闭时间
     yearStart: 2000,
     yearEnd: 2050
 });
 
 $('#datetimepicker2').datetimepicker({
-    lang: 'ch',              //中文�?
+    lang: 'ch',              //中文化
+    format:"Y-m-d",      //格式化日期
     timepicker: false,     //关闭时间
     yearStart: 2000,
     yearEnd: 2050
