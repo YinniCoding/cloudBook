@@ -51,7 +51,7 @@ if($("datetimepicker").length){
     var cookie = document.cookie.split(";");
     for(var i in cookie){
         if(/isLogin/.test(cookie[i])){
-            var v = cookir[i].split("=")[1];
+            var v = cookie[i].split("=")[1];
             if(v){
                 //已经登录直接跳转到summary
                 window.location.href = "summary.html";
