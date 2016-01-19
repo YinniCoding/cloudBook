@@ -1,0 +1,48 @@
+/*
+ * Des：财务中心页css样式
+ * Author： njhxzhangjihong@126.com
+ * Date：2016/1/19
+ */
+#tableWrap span,#tableWrap input {
+	margin: 10px;
+	color: #5e6a70;
+}
+
+.form-control {
+	width: 20%;
+}
+#salaryApplyWrap {
+	background-color: white;
+	margin-top: 30px;
+	min-height: 600px;
+}
+
+#salaryApplyWrap input ,#salaryApplyWrap select ,#salaryApplyWrap textarea {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: block;
+}
+
+#salaryApplyWrap span {
+	margin-left: 10%;
+	color: #5e6a70;
+}
+
+#salaryApplyWrap textarea {
+	height: 150px;
+}
+
+#salaryApplyContent {
+	text-align: left;
+	margin: 10% 0 10% 0;
+}
+
+select {
+	height: 30px;
+}
+
+h2 {
+	font-size: 200%;
+	margin: 5%;
+}

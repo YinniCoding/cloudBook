@@ -50,15 +50,15 @@ if($("datetimepicker").length){
 (function () {
     var cookie = document.cookie.split(";");
     for(var i in cookie){
-        if(/isLogin/.test(cookie[i])){
-            var v = cookie[i].split("=")[1];
-            if(!v){
-                window.location.href = "index.html";
-            }
-            break;
-        }else {
-            window.location.href = "index.html";
-        }
+        //if(/isLogin/.test(cookie[i])){
+        //    var v = cookie[i].split("=")[1];
+        //    if(!v){
+        //        window.location.href = "index.html";
+        //    }
+        //    break;
+        //}else {
+        //    window.location.href = "index.html";
+        //}
     }
 })();
 
