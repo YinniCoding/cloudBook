@@ -1,18 +1,7 @@
-/**Des: 推广页js文件
+/**Des: 其他推广页js文件
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/20
  */
-//时间框日期设置
-function setDate(){
-    var d = new Date();
-    var year = d.getFullYear();
-    var month = d.getMonth() + 1;
-    if(month < 10){
-        month = "0" + month;
-    }
-    var day = d.getDate();
-    $("#datetimepicker").val(year + "-" + month + "-" + day);
-}
 
 /*设置分页器
 * Params:
@@ -93,7 +82,7 @@ function setActive(page,totalPage){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getPromoteOrderList.htm",
+        url: "http://test1.qess.me/ceo/getPromoteApplyList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -102,47 +91,22 @@ function getData(obj){
             $("#loading").hide();
             var ret = JSON.parse(ret);
             var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+            var addTime,name,promoteType,valid,remark;
             var total = res.total;
             var totalPage = Math.ceil(total / obj.rows);
             var trContent = "<tr>";
             if(ret.code !== -1){
                 for(var i in res.rows){
-                    tradeNumber = res.rows[i].order.tradeNumber;
                     addTime = res.rows[i].addTime;
-                    name = res.rows[i].order.name;
-                    phone = res.rows[i].order.phone;
-                    address = res.rows[i].order.address;
-                    message = res.rows[i].order.message;
-                    remarkInfo = res.rows[i].remarkInfo;
-                    inviteCode = "";
-                    trContent += "<td>" + tradeNumber + "</td>";
+                    name = res.rows[i].name;
+                    promoteType = res.rows[i].promoteType;
+                    valid = res.rows[i].valid;
+                    remark = res.rows[i].remark;
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
-                    trContent += "<td>" + phone + "</td>";
-                    trContent += "<td>" + address + "</td>";
-                    trContent += "<td>" + message + "</td>";
-                    trContent += "<td>" + inviteCode + "</td>";
-                    switch(remarkInfo){
-                        case "1":
-                            trContent += "<td class='order'>未出库</td>";
-                            break;
-                        case "2":
-                            trContent += "<td class='order'>待配送<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "3":
-                            trContent += "<td class='order'>电话不通<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "4":
-                            trContent += "<td class='order'>配送完成</td>";
-                            break;
-                        case "5":
-                            trContent += "<td class='order'>订单错误<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                        case "6":
-                            trContent += "<td class='order'>不在寝室<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                    }
+                    trContent += "<td>" + promoteType + "</td>";
+                    trContent += "<td>" + valid + "</td>";
+                    trContent += "<td>" + remark + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
@@ -151,10 +115,7 @@ function getData(obj){
                     page:obj.page,
                     total:total,
                     rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
-                    name:obj.name
+                    userInfo:obj.userInfo
                 });
                 setActive(obj.page,totalPage);
                 //definePageClick(obj);
@@ -210,42 +171,35 @@ function definePageClick(dataObj){
     });
 }
 
-//筛选
-function filter() {
-    $("#filter").on("click",function () {
-        var date = $("#datetimepicker").val();
-        var orderStatus = $("#orderStatus option:selected").val();
-        var query = $("#query").val();
-        var dataObj = {};
-        dataObj.page = 1;
-        dataObj.rows = 16;
-        dataObj.userInfo = 42;
-        if(date){
-            dataObj.addTime = date;
-        }
-        if(orderStatus){
-            dataObj.remarkInfo = orderStatus;
-        }
-        if(query){
-            //电话
-            if(/[0-9]{11}/.test(query)){
-                dataObj.phone = query;
+//申请推广工资
+function wageApply(){
+    $("#salaryApplyWrap #submit").on("click", function () {
+        var name = $("#name").val();
+        var promoteType = $("#promoteType option:selected").val();
+        var remark = $("#remark").val();
+        $.ajax({
+            url: "http://test1.qess.me/ceo/insertPromoteApply.htm",
+            data: {name:name,promoteType:promoteType,remark:remark}
+        }).done(function (ret) {
+            console.log(ret);
+            if(!ret.code){
+                alert("提交成功！");
             }else {
-                dataObj.name = query;
+                alert(ret.msg);
             }
-        }
-        getData(dataObj);
+        }).fail(function () {
+            alert("提交失败！");
+        });
     });
 }
 
 (function main() {
-    setDate();
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
     var userInfo = 42;
     //TODO: userInfo需要修改为实际的
     getData({page:page,rows:rows,userInfo:userInfo});
-    filter();
+    wageApply();
 })();
 

@@ -64,37 +64,37 @@
 					<div class="panel-heading">身份证信息</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="name">
 								<span>真实姓名</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7" style="padding-left: 50px;">
-								<input type="radio" checked>女
-								<input type="radio">男
+							<div class="col-md-7" id="gender" style="padding-left: 50px;">
+								<input type="radio" checked>男
+								<input type="radio">女
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="phone">
 								<span>手机</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="room">
 								<span>寝室地址</span>
 								<input type="text" class="form-control" placeholder="如：西区1号楼101寝室">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="idCardNo">
 								<span>身份证号码</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="idCardAddr">
 								<span>身份证地址</span>
 								<input type="text" class="form-control">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="idCardFace">
 								<span>身份证正面照片</span>
 								<form method="post" action="" enctype="multipart/form-data">
 									<input type="file" class="form-control">
@@ -108,7 +108,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="idCardBack">
 								<span>身份证反面照片</span>
 								<form method="post" action="" enctype="multipart/form-data">
 									<input type="file" class="form-control">
@@ -122,7 +122,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="hidCardFace">
 								<span>手持身份证照片</span>
 								<form method="post" action="" enctype="multipart/form-data">
 									<input type="file" class="form-control">
@@ -136,7 +136,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="studentCard">
 								<span>学生证内页照片</span>
 								<form method="post" action="" enctype="multipart/form-data">
 									<input type="file" class="form-control">
@@ -155,21 +155,21 @@
 					<div class="panel-heading">学生证信息</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="studentCardNo">
 								<span>学生证号</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="education">
 								<span>在读学历</span>
 								<input type="text" class="form-control" placeholder="如：本科">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="entryYear">
 								<span>入学年份</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="school">
 								<span>学校名称</span>
 								<input type="text" class="form-control" placeholder="请填写学校全称">
 							</div>
@@ -180,21 +180,21 @@
 					<div class="panel-heading">银行卡信息</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="bank">
 								<span>开户银行</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="cardNo">
 								<span>银行卡号</span>
 								<input type="text" class="form-control">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-5" id="city">
 								<span>开户城市</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-7" id="phone">
 								<span>预留电话</span>
 								<input type="text" class="form-control">
 							</div>
@@ -205,57 +205,57 @@
 					<div class="panel-heading">联系人信息（至少填3组）</div>
 					<div class="panel-body">
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-3" id="father">
 								<span>父亲姓名</span>
 								<input type="text" class="form-control short">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="fatherNo">
 								<span>电话号码</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="fatherId">
 								<span>身份证地址</span>
 								<input type="text" class="form-control">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-3" id="mother">
 								<span>母亲姓名</span>
 								<input type="text" class="form-control short">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="motherNo">
 								<span>电话号码</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="motherId">
 								<span>身份证地址</span>
 								<input type="text" class="form-control">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-3" id="friend1">
 								<span>朋友姓名</span>
 								<input type="text" class="form-control short">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="friend1No">
 								<span>电话号码</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="friend1Id">
 								<span>身份证地址</span>
 								<input type="text" class="form-control">
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-3">
+							<div class="col-md-3" id="friend2">
 								<span>朋友姓名</span>
 								<input type="text" class="form-control short">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="friend2No">
 								<span>电话号码</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4" id="friend2Id">
 								<span>身份证地址</span>
 								<input type="text" class="form-control">
 							</div>
@@ -266,7 +266,6 @@
 		</div>
 	</div>
 	<script src="./js/jquery.min.js"></script>
-	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>
 	<script src="./js/common.js"></script>
 	<script src="./js/credit.js"></script>
 </body>

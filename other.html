@@ -76,15 +76,36 @@
 
 								</tbody>
 							</table>
+							<div id="loading">
+                                查询需要一段时间，请稍等....
+                                <img src="img/loading.gif" alt="">
+                            </div>
+                            <div class="row" id="pageNav">
+                                <div id="total">
+                                    共 <span id="totalNum">xxx</span> 条
+                                </div>
+                                <div class="pagination" id="paginationPages">
+                                    <li class="previous disabled">
+                                        <a href="javascript:;" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="next disabled">
+                                        <a href="javascript:;" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </div>
+                            </div>
 						</div>
 					</div>
 					<div class="col-md-4" id="salaryApplyWrap">
 						<div id="salaryApplyContent">
 							<h2 class="text-center">推广工资申请</h2>
 							<span>申请人</span>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" id="name">
 							<span>推广方式：</span>
-							<select name="" class="form-control">
+							<select name="" class="form-control" id="promoteType">
 							<option value="0">请点击选择</option>
 							<option value="1">商务推广</option>
 							<option value="2">合作校方谈成</option>
@@ -92,8 +113,8 @@
 							<option value="4">自媒体推广</option>
 							</select>
 							<span>备注说明</span>
-							<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-							<input type="button" class="btn btn-default btn-primary" value="确定提交">
+							<textarea name="" id="remark" cols="30" rows="10" class="form-control"></textarea>
+							<input type="button" class="btn btn-default btn-primary" id="submit" value="确定提交">
 						</div>
 					</div>
 				</div>
@@ -103,6 +124,6 @@
 	<script src="./js/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/datatables/1.10.10/js/jquery.dataTables.min.js" charset="utf-8"></script>
 	<script src="./js/common.js"></script>
-	<script src="./js/detail.js"></script>
+	<script src="./js/other.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/**Des: 推广页js文件
+/**Des: 推广粉丝页js文件
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/20
  */
@@ -93,7 +93,7 @@ function setActive(page,totalPage){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getPromoteOrderList.htm",
+        url: "http://test1.qess.me/ceo/getSubscribeList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -102,47 +102,22 @@ function getData(obj){
             $("#loading").hide();
             var ret = JSON.parse(ret);
             var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+            var userName,imgPath,remark,addTime,stuRemark;
             var total = res.total;
             var totalPage = Math.ceil(total / obj.rows);
             var trContent = "<tr>";
             if(ret.code !== -1){
                 for(var i in res.rows){
-                    tradeNumber = res.rows[i].order.tradeNumber;
+                    userName = res.rows[i].userName;
+                    imgPath = res.rows[i].imgPath;
+                    remark = res.rows[i].remark;
                     addTime = res.rows[i].addTime;
-                    name = res.rows[i].order.name;
-                    phone = res.rows[i].order.phone;
-                    address = res.rows[i].order.address;
-                    message = res.rows[i].order.message;
-                    remarkInfo = res.rows[i].remarkInfo;
-                    inviteCode = "";
-                    trContent += "<td>" + tradeNumber + "</td>";
+                    stuRemark = res.rows[i].stuRemark;
+                    trContent += "<td>" + userName + "</td>";
+                    trContent += "<td><img src='" + imgPath + "'</td>";
+                    trContent += "<td>" + remark + "</td>";
                     trContent += "<td>" + addTime + "</td>";
-                    trContent += "<td>" + name + "</td>";
-                    trContent += "<td>" + phone + "</td>";
-                    trContent += "<td>" + address + "</td>";
-                    trContent += "<td>" + message + "</td>";
-                    trContent += "<td>" + inviteCode + "</td>";
-                    switch(remarkInfo){
-                        case "1":
-                            trContent += "<td class='order'>未出库</td>";
-                            break;
-                        case "2":
-                            trContent += "<td class='order'>待配送<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "3":
-                            trContent += "<td class='order'>电话不通<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "4":
-                            trContent += "<td class='order'>配送完成</td>";
-                            break;
-                        case "5":
-                            trContent += "<td class='order'>订单错误<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                        case "6":
-                            trContent += "<td class='order'>不在寝室<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                    }
+                    trContent += "<td>" + stuRemark + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
@@ -153,8 +128,7 @@ function getData(obj){
                     rows:obj.rows,
                     userInfo:obj.userInfo,
                     addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
-                    name:obj.name
+                    userName:obj.userName
                 });
                 setActive(obj.page,totalPage);
                 //definePageClick(obj);
@@ -213,28 +187,47 @@ function definePageClick(dataObj){
 //筛选
 function filter() {
     $("#filter").on("click",function () {
-        var date = $("#datetimepicker").val();
-        var orderStatus = $("#orderStatus option:selected").val();
+        var startTime = $("#datetimepicker").val();
+        var endTime = $("datetimepicker2").val();
         var query = $("#query").val();
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;
         dataObj.userInfo = 42;
-        if(date){
-            dataObj.addTime = date;
-        }
-        if(orderStatus){
-            dataObj.remarkInfo = orderStatus;
-        }
         if(query){
-            //电话
-            if(/[0-9]{11}/.test(query)){
-                dataObj.phone = query;
-            }else {
-                dataObj.name = query;
-            }
+            dataObj.name = query;
         }
+        if(startTime){
+            dataObj.startTime = startTime;
+        }
+        if(endTime){
+            dataObj.endTime = endTime;
+        }
+
         getData(dataObj);
+    });
+}
+
+//左侧菜单点击切换
+function sidebar(obj) {
+    $("#sidebar li > a").each(function (index, ele) {
+        $(ele).on("click", function () {
+            var className = $(ele).attr("class");
+            switch (className){
+                case "menu_0":
+                    obj.remarkInfo = "";
+                    getData(obj);
+                    break;
+                case "menu_1":
+                    obj.remarkInfo = 1;
+                    getData(obj);
+                    break;
+                case "menu_2":
+                    obj.remarkInfo = 2;
+                    getData(obj);
+                    break;
+            }
+        });
     });
 }
 

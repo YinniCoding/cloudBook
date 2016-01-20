@@ -66,8 +66,8 @@
 						<span>结束日期</span>
 						<input type="text" value="2012/05/15" id="datetimepicker2" class="form-control" data-date-format="yyyy-mm-dd">
 						<span>关键词</span>
-						<input type="search" class="form-control">
-						<a href="javascript:;" class="btn btn-default btn-primary">搜索</a>
+						<input type="search" class="form-control" id="query">
+						<a href="javascript:;" class="btn btn-default btn-primary" id="filter">搜索</a>
 					</div>
 					<table id="dataTable" class="table table-striped table-hover table-bordered table-condensed table-responsive">
 						<thead>
@@ -82,6 +82,27 @@
 						<tbody>
 						</tbody>
 					</table>
+					<div id="loading">
+						查询需要一段时间，请稍等....
+						<img src="img/loading.gif" alt="">
+					</div>
+					<div class="row" id="pageNav">
+						<div id="total">
+							共 <span id="totalNum">xxx</span> 条
+						</div>
+						<div class="pagination" id="paginationPages">
+							<li class="previous disabled">
+								<a href="javascript:;" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+								</a>
+							</li>
+							<li class="next disabled">
+								<a href="javascript:;" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+								</a>
+							</li>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

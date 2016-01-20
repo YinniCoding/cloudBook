@@ -8,3 +8,8 @@
 	width: 20%;
 	display: inline-block;
 }
+
+/*用户头像*/
+td > img {
+	width: 80px;
+}
