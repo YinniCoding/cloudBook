@@ -5,7 +5,7 @@
  */
 #tableWrap span,#tableWrap input {
 	margin: 10px;
-	color: #5e6a70;
+	color: #83a3aa;
 }
 
 .form-control {
@@ -26,7 +26,7 @@
 
 #salaryApplyWrap span {
 	margin-left: 10%;
-	color: #5e6a70;
+	/*color: #83a3aa;*/
 }
 
 #salaryApplyWrap textarea {
@@ -45,4 +45,34 @@ select {
 h2 {
 	font-size: 200%;
 	margin: 5%;
+}
+
+/*金额*/
+.thumbnail {
+	width: 60%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.thumbnail.shadow {
+	-webkit-box-shadow: 0 0 25px black;
+	-moz-box-shadow: 0 0 25px black;
+	box-shadow: 0 0 25px black;
+}
+
+#salaryApplyWrap input {
+	width: 60%;
+}
+
+#salaryApplyWrap p {
+	color: #83a3aa;
+	font-size: 1.2em;
+	text-align: center;
+}
+
+#withdrawCash,#totalMoney {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 3em;
 }
