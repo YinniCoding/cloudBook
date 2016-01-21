@@ -24,7 +24,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getAssignmentList.htm",
+        url: "http://test1.qess.me/ceo/getWageList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -33,47 +33,21 @@ function getData(obj){
             $("#loading").hide();
             var ret = JSON.parse(ret);
             var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+            var addTime,type,account,balance,remarkInfo;
             var total = res.total;
             var totalPage = Math.ceil(total / obj.rows);
             var trContent = "<tr>";
-            if(ret.code !== -1){
+            if(!ret.code){
                 for(var i in res.rows){
-                    tradeNumber = res.rows[i].order.tradeNumber;
                     addTime = res.rows[i].addTime;
-                    name = res.rows[i].order.name;
-                    phone = res.rows[i].order.phone;
-                    address = res.rows[i].order.address;
-                    message = res.rows[i].order.message;
-                    remarkInfo = res.rows[i].remarkInfo;
-                    inviteCode = "";
-                    trContent += "<td>" + tradeNumber + "</td>";
+                    type = res.rows[i].type;
+                    account = res.rows[i].account;
+                    balance = res.rows[i].balance;
+                    remarkInfo = res.rows[i].remark;
                     trContent += "<td>" + addTime + "</td>";
-                    trContent += "<td>" + name + "</td>";
-                    trContent += "<td>" + phone + "</td>";
-                    trContent += "<td>" + address + "</td>";
-                    trContent += "<td>" + message + "</td>";
-                    trContent += "<td>" + inviteCode + "</td>";
-                    switch(remarkInfo){
-                        case "1":
-                            trContent += "<td class='order'>未出库</td>";
-                            break;
-                        case "2":
-                            trContent += "<td class='order'>待配送<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "3":
-                            trContent += "<td class='order'>电话不通<span class='glyphicon glyphicon-edit'></span></td>";
-                            break;
-                        case "4":
-                            trContent += "<td class='order'>配送完成</td>";
-                            break;
-                        case "5":
-                            trContent += "<td class='order'>订单错误<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                        case "6":
-                            trContent += "<td class='order'>不在寝室<span class='glyphicon glyphicon-edit'></span></td>td>";
-                            break;
-                    }
+                    trContent += "<td>" + type + "</td>";
+                    trContent += "<td>" + account + "</td>";
+                    trContent += "<td>" + balance + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
@@ -83,12 +57,9 @@ function getData(obj){
                     total:total,
                     rows:obj.rows,
                     userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
-                    name:obj.name
+                    addTime:obj.addTime
                 });
                 setActive(obj.page,totalPage);
-                //definePageClick(obj);
             }else {
                 //异常
                 alert("请求出错：" + ret.msg);
@@ -101,50 +72,18 @@ function getData(obj){
 function filter() {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val();
-        var orderStatus = $("#orderStatus option:selected").val();
-        var query = $("#query").val();
+        var type = $("#type").val();
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;
-        dataObj.userInfo = 42;
+        dataObj.userInfo = global.userInfo;
         if(date){
             dataObj.addTime = date;
         }
-        if(orderStatus){
-            dataObj.remarkInfo = orderStatus;
-        }
-        if(query){
-            //电话
-            if(/[0-9]{11}/.test(query)){
-                dataObj.phone = query;
-            }else {
-                dataObj.name = query;
-            }
+        if(type){
+            dataObj.type = type;
         }
         getData(dataObj);
-    });
-}
-
-//左侧菜单点击切换
-function sidebar(obj) {
-    $("#sidebar li > a").each(function (index, ele) {
-        $(ele).on("click", function () {
-            var className = $(ele).attr("class");
-            switch (className){
-                case "menu_0":
-                    obj.remarkInfo = "";
-                    getData(obj);
-                    break;
-                case "menu_1":
-                    obj.remarkInfo = 1;
-                    getData(obj);
-                    break;
-                case "menu_2":
-                    obj.remarkInfo = 2;
-                    getData(obj);
-                    break;
-            }
-        });
     });
 }
 
@@ -195,14 +134,10 @@ function adjustMargin() {
 (function main() {
     setDate();
     //默认展示第一页，每页16条，待配送状态
-    //var page = 1;
-    //var rows = 16;
-    //var userInfo = 42;
-    //var orderStatus = 2;
-    ////TODO: userInfo需要修改为实际的
-    //getData({page:page,rows:rows,userInfo:userInfo,remarkInfo:orderStatus});
-    //filter();
-    //sidebar({page:page,rows:rows,userInfo:userInfo});
+    var page = 1;
+    var rows = 16;
+    getData({page:page,rows:rows,userInfo:global.userInfo});
+    filter();
 
     getWageTotal(global.userInfo);
 

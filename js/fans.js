@@ -81,7 +81,7 @@ function filter() {
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;
-        dataObj.userInfo = 42;
+        dataObj.userInfo = global.userInfo;
         if(query){
             dataObj.name = query;
         }
