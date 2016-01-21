@@ -73,7 +73,6 @@ function wageApply(){
                 url: "http://test1.qess.me/ceo/insertPromoteApply.htm",
                 data: {name:name,promoteType:promoteType,remark:remark}
             }).done(function (ret) {
-                console.log(ret);
                 if(!ret.code){
                     alert("提交成功！");
                 }else {

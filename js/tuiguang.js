@@ -40,19 +40,19 @@ function getData(obj){
             $("#loading").hide();
             var ret = JSON.parse(ret);
             var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+            var tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
             var total = res.total;
             var totalPage = Math.ceil(total / obj.rows);
             var trContent = "<tr>";
             if(ret.code !== -1){
                 for(var i in res.rows){
-                    tradeNumber = res.rows[i].order.tradeNumber;
+                    tradeNumber = res.rows[i].tradeNumber;
                     addTime = res.rows[i].addTime;
-                    name = res.rows[i].order.name;
-                    phone = res.rows[i].order.phone;
-                    address = res.rows[i].order.address;
-                    message = res.rows[i].order.message;
-                    remarkInfo = res.rows[i].remarkInfo;
+                    name = res.rows[i].name;
+                    phone = res.rows[i].phone;
+                    address = res.rows[i].address;
+                    message = res.rows[i].message;
+                    orderStatus = res.rows[i].orderStatus;
                     inviteCode = "";
                     trContent += "<td>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
@@ -61,7 +61,7 @@ function getData(obj){
                     trContent += "<td>" + address + "</td>";
                     trContent += "<td>" + message + "</td>";
                     trContent += "<td>" + inviteCode + "</td>";
-                    switch(remarkInfo){
+                    switch(orderStatus){
                         case "1":
                             trContent += "<td class='order'>未出库</td>";
                             break;
