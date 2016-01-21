@@ -153,14 +153,13 @@ function sidebar(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    var userInfo = 42;
     var curUrl = window.location.href;
     var statusNo = 2;
     if(/\?/.test(curUrl)){
         statusNo = window.location.href.split("?")[1].split("=")[1];
     }
     //TODO: userInfo需要修改为实际的
-    getData({page:page,rows:rows,userInfo:userInfo,remarkInfo:statusNo});
+    getData({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
     filter();
     sidebar({page:page,rows:rows,userInfo:userInfo});
 })();

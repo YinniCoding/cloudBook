@@ -57,5 +57,5 @@ function getUserInfo(userInfo){
             alert("照片格式为JPG/PNG/GIF！");
         }
     });
-    getUserInfo(42);
+    getUserInfo(global.userInfo);
 })();

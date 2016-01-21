@@ -66,8 +66,6 @@ function getData(obj){
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    var userInfo = 42;
-    //TODO: userInfo需要修改为实际的
-    getData({page:page,rows:rows,userInfo:userInfo});
+    getData({page:page,rows:rows,userInfo:global.userInfo});
 })();
 

@@ -40,4 +40,4 @@ function getUserInfo(userInfo) {
     });
 }
 
-getUserInfo(42);
+getUserInfo(global.userInfo);

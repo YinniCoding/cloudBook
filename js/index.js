@@ -12,7 +12,6 @@ function setBgdPic() {
     $("#loginBtn").on("click", function () {
         var loginName = $("#userName").val();
         var passwd = $("input[name='passwd']").val();
-        var code = $("#codeInput").val();
         if(!loginName || !passwd){
             alert("请输入用户名、密码!");
         }else {

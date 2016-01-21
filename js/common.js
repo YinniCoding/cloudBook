@@ -2,6 +2,11 @@
  * Author: jhxzhangjihong@126.com
  * Date: 2016/1/13.
  */
+//全局变量区
+var global = {
+    userInfo: "",
+};
+
 //头部高亮
 (function () {
     var curUrl = window.location.pathname.split("/");
@@ -50,15 +55,20 @@ if($("#datetimepicker").length){
 (function () {
     var cookie = document.cookie.split(";");
     for(var i in cookie){
-        //if(/isLogin/.test(cookie[i])){
-        //    var v = cookie[i].split("=")[1];
-        //    if(!v){
-        //        window.location.href = "index.html";
-        //    }
-        //    break;
-        //}else {
-        //    window.location.href = "index.html";
-        //}
+        if(/isLogin/.test(cookie[i])){
+            var v = cookie[i].split("=")[1];
+            if(!v){
+                //未登录则跳转登录页
+                window.location.href = "index.html";
+            }
+            break;
+        }else {
+            //无cookie则跳转登录页
+            window.location.href = "index.html";
+        }
+        if(/userId/.test(cookie[i])){
+            global.userInfo = cookie[i].split("=")[1];
+        }
     }
 })();
 

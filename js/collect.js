@@ -46,7 +46,12 @@ function getData(obj){
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + number + "</td>";
-                    trContent += "<td>" + valid + "</td>";
+                    if(valid){
+                        trContent += "<td>审核</td>";
+                    }else {
+
+                        trContent += "<td>未审核</td>";
+                    }
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
@@ -97,9 +102,7 @@ function wageApply(userInfo) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    var userInfo = 42;
-    //TODO: userInfo需要修改为实际的
-    getData({page:page,rows:rows,userInfo:userInfo});
+    getData({page:page,rows:rows,userInfo:global.userInfo});
     wageApply(userInfo);
 })();
 

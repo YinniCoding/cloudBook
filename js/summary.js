@@ -33,6 +33,5 @@ function getSummaryInfo(userInfo) {
     $(".banner").luara({height:"100%",interval:4500,selected:"seleted",deriction:"left"});
     //$("#banner").luara({width:"500",height:"334",interval:4500,selected:"seleted",deriction:"left"});
 
-    var userInfo = 42;
-    getSummaryInfo(userInfo);
+    getSummaryInfo(global.userInfo);
 })();
