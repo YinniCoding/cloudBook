@@ -34,6 +34,14 @@
 	margin: -50px 0 80px 0;
 }
 
+.banner li {
+	display: none;
+}
+
+.banner li:first-child {
+	display: block;
+}
+
 .banner ol {
 	margin-left: 50%;
 }

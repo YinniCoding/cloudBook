@@ -70,6 +70,8 @@ if($("#datetimepicker").length){
             if(/userId/.test(cookie[i])){
                 global.userInfo = cookie[i].split("=")[1];
             }
+        }else {
+            window.location.href = "index.html";
         }
     }
 })();
