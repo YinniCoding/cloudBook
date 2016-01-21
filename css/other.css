@@ -16,6 +16,10 @@
 	display: block;
 }
 
+#salaryApplyWrap select {
+	color: white;
+}
+
 #salaryApplyWrap span {
 	margin-left: 10%;
 	color: #5e6a70;

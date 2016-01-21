@@ -158,9 +158,8 @@ function sidebar(obj) {
     if(/\?/.test(curUrl)){
         statusNo = window.location.href.split("?")[1].split("=")[1];
     }
-    //TODO: userInfo需要修改为实际的
     getData({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
     filter();
-    sidebar({page:page,rows:rows,userInfo:userInfo});
+    sidebar({page:page,rows:rows,userInfo:global.userInfo});
 })();
 

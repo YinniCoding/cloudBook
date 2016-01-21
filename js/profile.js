@@ -32,8 +32,9 @@ function getUserInfo(userInfo) {
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
             $("#inviteCode").text(inviteCode);
-            //TODO: 二维码地址
             $("#qrcode").attr("src",qrcode);
+        }else {
+            alert(ret.msg);
         }
     }).fail(function (){
         alert("请求失败！");

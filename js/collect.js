@@ -47,10 +47,10 @@ function getData(obj){
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + number + "</td>";
                     if(valid){
-                        trContent += "<td>审核</td>";
+                        trContent += "<td style='color: #32a555'>审核通过</td>";
                     }else {
 
-                        trContent += "<td>未审核</td>";
+                        trContent += "<td style='color: #ffb000'>未审核</td>";
                     }
                     trContent += "</tr>";
                 }
@@ -103,6 +103,6 @@ function wageApply(userInfo) {
     var page = 1;
     var rows = 16;
     getData({page:page,rows:rows,userInfo:global.userInfo});
-    wageApply(userInfo);
+    wageApply(global.userInfo);
 })();
 

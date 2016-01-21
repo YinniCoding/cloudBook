@@ -204,7 +204,7 @@ function adjustMargin() {
     //filter();
     //sidebar({page:page,rows:rows,userInfo:userInfo});
 
-    getWageTotal(42);
+    getWageTotal(global.userInfo);
 
 })();
 

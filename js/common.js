@@ -54,20 +54,22 @@ if($("#datetimepicker").length){
 //判断登录情况
 (function () {
     var cookie = document.cookie.split(";");
+    var isLogin = false;
     for(var i in cookie){
         if(/isLogin/.test(cookie[i])){
             var v = cookie[i].split("=")[1];
             if(!v){
                 //未登录则跳转登录页
                 window.location.href = "index.html";
+            }else {
+                isLogin = true;
             }
-            break;
-        }else {
-            //无cookie则跳转登录页
-            window.location.href = "index.html";
         }
-        if(/userId/.test(cookie[i])){
-            global.userInfo = cookie[i].split("=")[1];
+        if(isLogin){
+            //登录情况下从cookie获取用户id
+            if(/userId/.test(cookie[i])){
+                global.userInfo = cookie[i].split("=")[1];
+            }
         }
     }
 })();

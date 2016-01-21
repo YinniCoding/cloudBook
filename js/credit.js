@@ -17,18 +17,25 @@ function getUserInfo(userInfo){
             name = res.name;
             gender = res.gender;
             phone = res.phone;
-            //room寝室缺少
+            room = res.room;
             idCardNo = res.idCard;
             idCardAddr = res.address;
             studentNo = res.studentNo;
-            //education学历缺少
-            //entryYear入学年份缺少
+            education = res.education;
+            entryYear = res.entryYear;
             school = res.school;
             bank = res.bank;
             city = res.city;
             cardNo = res.cardNo;
-            //parent字段不具体，未区分父母
-            //friend字段未区分朋友1，朋友2
+            father = res.fatherName;
+            fatherId = res.fatherCard;
+            fatherNo = res.fatherPhone;
+            mother = res.motherName;
+            motherId = res.motherCard;
+            motherNo = res.motherPhone;
+            friend1 = res.friendName;
+            friend1Id = res.friendCard;
+            friend1No = res.friendPhone;
             $("#name > input").val(name);
             if(gender === 0){
                 $("#gender > input").removeAttr("checked");
@@ -42,6 +49,18 @@ function getUserInfo(userInfo){
             $("#bank > input").val(bank);
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
+            $("#room > input").val(room);
+            $("#education > input").val(education);
+            $("#entryYear > input").val(entryYear);
+            $("#father > input").val(father);
+            $("#fatherId > input").val(fatherId);
+            $("#fatherNo > input").val(fatherNo);
+            $("#mother > input").val(mother);
+            $("#motherId > input").val(motherId);
+            $("#motherNo > input").val(motherNo);
+            $("#friend1 > input").val(friend1);
+            $("#friend1Id > input").val(friend1Id);
+            $("#friend1No > input").val(friend1No);
         }else {
             alert(ret.msg);
         }
