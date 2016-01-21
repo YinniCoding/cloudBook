@@ -28,7 +28,7 @@
 })();
 
 //datetimepicker格式设置
-if($("datetimepicker").length){
+if($("#datetimepicker").length){
     $('#datetimepicker').datetimepicker({
         lang: 'ch',              //中文化
         format:"Y-m-d",      //格式化日期
