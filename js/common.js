@@ -4,7 +4,7 @@
  */
 //全局变量区
 var global = {
-    userInfo: "",
+    userInfo: ""
 };
 
 //头部高亮
