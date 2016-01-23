@@ -39,3 +39,8 @@ form {
 	text-align: left !important;
 	margin-left: 30px !important;
 }
+
+#submit {
+	display: block;
+	margin: 0 auto;
+}

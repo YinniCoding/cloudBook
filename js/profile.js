@@ -42,3 +42,7 @@ function getUserInfo(userInfo) {
 }
 
 getUserInfo(global.userInfo);
+
+$("#gender > input[type='radio']").each(function () {
+    radioCheck($(this));
+});

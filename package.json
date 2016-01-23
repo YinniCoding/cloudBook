@@ -1,0 +1,22 @@
+{
+  "name": "cloudbook",
+  "version": "1.0.0",
+  "description": "云书后台管理",
+  "main": "gulpfile.js",
+  "devDependencies": {
+      "gulp": "*",
+      "gulp-rename": "*",
+      "gulp-minify-css": "*",
+      "gulp-uglify": "*",
+      "gulp-minify-html": "*",
+      "gulp-concat": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cloudBook"
+  ],
+  "author": "njhxzhangjihong@126.com",
+  "license": "ISC"
+}

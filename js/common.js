@@ -55,25 +55,32 @@ if($("#datetimepicker").length){
 (function () {
     var cookie = document.cookie.split(";");
     var isLogin = false;
-    for(var i in cookie){
-        if(/isLogin/.test(cookie[i])){
-            var v = cookie[i].split("=")[1];
-            if(!v){
-                //未登录则跳转登录页
-                window.location.href = "index.html";
+    //方便线下调试
+    var DEBUG = true;
+    if(DEBUG){
+        global.userInfo = 42;
+    }else {
+        for(var i in cookie){
+            if(/isLogin/.test(cookie[i])){
+                var v = cookie[i].split("=")[1];
+                if(!v){
+                    //未登录则跳转登录页
+                    window.location.href = "index.html";
+                }else {
+                    isLogin = true;
+                }
+            }
+            if(isLogin){
+                //登录情况下从cookie获取用户id
+                if(/userId/.test(cookie[i])){
+                    global.userInfo = cookie[i].split("=")[1];
+                }
             }else {
-                isLogin = true;
+                window.location.href = "index.html";
             }
-        }
-        if(isLogin){
-            //登录情况下从cookie获取用户id
-            if(/userId/.test(cookie[i])){
-                global.userInfo = cookie[i].split("=")[1];
-            }
-        }else {
-            window.location.href = "index.html";
         }
     }
+
 })();
 
 //根据订单状态调整颜色
@@ -90,6 +97,14 @@ function changeColor(){
 
     $("#dataTable td:contains('订单错误')").css({
         "color": "red"
+    });
+}
+
+//修改单选按钮的选中效果
+function radioCheck(ele){
+    $(ele).on("click", function () {
+        $(ele).parent().find("input[checked='checked']").removeAttr("checked");
+        $(ele).attr("checked","checked");
     });
 }
 

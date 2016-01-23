@@ -69,8 +69,8 @@
 								<input type="text" class="form-control">
 							</div>
 							<div class="col-md-7" id="gender" style="padding-left: 50px;">
-								<input type="radio" checked>男
-								<input type="radio">女
+								<input type="radio" checked value="1">男
+								<input type="radio" value="0">女
 							</div>
 						</div>
 						<div class="row">
@@ -94,10 +94,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5" id="idCardFace">
+							<div class="col-md-5">
 								<span>身份证正面照片</span>
-								<form method="post" action="" enctype="multipart/form-data">
-									<input type="file" class="form-control">
+								<form method="post" action="javascript:;" id="idCardFace" enctype="multipart/form-data">
+									<input type="file" class="form-control" name="pidCard" accept="image/gif,image/jpeg,image/png"/>
 									<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
 								</form>
 							</div>
@@ -108,10 +108,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5" id="idCardBack">
+							<div class="col-md-5">
 								<span>身份证反面照片</span>
-								<form method="post" action="" enctype="multipart/form-data">
-									<input type="file" class="form-control">
+								<form method="post" action="javascript:;" id="idCardBack" enctype="multipart/form-data">
+									<input type="file" class="form-control" name="bidCard" accept="image/gif,image/jpeg,image/pnd">
 									<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
 								</form>
 							</div>
@@ -122,10 +122,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5" id="hidCardFace">
+							<div class="col-md-5">
 								<span>手持身份证照片</span>
-								<form method="post" action="" enctype="multipart/form-data">
-									<input type="file" class="form-control">
+								<form method="post" action="javascript:;" id="hidCard" enctype="multipart/form-data">
+									<input type="file" class="form-control" name="hidCard" accept="image/gif,image/jpeg,image/pnd">
 									<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
 								</form>
 							</div>
@@ -136,10 +136,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-md-5" id="studentCard">
+							<div class="col-md-5">
 								<span>学生证内页照片</span>
-								<form method="post" action="" enctype="multipart/form-data">
-									<input type="file" class="form-control">
+								<form method="post" action="javascript:;" id="studentCard" enctype="multipart/form-data">
+									<input type="file" class="form-control" name="sidCard" accept="image/gif,image/jpeg,image/pnd">
 									<input type="submit" name="submit" value="点击上传" class="btn btn-default btn-primary">
 								</form>
 							</div>
@@ -194,7 +194,7 @@
 								<span>开户城市</span>
 								<input type="text" class="form-control">
 							</div>
-							<div class="col-md-7" id="phone">
+							<div class="col-md-7" id="tel">
 								<span>预留电话</span>
 								<input type="text" class="form-control">
 							</div>
@@ -262,11 +262,16 @@
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<!--<a href="javascript:;" class="btn btn-defaut btn-primary">修改</a>-->
+					<button class="btn btn-default btn-primary" id="submit">确定修改</button>
+				</div>
 			</div>
 		</div>
 	</div>
 	<script src="./js/jquery.min.js"></script>
 	<script src="./js/common.js"></script>
+	<script src="js/jquery.form.min.js"></script>
 	<script src="./js/credit.js"></script>
 </body>
 </html>
