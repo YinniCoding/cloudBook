@@ -38,7 +38,7 @@ function getUserInfo(userInfo){
             friend1No = res.friendPhone;
             $("#name > input").val(name);
             if(gender === 0){
-                $("#gender > input").removeAttr("checked");
+                $("#gender > input:checked").removeAttr("checked");
                 $("#gender > input:last-child").attr("checked","checked");
             }
             $("#phone > input").val(phone);

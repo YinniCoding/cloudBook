@@ -23,7 +23,7 @@ function getUserInfo(userInfo) {
             qrcode = res.qrcode;
             $("#name > input").val(name);
             if(gender === 0){
-                $("#gender > input").removeAttr("checked");
+                $("#gender > input:checked").removeAttr("checked");
                 $("#gender > input:last-child").attr("checked","checked");
             }
             $("#phone > input").val(phone);
@@ -41,8 +41,11 @@ function getUserInfo(userInfo) {
     });
 }
 
-getUserInfo(global.userInfo);
+(function (){
+    getUserInfo(global.userInfo);
 
-$("#gender > input[type='radio']").each(function () {
-    radioCheck($(this));
-});
+    $("#gender > input[type='radio']").each(function () {
+        radioCheck($(this));
+    });   
+})();
+

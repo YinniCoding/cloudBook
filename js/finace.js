@@ -71,8 +71,8 @@ function getData(obj){
 //筛选
 function filter() {
     $("#filter").on("click",function () {
-        var date = $("#datetimepicker").val();
-        var type = $("#type").val();
+        var date = $("#datetimepicker").val().trim();
+        var type = $("#type").val().trim();
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;

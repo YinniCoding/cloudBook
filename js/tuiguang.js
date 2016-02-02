@@ -39,12 +39,13 @@ function getData(obj){
         success: function (ret) {
             $("#loading").hide();
             var ret = JSON.parse(ret);
-            var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
-            var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
-            var trContent = "<tr>";
+            
             if(ret.code !== -1){
+                var res = ret.result;
+                var tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
+                var total = res.total;
+                var totalPage = Math.ceil(total / obj.rows);
+                var trContent = "<tr>";   
                 for(var i in res.rows){
                     tradeNumber = res.rows[i].tradeNumber;
                     addTime = res.rows[i].addTime;
@@ -61,6 +62,7 @@ function getData(obj){
                     trContent += "<td>" + address + "</td>";
                     trContent += "<td>" + message + "</td>";
                     trContent += "<td>" + inviteCode + "</td>";
+                    trContent += "<td>" + orderStatus + "</td>";
                     switch(orderStatus){
                         case "1":
                             trContent += "<td class='order'>未出库</td>";

@@ -102,9 +102,12 @@ function changeColor(){
 
 //修改单选按钮的选中效果
 function radioCheck(ele){
+    $("input[name='male']").attr("checked",true);
     $(ele).on("click", function () {
-        $(ele).parent().find("input[checked='checked']").removeAttr("checked");
-        $(ele).attr("checked","checked");
+        if(!$(this).attr("checked")){
+            $(ele).parent().find("input[checked='checked']").removeAttr("checked");
+            $(this).attr("checked",true);
+        }
     });
 }
 

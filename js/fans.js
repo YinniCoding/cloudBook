@@ -33,12 +33,13 @@ function getData(obj){
         success: function (ret) {
             $("#loading").hide();
             var ret = JSON.parse(ret);
-            var res = ret.result;
-            var userName,imgPath,remark,addTime,stuRemark;
-            var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
-            var trContent = "<tr>";
+            
             if(ret.code !== -1){
+                var res = ret.result;
+                var userName,imgPath,remark,addTime,stuRemark;
+                var total = res.total;
+                var totalPage = Math.ceil(total / obj.rows);
+                var trContent = "<tr>";  
                 for(var i in res.rows){
                     userName = res.rows[i].userName;
                     imgPath = res.rows[i].imgPath;
@@ -75,9 +76,9 @@ function getData(obj){
 //筛选
 function filter() {
     $("#filter").on("click",function () {
-        var startTime = $("#datetimepicker").val();
-        var endTime = $("datetimepicker2").val();
-        var query = $("#query").val();
+        var startTime = $("#datetimepicker").val().trim();
+        var endTime = $("#datetimepicker2").val().trim();
+        var query = $("#query").val().trim();
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;

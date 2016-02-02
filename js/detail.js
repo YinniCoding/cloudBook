@@ -32,12 +32,13 @@ function getData(obj){
         success: function (ret) {
             $("#loading").hide();
             var ret = JSON.parse(ret);
-            var res = ret.result;
-            var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
-            var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
-            var trContent = "<tr>";
+            
             if(ret.code !== -1){
+                var res = ret.result;
+                var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+                var total = res.total;
+                var totalPage = Math.ceil(total / obj.rows);
+                var trContent = "<tr>";
                 for(var i in res.rows){
                     tradeNumber = res.rows[i].order.tradeNumber;
                     addTime = res.rows[i].addTime;
@@ -100,9 +101,9 @@ function getData(obj){
 //筛选
 function filter() {
     $("#filter").on("click",function () {
-        var date = $("#datetimepicker").val();
-        var orderStatus = $("#orderStatus option:selected").val();
-        var query = $("#query").val();
+        var date = $("#datetimepicker").val().trim();
+        var orderStatus = $("#orderStatus option:selected").val().trim();
+        var query = $("#query").val().trim();
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;
