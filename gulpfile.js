@@ -8,14 +8,14 @@ var concat = require('gulp-concat');
 gulp.task('css',function(){
     gulp.src('css/*.css')
     .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(concat('main.css'))
+    //.pipe(concat('main.css'))
     .pipe(gulp.dest('css/dst/'));
 });
 
 gulp.task('js',function(){
     gulp.src('js/*.js')
     .pipe(uglify())
-    .pipe(concat('main.js'))
+    //.pipe(concat('main.js'))
     .pipe(gulp.dest('js/dst'));
 });
 
