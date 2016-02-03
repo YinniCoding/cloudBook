@@ -69,9 +69,25 @@ function getUserInfo(userInfo){
     });
 }
 
-//upload file
+//upload preview,contentEle为提交按钮
+function preview(contentEle){
+    window.URL = window.URL || window.webkitURL;
+    //find查出来是个数组
+    var fileEle = $(contentEle).parent().find("input[type='file']")[0];
+    var imgPreview = $(fileEle).parent().next();
+    if(window.URL){
+        $(imgPreview).children().attr("src",window.URL.createObjectURL($(fileEle)[0].files[0]));
+        $(imgPreview).css({display:"block"});
+        $(imgPreview).children().onload = function(e){
+            window.URL.revokeObjectURL(this.src);
+        };
+    }
+}
+
+//upload file,contentEle为提交按钮
 function upload(url,contentEle) {
-    var formData = new FormData($(contentEle)[0]);
+    var fileEle = $(contentEle).parent()[0];
+    var formData = new FormData(fileEle);
     formData.append("userInfo",global.userInfo);
     $.ajax({
         url: url,
@@ -84,6 +100,7 @@ function upload(url,contentEle) {
         ret = JSON.parse(ret);
         if(!ret.code){
             alert("上传成功！");
+            preview(contentEle);
         }else {
             alert("上传失败：" + ret.msg);
         }
@@ -173,15 +190,16 @@ function update(){
         radioCheck($(this));
     });
 
-    var uploadEleArr = ["idCardFace","idCardBack","hidCardFace","studentCard"];
+    var uploadEleArr = ["idCardFace","idCardBack","hidCard","studentCard"];
     for(var i in uploadEleArr){
         var item = uploadEleArr[i];
         $("#" + item).find("input[type='submit']").on('click', function () {
             var fileName = $(this).parent().find("input[type='file']").val();
             if(!/[jpg|png|gif]$/i.test(fileName)){
                 alert("照片格式为JPG/PNG/GIF！");
+                return;
             }
-            upload("http://test1.qess.me/ceo/imgUpLoad.htm",$(item));
+            upload("http://test1.qess.me/ceo/imgUpLoad.htm",$(this));
         });
     }
 
