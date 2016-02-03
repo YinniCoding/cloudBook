@@ -64,8 +64,13 @@
 						<span>开始日期</span>
 						<input type="text" value="2012/05/15" id="datetimepicker" class="form-control" data-date-format="yyyy-mm-dd">
 						<span>订单状态</span>
-						<input type="text" value="全部" id="orderStatus" class="form-control">
-						<span>关键词</span>
+						<select name="" class="form-control" id="orderStatus">
+							<option value="" selected>全部</option>
+							<option value="0">未出库</option>
+							<option value="1">已出库</option>
+							<option value="2">已完成</option>
+						</select>
+                        <span>关键词</span>
 						<input type="search" class="form-control" id="query" placeholder="请输入姓名或手机号">
 						<a href="javascript:;" class="btn btn-default btn-primary" id="filter">搜索</a>
 					</div>

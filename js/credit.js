@@ -2,6 +2,16 @@
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/13.
  */
+
+//ele: form elements ,url: img url
+function showPic(ele,url){
+    var previewEle = $(ele).parent().find(".preview");
+    if(url){
+        previewEle.find("img").attr("src",url);
+        previewEle.css({display:"block"});
+    }
+}
+
 function getUserInfo(userInfo){
     $.ajax({
         url: "http://test1.qess.me/ceo/getCeoInfo.htm",
@@ -20,6 +30,10 @@ function getUserInfo(userInfo){
             room = res.room;
             idCardNo = res.idCard;
             idCardAddr = res.address;
+            pidCardImg = res.pidCard;
+            bidCardImg = res.bidCard;
+            hidCardImg = res.hidCard;
+            studentCardImg = res.sidCard;
             studentNo = res.studentNo;
             education = res.education;
             entryYear = res.entryYear;
@@ -45,6 +59,10 @@ function getUserInfo(userInfo){
             $("#idCardNo > input").val(idCardNo);
             $("#idCardAddr > input").val(idCardAddr);
             $("#studentCardNo > input").val(studentNo);
+            showPic("#idCardFace",pidCardImg);
+            showPic("#idCardBack",bidCardImg);
+            showPic("#hidCard",hidCardImg);
+            showPic("#studentCard",studentCardImg);
             $("#school > input").val(school);
             $("#bank > input").val(bank);
             $("#city > input").val(city);
@@ -99,7 +117,9 @@ function upload(url,contentEle) {
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(!ret.code){
-            preview(contentEle);
+            //preview(contentEle);
+            var src = ret.result;
+            $(contentEle).parent().next().find(".preview img").attr("src",src);
         }else {
             alert("上传失败：" + ret.msg);
         }
