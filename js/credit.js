@@ -99,7 +99,6 @@ function upload(url,contentEle) {
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(!ret.code){
-            alert("上传成功！");
             preview(contentEle);
         }else {
             alert("上传失败：" + ret.msg);
