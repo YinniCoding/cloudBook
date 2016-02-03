@@ -24,7 +24,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getAccountTypeList.htm",
+        url: "http://test1.qess.me/ceo/getWageList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
