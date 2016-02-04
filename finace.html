@@ -34,6 +34,24 @@
 			</div>
 		</nav>
 
+        <div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" id="myModalLabel">请输入提现金额</h4>
+						</div>
+						<div class="modal-body">
+							<input type="text" class="form-control" id="towithdraw">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary" id="confirm">确定</button>
+						</div>
+                    </div>
+                </div>
+        </div>  
+
 		<div class="row" id="contentWrap">
 			<div class="col-md-2" id="sidebar">
 				<ul class="nav nav-pills nav-stacked">
@@ -128,8 +146,9 @@
                                 <div class="caption">
                                     <p>可提现余额</p>
                                     <a href=""><span id="withdrawCash">00</span>元</a>
-  </a>                          </div>
-                            </div><input type="button" class="btn btn-default btn-primary" value="马上提现" id="withdrawBtn">
+								</div>
+                            </div>
+							<input type="button" class="btn btn-default btn-primary" value="马上提现" id="withdrawBtn" data-toggle="modal" data-target="#withdrawModal">
 						</div>
 					</div>
 				</div>
@@ -138,6 +157,7 @@
 	</div>
 	<script src="./js/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.js"></script>
+	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="./js/common.js"></script>
 	<script src="./js/finace.js"></script>
 </body>

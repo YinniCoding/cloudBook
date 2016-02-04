@@ -103,10 +103,12 @@ function getWageTotal(userInfo) {
                 $("#totalMoney").text(total);
                 $("#withdrawCash").text(balances);
                 adjustMargin();
+            }else {
+                alert("请求出错:" + ret.msg);
             }
         },
         error: function (){
-
+            alert("请求异常!");
         }
     });
 }
@@ -131,6 +133,23 @@ function adjustMargin() {
     });
 })();
 
+//提现接口
+function withdraw(userInfo,money) {
+    $.ajax({
+        url: "http://test1.qess.me/ceo/withdrawal.htm",
+        data: {"userInfo": userInfo,"money": money}
+    }).done(function (ret) {
+        ret = JSON.parse(ret);
+        if(!ret.code){
+            alert("提现成功!");
+        }else {
+            alert("提现失败!" + ret.msg);
+        }
+    }).fail(function () {
+        alert("请求异常!");
+    });
+}
+
 (function main() {
     setDate();
     //默认展示第一页，每页16条，待配送状态
@@ -140,6 +159,16 @@ function adjustMargin() {
     filter();
 
     getWageTotal(global.userInfo);
+
+    $("#confirm").on("click", function () {
+        var withdrawCash = parseFloat($("#withdrawCash").text());
+        var towithdraw = parseFloat($("#towithdraw").val());
+        if(towithdraw > withdrawCash){
+            alert("可提现余额不足!");
+        }else {
+            withdraw(global.userInfo,towithdraw);
+        }
+    });
 
 })();
 
