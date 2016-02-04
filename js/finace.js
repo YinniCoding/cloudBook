@@ -161,9 +161,11 @@ function withdraw(userInfo,money) {
     getWageTotal(global.userInfo);
 
     $("#confirm").on("click", function () {
+        //可提现金额
         var withdrawCash = parseFloat($("#withdrawCash").text());
+        //待提现金额
         var towithdraw = parseFloat($("#towithdraw").val());
-        if(towithdraw > withdrawCash){
+        if(!towithdraw || towithdraw < withdrawCash){
             alert("可提现余额不足!");
         }else {
             withdraw(global.userInfo,towithdraw);
