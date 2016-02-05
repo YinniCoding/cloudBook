@@ -63,19 +63,22 @@ function getData(obj){
 }
 
 //申请推广工资
-function wageApply(domain){
+function wageApply(obj){
     $("#salaryApplyWrap #submit").on("click", function () {
         var name = $("#name").val();
         var promoteType = $("#promoteType option:selected").val();
         var remark = $("#remark").val();
 
+	obj.data.name = name;
+	obj.data.promoteType = promoteType;
+	obj.data.remark = remark;
         if(!name || promoteType === "0"){
             alert("申请人和推广方式必填！");
             return;
         }else {
             $.ajax({
-                url: domain + "/ceo/insertPromoteApply.htm",
-                data: {name:name,promoteType:promoteType,remark:remark}
+                url: obj.domain + "/ceo/insertPromoteApply.htm",
+                data: obj.data
             }).done(function (ret) {
                 if(!ret.code){
                     alert("提交成功！");
@@ -94,6 +97,6 @@ function wageApply(domain){
     var page = 1;
     var rows = 16;
     getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
-    wageApply(global.domain);
+    wageApply({domain:global.domain,data:{userInfo:global.userInfo}});
 })();
 
