@@ -82,6 +82,7 @@ function filter() {
         var dataObj = {};
         dataObj.page = 1;
         dataObj.rows = 16;
+        dataObj.domain = gloabl.domain;
         dataObj.userInfo = global.userInfo;
         if(query){
             dataObj.name = query;
