@@ -26,7 +26,7 @@ function setDate(){
 function getData(obj){
     $.ajax({
         url: obj.domain + "/ceo/getSubscribeList.htm",
-        data: obj,
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -38,7 +38,7 @@ function getData(obj){
                 var res = ret.result;
                 var userName,imgPath,remark,addTime,stuRemark;
                 var total = res.total;
-                var totalPage = Math.ceil(total / obj.rows);
+                var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";  
                 for(var i in res.rows){
                     userName = res.rows[i].userName;
@@ -56,14 +56,14 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    userName:obj.userName
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo,
+                    addTime:obj.data.addTime,
+                    userName:obj.data.userName
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
                 //异常
@@ -74,25 +74,15 @@ function getData(obj){
 }
 
 //筛选
-function filter() {
+function filter(obj) {
     $("#filter").on("click",function () {
         var startTime = $("#datetimepicker").val().trim();
         var endTime = $("#datetimepicker2").val().trim();
         var query = $("#query").val().trim();
-        var dataObj = {};
-        dataObj.page = 1;
-        dataObj.rows = 16;
-        dataObj.domain = global.domain;
-        dataObj.userInfo = global.userInfo;
-        if(query){
-            dataObj.name = query;
-        }
-        if(startTime){
-            dataObj.startTime = startTime;
-        }
-        if(endTime){
-            dataObj.endTime = endTime;
-        }
+        var dataObj = obj;
+        dataObj.data.name = query;
+        dataObj.data.startTime = startTime;
+        dataObj.data.endTime = endTime;
 
         getData(dataObj);
     });
@@ -103,7 +93,7 @@ function filter() {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
-    filter();
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
 })();
 

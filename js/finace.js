@@ -25,7 +25,7 @@ function setDate(){
 function getData(obj){
     $.ajax({
         url: obj.domain + "/ceo/getWageList.htm",
-        data: obj,
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -35,7 +35,7 @@ function getData(obj){
             var res = ret.result;
             var addTime,type,account,balance,remarkInfo;
             var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
+            var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
             if(!ret.code){
                 for(var i in res.rows){
@@ -53,13 +53,13 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo,
+                    addTime:obj.data.addTime
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
             }else {
                 //异常
                 alert("请求出错：" + ret.msg);
@@ -69,20 +69,14 @@ function getData(obj){
 }
 
 //筛选
-function filter() {
+function filter(obj) {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val().trim();
         var type = $("#type").val().trim();
-        var dataObj = {};
-        dataObj.page = 1;
-        dataObj.rows = 16;
-        dataObj.domain = global.domain;
-        dataObj.userInfo = global.userInfo;
-        if(date){
-            dataObj.addTime = date;
-        }
-        if(type){
-            dataObj.type = type;
+        var dataObj = obj;
+        dataObj.data.addTime = date;
+        if(type !== "-1"){
+            dataObj.data.type = type;
         }
         getData(dataObj);
     });
@@ -156,8 +150,8 @@ function withdraw(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
-    filter();
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
 
     getWageTotal(global);
 

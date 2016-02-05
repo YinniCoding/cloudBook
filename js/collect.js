@@ -24,8 +24,8 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: global.domain + "/ceo/getBookApplyList.htm",
-        data: obj,
+        url: obj.domain + "/ceo/getBookApplyList.htm",
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -35,7 +35,7 @@ function getData(obj){
             var res = ret.result;
             var addTime,name,number,valid;
             var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
+            var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
             if(ret.code !== -1){
                 for(var i in res.rows){
@@ -57,12 +57,12 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
                 //异常
@@ -83,7 +83,7 @@ function wageApply(obj) {
         }else {
             $.ajax({
                 url: obj.domain + "/ceo/insertBookApply.htm",
-                data: {userInfo: obj.userInfo,name: name,number: number,remark: remark}
+                data: obj.data
             }).done(function (ret) {
                 if(!ret.code){
                     alert("提交成功！");
@@ -102,7 +102,7 @@ function wageApply(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
-    wageApply({userInfo: global.userInfo,domain: global.domain});
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    wageApply({domain:global.domain,data:{userInfo: global.userInfo}});
 })();
 

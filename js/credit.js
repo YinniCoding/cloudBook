@@ -15,14 +15,14 @@ function showPic(ele,url){
 function getUserInfo(obj){
     $.ajax({
         url: obj.domain + "/ceo/getCeoInfo.htm",
-        data: {userInfo:obj.userInfo}
+        data: obj.data
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
         var name,gender,phone,room,idCardNo,idCardAddr,studentNo,
             education,entryYear,school,bank,city,cardNo,father,
             fatherNo,fatherId,mother,motherNo,motherId,friend1,friend1No,
-            friend1Id,friend2,friend2No,friend2Id;
+            friend1Id;
         if(!ret.code){
             name = res.name;
             gender = res.gender;
@@ -119,7 +119,7 @@ function upload(url,contentEle) {
         if(!ret.code){
             //preview(contentEle);
             var src = ret.result;
-            $(contentEle).parent().next().find(".preview img").attr("src",src);
+            $(contentEle).parent().next().find("img").attr("src",src);
         }else {
             alert("上传失败：" + ret.msg);
         }
@@ -186,7 +186,6 @@ function update(url){
     obj.room = room;
     obj.education = education;
     obj.entryYear = entryYear;
-    console.log(obj);
     $.ajax({
         url: url,
         data: obj
@@ -203,7 +202,7 @@ function update(url){
 }
 
 (function () {
-    getUserInfo(global);
+    getUserInfo({domain:global.domain,data:{userInfo:global.userInfo}});
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));

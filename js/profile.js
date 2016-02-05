@@ -5,7 +5,7 @@
 function getUserInfo(obj) {
     $.ajax({
         url: obj.domain + "/ceo/getCeoInfo.htm",
-        data: {userInfo: obj.userInfo}
+        data: obj.data
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
@@ -42,7 +42,7 @@ function getUserInfo(obj) {
 }
 
 (function (){
-    getUserInfo(global);
+    getUserInfo({domain:global.domain,data:{userInfo:global.userInfo}});
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));

@@ -32,7 +32,7 @@ function setDate(){
 function getData(obj){
     $.ajax({
         url: obj.domain + "/ceo/getPromoteOrderList.htm",
-        data: obj,
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -44,7 +44,7 @@ function getData(obj){
                 var res = ret.result;
                 var tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
                 var total = res.total;
-                var totalPage = Math.ceil(total / obj.rows);
+                var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";   
                 for(var i in res.rows){
                     tradeNumber = res.rows[i].tradeNumber;
@@ -88,15 +88,15 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo,
+                    addTime:obj.data.addTime,
+                    remarkInfo:obj.data.remarkInfo,
                     name:obj.name
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
                 //异常
@@ -107,29 +107,21 @@ function getData(obj){
 }
 
 //筛选
-function filter() {
+function filter(obj) {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val();
         var orderStatus = $("#orderStatus option:selected").val();
         var query = $("#query").val();
-        var dataObj = {};
-        dataObj.page = 1;
-        dataObj.rows = 16;
-        dataObj.domain = gloabl.domain;
-        dataObj.userInfo = global.userInfo;
-        if(date){
-            dataObj.addTime = date;
+        var dataObj = obj;
+        dataObj.data.addTime = date;
+        if(orderStatus !== "-1"){
+            dataObj.data.remarkInfo = orderStatus;
         }
-        if(orderStatus){
-            dataObj.remarkInfo = orderStatus;
-        }
-        if(query){
-            //电话
-            if(/[0-9]{11}/.test(query)){
-                dataObj.phone = query;
-            }else {
-                dataObj.name = query;
-            }
+        //电话
+        if(/[0-9]{11}/.test(query)){
+            dataObj.data.phone = query;
+        }else {
+            dataObj.data.name = query;
         }
         getData(dataObj);
     });
@@ -140,7 +132,7 @@ function filter() {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
-    filter();
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
 })();
 

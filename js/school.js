@@ -14,7 +14,7 @@
 function getData(obj){
     $.ajax({
         url: obj.domain + "/ceo/getCeoDormList.htm",
-        data: obj,
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -24,7 +24,7 @@ function getData(obj){
             var res = ret.result;
             var room,phone,time,remark,memberInfo,schoolInfo;
             var total = res.total;
-            var totalPage = Math.ceil(total / obj.rows);
+            var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
             if(!ret.code){
                 for(var i in res.rows){
@@ -44,15 +44,15 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
-                    name:obj.name
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo,
+                    addTime:obj.data.addTime,
+                    remarkInfo:obj.data.remarkInfo,
+                    name:obj.data.name
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
                 //异常
@@ -66,6 +66,6 @@ function getData(obj){
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
 })();
 

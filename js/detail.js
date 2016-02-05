@@ -25,7 +25,7 @@ function setDate(){
 function getData(obj){
     $.ajax({
         url: obj.domain + "/ceo/getAssignmentList.htm",
-        data: obj,
+        data: obj.data,
         beforeSend: function () {
             $("#loading").show();
         },
@@ -37,7 +37,7 @@ function getData(obj){
                 var res = ret.result;
                 var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
                 var total = res.total;
-                var totalPage = Math.ceil(total / obj.rows);
+                var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
                 for(var i in res.rows){
                     tradeNumber = res.rows[i].order.tradeNumber;
@@ -80,15 +80,15 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.page,
+                    page:obj.data.page,
                     total:total,
-                    rows:obj.rows,
-                    userInfo:obj.userInfo,
-                    addTime:obj.addTime,
-                    remarkInfo:obj.remarkInfo,
+                    rows:obj.data.rows,
+                    userInfo:obj.data.userInfo,
+                    addTime:obj.data.addTime,
+                    remarkInfo:obj.data.remarkInfo,
                     name:obj.name
                 });
-                setActive(obj.page,totalPage);
+                setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
                 //异常
@@ -99,29 +99,21 @@ function getData(obj){
 }
 
 //筛选
-function filter() {
+function filter(obj) {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val().trim();
         var orderStatus = $("#orderStatus option:selected").val().trim();
         var query = $("#query").val().trim();
-        var dataObj = {};
-        dataObj.page = 1;
-        dataObj.rows = 16;
-        dataObj.domain = global.domain;
-        dataObj.userInfo = global.userInfo;
-        if(date){
-            dataObj.addTime = date;
+        var dataObj = obj;
+        dataObj.data.addTime = date;
+        if(orderStatus != "-1"){
+            dataObj.data.remarkInfo = orderStatus;
         }
-        if(orderStatus){
-            dataObj.remarkInfo = orderStatus;
-        }
-        if(query){
-            //电话
-            if(/[0-9]{11}/.test(query)){
-                dataObj.phone = query;
-            }else {
-                dataObj.name = query;
-            }
+        //电话
+        if(/[0-9]{11}/.test(query)){
+            dataObj.data.phone = query;
+        }else {
+            dataObj.data.name = query;
         }
         getData(dataObj);
     });
@@ -129,7 +121,7 @@ function filter() {
 
 //左侧菜单点击切换
 function sidebar(obj) {
-    var remarkInfo = obj.remarkInfo;
+    var remarkInfo = obj.data.remarkInfo;
     if(remarkInfo == 1){
         $("#sidebar li.active").removeAttr("class");
         $("#sidebar li:nth-child(2)").attr("class","active");
@@ -139,15 +131,15 @@ function sidebar(obj) {
             var className = $(ele).attr("class");
             switch (className){
                 case "menu_0":
-                    obj.remarkInfo = "";
+                    obj.data.remarkInfo = "";
                     getData(obj);
                     break;
                 case "menu_1":
-                    obj.remarkInfo = 1;
+                    obj.data.remarkInfo = 1;
                     getData(obj);
                     break;
                 case "menu_2":
-                    obj.remarkInfo = 2;
+                    obj.data.remarkInfo = 2;
                     getData(obj);
                     break;
             }
@@ -165,8 +157,8 @@ function sidebar(obj) {
     if(/\?/.test(curUrl)){
         statusNo = window.location.href.split("?")[1].split("=")[1];
     }
-    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo,remarkInfo:statusNo});
-    filter();
-    sidebar({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo,remarkInfo:statusNo});
+    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo}});
+    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    sidebar({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo}});
 })();
 

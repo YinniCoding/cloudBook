@@ -5,7 +5,7 @@
 function getSummaryInfo(obj) {
     $.ajax({
         url: obj.domain + "/ceo/getIndexInfo.htm",
-        data: {userInfo: obj.userInfo}
+        data: obj.data
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
@@ -33,5 +33,5 @@ function getSummaryInfo(obj) {
     $(".banner").luara({height:"100%",interval:4500,selected:"seleted",deriction:"left"});
     //$("#banner").luara({width:"500",height:"334",interval:4500,selected:"seleted",deriction:"left"});
 
-    getSummaryInfo(global);
+    getSummaryInfo({domain:global.domain,data:{userInfo:global.userInfo}});
 })();
