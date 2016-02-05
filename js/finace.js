@@ -160,11 +160,14 @@ function withdraw(obj) {
         var withdrawCash = parseFloat($("#withdrawCash").text());
         //待提现金额
         var towithdraw = parseFloat($("#towithdraw").val());
-        if(!towithdraw || towithdraw < withdrawCash){
+        if(!towithdraw || towithdraw > withdrawCash){
             alert("可提现余额不足!");
         }else {
             withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw});
         }
+    });
+    $("#cancel").on("click",function(){
+        $("#towithdraw").val("");
     });
 
 })();
