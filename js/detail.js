@@ -128,6 +128,11 @@ function filter() {
 
 //左侧菜单点击切换
 function sidebar(obj) {
+    var remarkInfo = obj.remarkInfo;
+    if(remarkInfo == 1){
+        $("#sidebar li.active").removeAttr("class");
+        $("#sidebar li:nth-child(2)").attr("class","active");
+    }
     $("#sidebar li > a").each(function (index, ele) {
         $(ele).on("click", function () {
             var className = $(ele).attr("class");
@@ -161,6 +166,6 @@ function sidebar(obj) {
     }
     getData({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
     filter();
-    sidebar({page:page,rows:rows,userInfo:global.userInfo});
+    sidebar({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
 })();
 
