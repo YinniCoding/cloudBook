@@ -24,7 +24,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getBookApplyList.htm",
+        url: global.domain + "/ceo/getBookApplyList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -72,7 +72,7 @@ function getData(obj){
     });
 }
 
-function wageApply(userInfo) {
+function wageApply(obj) {
     $("#submit").on("click", function () {
         var name =  $("#name").val();
         var d = $("#datetimepicker").val();
@@ -82,8 +82,8 @@ function wageApply(userInfo) {
             alert("有必填项未填！");
         }else {
             $.ajax({
-                url: "http://test1.qess.me/ceo/insertBookApply.htm",
-                data: {userInfo: userInfo,name: name,number: number,remark: remark}
+                url: obj.domain + "/ceo/insertBookApply.htm",
+                data: {userInfo: obj.userInfo,name: name,number: number,remark: remark}
             }).done(function (ret) {
                 if(!ret.code){
                     alert("提交成功！");
@@ -103,6 +103,6 @@ function wageApply(userInfo) {
     var page = 1;
     var rows = 16;
     getData({page:page,rows:rows,userInfo:global.userInfo});
-    wageApply(global.userInfo);
+    wageApply({userInfo: global.userInfo,domain: global.domain});
 })();
 

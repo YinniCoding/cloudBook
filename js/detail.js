@@ -24,7 +24,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getAssignmentList.htm",
+        url: obj.domain + "/ceo/getAssignmentList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -164,8 +164,8 @@ function sidebar(obj) {
     if(/\?/.test(curUrl)){
         statusNo = window.location.href.split("?")[1].split("=")[1];
     }
-    getData({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo,remarkInfo:statusNo});
     filter();
-    sidebar({page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo});
+    sidebar({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo,remarkInfo:statusNo});
 })();
 

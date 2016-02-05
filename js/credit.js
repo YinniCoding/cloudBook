@@ -12,10 +12,10 @@ function showPic(ele,url){
     }
 }
 
-function getUserInfo(userInfo){
+function getUserInfo(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getCeoInfo.htm",
-        data: {userInfo:userInfo}
+        url: obj.domain + "/ceo/getCeoInfo.htm",
+        data: {userInfo:obj.userInfo}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
@@ -129,7 +129,7 @@ function upload(url,contentEle) {
 }
 
 //update information
-function update(){
+function update(url){
     var obj = {};
     obj.userInfo = global.userInfo;
     var name = $("#name > input").val(),
@@ -188,7 +188,7 @@ function update(){
     obj.entryYear = entryYear;
     console.log(obj);
     $.ajax({
-        url: "http://test1.qess.me/ceo/updateCeoInfo.htm",
+        url: url,
         data: obj
     }).done(function (ret) {
         ret = JSON.parse(ret);
@@ -203,7 +203,7 @@ function update(){
 }
 
 (function () {
-    getUserInfo(global.userInfo);
+    getUserInfo(global);
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));
@@ -218,11 +218,11 @@ function update(){
                 alert("照片格式为JPG/PNG/GIF！");
                 return;
             }
-            upload("http://test1.qess.me/ceo/imgUpLoad.htm",$(this));
+            upload(global.domain + "/ceo/imgUpLoad.htm",$(this));
         });
     }
 
     $("#submit").on("click", function () {
-        update();
+        update(global.domain + "/ceo/updateCeoInfo.htm");
     });
 })();

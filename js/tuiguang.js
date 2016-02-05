@@ -31,7 +31,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getPromoteOrderList.htm",
+        url: obj.domain + "/ceo/getPromoteOrderList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -139,7 +139,7 @@ function filter() {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
     filter();
 })();
 

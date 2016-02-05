@@ -2,10 +2,10 @@
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/13.
  */
-function getSummaryInfo(userInfo) {
+function getSummaryInfo(obj) {
     $.ajax({
-        url: "http://test1.qess.me/ceo/getIndexInfo.htm",
-        data: {userInfo: userInfo}
+        url: obj.domain + "/ceo/getIndexInfo.htm",
+        data: {userInfo: obj.userInfo}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
@@ -33,5 +33,5 @@ function getSummaryInfo(userInfo) {
     $(".banner").luara({height:"100%",interval:4500,selected:"seleted",deriction:"left"});
     //$("#banner").luara({width:"500",height:"334",interval:4500,selected:"seleted",deriction:"left"});
 
-    getSummaryInfo(global.userInfo);
+    getSummaryInfo(global);
 })();

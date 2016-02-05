@@ -13,7 +13,7 @@
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getPromoteApplyList.htm",
+        url: obj.domain + "/ceo/getPromoteApplyList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -63,7 +63,7 @@ function getData(obj){
 }
 
 //申请推广工资
-function wageApply(){
+function wageApply(domain){
     $("#salaryApplyWrap #submit").on("click", function () {
         var name = $("#name").val();
         var promoteType = $("#promoteType option:selected").val();
@@ -74,7 +74,7 @@ function wageApply(){
             return;
         }else {
             $.ajax({
-                url: "http://test1.qess.me/ceo/insertPromoteApply.htm",
+                url: domain + "/ceo/insertPromoteApply.htm",
                 data: {name:name,promoteType:promoteType,remark:remark}
             }).done(function (ret) {
                 if(!ret.code){
@@ -93,7 +93,7 @@ function wageApply(){
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
-    wageApply();
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
+    wageApply(global.domain);
 })();
 

@@ -26,11 +26,11 @@ function doSubmit(contentEle,reqUrl) {
 (function () {
     //提交问题
     $("#submitQuestion").on('click', function () {
-        doSubmit("#question","http://test1.qess.me/ceo/insertProblem.htm");
+        doSubmit("#question",global.domain + "/ceo/insertProblem.htm");
     });
     
     //提交建议
     $("#submitSuggestiong").on('click', function () {
-        doSubmit("#suggestion","http://test1.qess.me/ceo/insertAdvice.htm");
+        doSubmit("#suggestion",global.domain + "/ceo/insertAdvice.htm");
     });
 })();

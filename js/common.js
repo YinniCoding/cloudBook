@@ -4,6 +4,7 @@
  */
 //全局变量区
 var global = {
+    domain: "http://test1.qess.me",
     userInfo: ""
 };
 
@@ -56,7 +57,7 @@ if($("#datetimepicker").length){
     var cookie = document.cookie.split(";");
     var isLogin = false;
     //方便线下调试
-    var DEBUG = false;
+    var DEBUG = true;
     if(DEBUG){
         global.userInfo = 42;
     }else {

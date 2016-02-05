@@ -25,7 +25,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getSubscribeList.htm",
+        url: obj.domain + "/ceo/getSubscribeList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -97,35 +97,12 @@ function filter() {
     });
 }
 
-//左侧菜单点击切换
-function sidebar(obj) {
-    $("#sidebar li > a").each(function (index, ele) {
-        $(ele).on("click", function () {
-            var className = $(ele).attr("class");
-            switch (className){
-                case "menu_0":
-                    obj.remarkInfo = "";
-                    getData(obj);
-                    break;
-                case "menu_1":
-                    obj.remarkInfo = 1;
-                    getData(obj);
-                    break;
-                case "menu_2":
-                    obj.remarkInfo = 2;
-                    getData(obj);
-                    break;
-            }
-        });
-    });
-}
-
 (function main() {
     setDate();
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
     filter();
 })();
 

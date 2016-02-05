@@ -24,7 +24,7 @@ function setDate(){
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getWageList.htm",
+        url: obj.domain + "/ceo/getWageList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -87,13 +87,13 @@ function filter() {
     });
 }
 
-function getWageTotal(userInfo) {
+function getWageTotal(obj) {
     var total = 0;
     var balances = 0;
     var res;
     $.ajax({
-        url: "http://test1.qess.me/ceo/getWageTotal.htm",
-        data: {userInfo:userInfo},
+        url: obj.domain + "/ceo/getWageTotal.htm",
+        data: {userInfo:obj.userInfo},
         success: function (ret) {
             ret = JSON.parse(ret);
             res = ret.result;
@@ -134,10 +134,10 @@ function adjustMargin() {
 })();
 
 //提现接口
-function withdraw(userInfo,money) {
+function withdraw(obj) {
     $.ajax({
-        url: "http://test1.qess.me/ceo/withdrawal.htm",
-        data: {"userInfo": userInfo,"money": money}
+        url: obj.domain + "/ceo/withdrawal.htm",
+        data: {"userInfo": obj.userInfo,"money": obj.money}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(!ret.code){
@@ -155,10 +155,10 @@ function withdraw(userInfo,money) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
     filter();
 
-    getWageTotal(global.userInfo);
+    getWageTotal(global);
 
     $("#confirm").on("click", function () {
         //可提现金额
@@ -168,7 +168,7 @@ function withdraw(userInfo,money) {
         if(!towithdraw || towithdraw < withdrawCash){
             alert("可提现余额不足!");
         }else {
-            withdraw(global.userInfo,towithdraw);
+            withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw});
         }
     });
 

@@ -13,7 +13,7 @@
  * */
 function getData(obj){
     $.ajax({
-        url: "http://test1.qess.me/ceo/getCeoDormList.htm",
+        url: obj.domain + "/ceo/getCeoDormList.htm",
         data: obj,
         beforeSend: function () {
             $("#loading").show();
@@ -66,6 +66,6 @@ function getData(obj){
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({page:page,rows:rows,userInfo:global.userInfo});
+    getData({page:page,rows:rows,domain:global.domain,userInfo:global.userInfo});
 })();
 

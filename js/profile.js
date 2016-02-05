@@ -2,10 +2,10 @@
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/20.
  */
-function getUserInfo(userInfo) {
+function getUserInfo(obj) {
     $.ajax({
-        url: "http://test1.qess.me/ceo/getCeoInfo.htm",
-        data: {userInfo: userInfo}
+        url: obj.domain + "/ceo/getCeoInfo.htm",
+        data: {userInfo: obj.userInfo}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
@@ -42,7 +42,7 @@ function getUserInfo(userInfo) {
 }
 
 (function (){
-    getUserInfo(global.userInfo);
+    getUserInfo(global);
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));
