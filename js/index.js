@@ -26,7 +26,7 @@ var global = {
                 data: {loginName: $("#userName").val(),password: $("input[name='passwd']").val(),veriCode:$("#codeInput").val()},
                 success: function (ret) {
                     ret = JSON.parse(ret);
-                    if(ret.code){
+                    if(ret.code != 0){
                         $("#loginInfo").text(ret.msg);
                     }else {
                         window.location.href = "summary.html";

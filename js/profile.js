@@ -10,7 +10,7 @@ function getUserInfo(obj) {
         ret = JSON.parse(ret);
         var res = ret.result;
         var name,gender,phone,addr,bank,branch,city,cardNo,inviteCode,qrcode;
-        if(!ret.code){
+        if(ret.code == 0){
             name = res.name;
             gender = res.gender;
             phone = res.phone;

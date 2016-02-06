@@ -34,7 +34,7 @@ function getData(obj){
             $("#loading").hide();
             var ret = JSON.parse(ret);
             
-            if(ret.code !== -1){
+            if(ret.code == 0){
                 var res = ret.result;
                 var userName,imgPath,remark,addTime,stuRemark;
                 var total = res.total;

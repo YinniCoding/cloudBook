@@ -26,7 +26,7 @@ function getData(obj){
             var total = res.total;
             var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
-            if(!ret.code){
+            if(ret.code == 0){
                 for(var i in res.rows){
                     room = res.rows[i].assignedDorm;
                     phone = res.rows[i].phone;

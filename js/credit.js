@@ -23,7 +23,7 @@ function getUserInfo(obj){
             education,entryYear,school,bank,city,cardNo,father,
             fatherNo,fatherId,mother,motherNo,motherId,friend1,friend1No,
             friend1Id;
-        if(!ret.code){
+        if(ret.code == 0){
             name = res.name;
             gender = res.gender;
             phone = res.phone;
@@ -41,6 +41,7 @@ function getUserInfo(obj){
             bank = res.bank;
             city = res.city;
             cardNo = res.cardNo;
+            reservedPhone = res.reservedPhone;
             father = res.fatherName;
             fatherId = res.fatherCard;
             fatherNo = res.fatherPhone;
@@ -67,6 +68,7 @@ function getUserInfo(obj){
             $("#bank > input").val(bank);
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
+            $("#tel > input").val(reservedPhone);
             $("#room > input").val(room);
             $("#education > input").val(education);
             $("#entryYear > input").val(entryYear);
@@ -116,7 +118,7 @@ function upload(url,contentEle) {
         processData: false
     }).done(function (ret) {
         ret = JSON.parse(ret);
-        if(!ret.code){
+        if(ret.code == 0){
             //preview(contentEle);
             var src = ret.result;
             $(contentEle).parent().next().find("img").attr("src",src);
@@ -191,7 +193,7 @@ function update(url){
         data: obj
     }).done(function (ret) {
         ret = JSON.parse(ret);
-        if(!ret.code){
+        if(ret.code == 0){
             alert("更新成功");
         }else {
             alert("更新失败：" + ret.msg);

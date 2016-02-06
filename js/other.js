@@ -26,7 +26,7 @@ function getData(obj){
             var total = res.total;
             var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
-            if(ret.code !== -1){
+            if(ret.code == 0){
                 for(var i in res.rows){
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].name;
@@ -77,7 +77,7 @@ function wageApply(obj){
                 url: obj.domain + "/ceo/insertPromoteApply.htm",
                 data: {name:name,promoteType:promoteType,remark:remark}
             }).done(function (ret) {
-                if(!ret.code){
+                if(ret.code == 0){
                     alert("提交成功！");
                     //提交成功后刷新数据
                     getData(obj);

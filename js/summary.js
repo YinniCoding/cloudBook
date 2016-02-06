@@ -9,7 +9,7 @@ function getSummaryInfo(obj) {
     }).done(function (ret) {
         ret = JSON.parse(ret);
         var res = ret.result;
-        if(!ret.code){
+        if(ret.code == 0){
             var NotDispatchingCount,NotExWarehouseCount,balances;
             NotDispatchingCount = res.NotDispatchingCount;
             NotExWarehouseCount = res.NotExWarehouseCount;

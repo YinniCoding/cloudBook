@@ -37,7 +37,7 @@ function getData(obj){
             var total = res.total;
             var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
-            if(ret.code !== -1){
+            if(ret.code == 0){
                 for(var i in res.rows){
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].name;
@@ -89,7 +89,7 @@ function wageApply(obj,dataObj) {
                 url: obj.domain + "/ceo/insertBookApply.htm",
                 data: obj.data
             }).done(function (ret) {
-                if(!ret.code){
+                if(ret.code == 0){
                     alert("提交成功！");
                     //提交成功刷新列表
                     getData(dataObj);

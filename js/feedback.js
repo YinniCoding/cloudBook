@@ -12,7 +12,7 @@ function doSubmit(contentEle,reqUrl) {
             data: {userInfo: global.userInfo}
         }).done(function (ret) {
             ret = JSON.parse(ret);
-            if(!ret.code){
+            if(ret.code == 0){
                 alert("问题提交成功！");
             }else {
                 alert(ret.msg);

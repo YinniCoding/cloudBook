@@ -37,7 +37,7 @@ function getData(obj){
             var total = res.total;
             var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
-            if(!ret.code){
+            if(ret.code == 0){
                 for(var i in res.rows){
                     addTime = res.rows[i].addTime;
                     type = res.rows[i].type;
@@ -95,7 +95,7 @@ function getWageTotal(obj) {
         success: function (ret) {
             ret = JSON.parse(ret);
             res = ret.result;
-            if(!ret.code){
+            if(ret.code == 0){
                 total = res.summary;
                 balances = res.balances;
                 $("#totalMoney").text(total);
@@ -138,7 +138,7 @@ function withdraw(obj,dataObj) {
         data: {"userInfo": obj.userInfo,"money": obj.money}
     }).done(function (ret) {
         ret = JSON.parse(ret);
-        if(!ret.code){
+        if(ret.code == 0){
             $("#withdrawModal").modal("hide");
             alert("提现成功!");
             //提现成功刷新列表
