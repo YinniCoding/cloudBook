@@ -63,7 +63,7 @@ function getData(obj){
 }
 
 //申请推广工资
-function wageApply(domain){
+function wageApply(obj){
     $("#salaryApplyWrap #submit").on("click", function () {
         var name = $("#name").val();
         var promoteType = $("#promoteType option:selected").val();
@@ -74,11 +74,13 @@ function wageApply(domain){
             return;
         }else {
             $.ajax({
-                url: domain + "/ceo/insertPromoteApply.htm",
+                url: obj.domain + "/ceo/insertPromoteApply.htm",
                 data: {name:name,promoteType:promoteType,remark:remark}
             }).done(function (ret) {
                 if(!ret.code){
                     alert("提交成功！");
+                    //提交成功后刷新数据
+                    getData(obj);
                 }else {
                     alert(ret.msg);
                 }
@@ -93,7 +95,8 @@ function wageApply(domain){
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
-    wageApply(global.domain);
+    var dataObj = {domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}};
+    getData(dataObj);
+    wageApply(dataObj);
 })();
 

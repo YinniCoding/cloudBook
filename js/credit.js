@@ -202,7 +202,8 @@ function update(url){
 }
 
 (function () {
-    getUserInfo({domain:global.domain,data:{userInfo:global.userInfo}});
+    var dataObj = {domain:global.domain,data:{userInfo:global.userInfo}};
+    getUserInfo(dataObj);
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));

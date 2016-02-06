@@ -114,9 +114,10 @@ function filter(obj) {
         var query = $("#query").val();
         var dataObj = obj;
         dataObj.data.addTime = date;
-        if(orderStatus !== "-1"){
-            dataObj.data.remarkInfo = orderStatus;
+        if(orderStatus == "-1"){
+            orderStatus = "";
         }
+        dataObj.data.remarkInfo = orderStatus;
         //电话
         if(/[0-9]{11}/.test(query)){
             dataObj.data.phone = query;
@@ -132,7 +133,8 @@ function filter(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
-    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    var dataObj = {domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}};
+    getData(dataObj);
+    filter(dataObj);
 })();
 

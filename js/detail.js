@@ -106,9 +106,10 @@ function filter(obj) {
         var query = $("#query").val().trim();
         var dataObj = obj;
         dataObj.data.addTime = date;
-        if(orderStatus != "-1"){
-            dataObj.data.remarkInfo = orderStatus;
+        if(orderStatus == "-1"){
+            orderStatus = "";
         }
+        dataObj.data.remarkInfo = orderStatus;
         //电话
         if(/[0-9]{11}/.test(query)){
             dataObj.data.phone = query;

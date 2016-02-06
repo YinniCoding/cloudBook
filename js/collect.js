@@ -72,12 +72,16 @@ function getData(obj){
     });
 }
 
-function wageApply(obj) {
+//第二个参数供提交成功后刷新列表用
+function wageApply(obj,dataObj) {
     $("#submit").on("click", function () {
         var name =  $("#name").val();
         var d = $("#datetimepicker").val();
         var number = $("#number").val();
         var remark = $("#remark").val();
+        obj.data.name = name;
+        obj.data.remark = remark;
+        obj.data.addTime = d;
         if(!name || !d || !number || !remark){
             alert("有必填项未填！");
         }else {
@@ -87,6 +91,8 @@ function wageApply(obj) {
             }).done(function (ret) {
                 if(!ret.code){
                     alert("提交成功！");
+                    //提交成功刷新列表
+                    getData(dataObj);
                 }else {
                     alert(ret.msg);
                 }
@@ -102,7 +108,8 @@ function wageApply(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
-    wageApply({domain:global.domain,data:{userInfo: global.userInfo}});
+    var dataObj = {domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}};
+    getData(dataObj);
+    wageApply({domain:global.domain,data:{userInfo: global.userInfo}},dataObj);
 })();
 

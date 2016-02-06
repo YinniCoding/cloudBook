@@ -73,11 +73,13 @@ function filter(obj) {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val().trim();
         var type = $("#type").val().trim();
+        console.log(obj);
         var dataObj = obj;
         dataObj.data.addTime = date;
         if(type !== "-1"){
-            dataObj.data.type = type;
+            type = "";
         }
+        dataObj.data.type = type;
         getData(dataObj);
     });
 }
@@ -128,15 +130,18 @@ function adjustMargin() {
     });
 })();
 
-//提现接口
-function withdraw(obj) {
+//提现接口,第一个参数自身使用,第二个参数供成功后刷新页面使用
+function withdraw(obj,dataObj) {
     $.ajax({
         url: obj.domain + "/ceo/withdrawal.htm",
         data: {"userInfo": obj.userInfo,"money": obj.money}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(!ret.code){
+            $("#withdrawModal").modal("hide");
             alert("提现成功!");
+            //提现成功刷新列表
+            getData(dataObj);
         }else {
             alert("提现失败!" + ret.msg);
         }
@@ -150,8 +155,9 @@ function withdraw(obj) {
     //默认展示第一页，每页16条，待配送状态
     var page = 1;
     var rows = 16;
-    getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
-    filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
+    var dataObj = {domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}};
+    getData(dataObj);
+    filter(dataObj);
 
     getWageTotal(global);
 
@@ -160,10 +166,10 @@ function withdraw(obj) {
         var withdrawCash = parseFloat($("#withdrawCash").text());
         //待提现金额
         var towithdraw = parseFloat($("#towithdraw").val());
-        if(!towithdraw || towithdraw < withdrawCash){
+        if(!towithdraw || towithdraw > withdrawCash){
             alert("可提现余额不足!");
         }else {
-            withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw});
+            withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw},dataObj);
         }
     });
 
