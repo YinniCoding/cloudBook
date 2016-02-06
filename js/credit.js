@@ -135,7 +135,7 @@ function update(url){
     var name = $("#name > input").val(),
         //gender = $("#gender > input").val(),
         phone = $("#phone > input").val(),
-        address = $("#addr > input").val(),
+        address = $("#idCardAddr > input").val(),
         idCard = $("#idCardNo > input").val(),
         //pidCard = $("#idCardFace").val(),
         //bidCard = $("#idCardBack").val(),
