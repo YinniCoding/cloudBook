@@ -172,6 +172,9 @@ function withdraw(obj,dataObj) {
             withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw},dataObj);
         }
     });
+    $("#cancel").on("click",function(){
+        $("#towithdraw").val("");
+    });
 
 })();
 
