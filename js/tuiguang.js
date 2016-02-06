@@ -38,7 +38,7 @@ function getData(obj){
         },
         success: function (ret) {
             $("#loading").hide();
-            var ret = JSON.parse(ret);
+            ret = JSON.parse(ret);
             
             if(ret.code == 0){
                 var res = ret.result;

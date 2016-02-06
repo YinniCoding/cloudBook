@@ -31,7 +31,7 @@ function getData(obj){
         },
         success: function (ret) {
             $("#loading").hide();
-            var ret = JSON.parse(ret);
+            ret = JSON.parse(ret);
             var res = ret.result;
             var addTime,type,account,balance,remarkInfo;
             var total = res.total;

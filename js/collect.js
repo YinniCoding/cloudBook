@@ -90,6 +90,7 @@ function wageApply(obj,dataObj) {
                 url: obj.domain + "/ceo/insertBookApply.htm",
                 data: obj.data
             }).done(function (ret) {
+                ret = JSON.parse(ret);
                 if(ret.code == 0){
                     alert("提交成功！");
                     //提交成功刷新列表

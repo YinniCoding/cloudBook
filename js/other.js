@@ -77,6 +77,7 @@ function wageApply(obj){
                 url: obj.domain + "/ceo/insertPromoteApply.htm",
                 data: {name:name,promoteType:promoteType,remark:remark}
             }).done(function (ret) {
+                ret = JSON.parse(ret);
                 if(ret.code == 0){
                     alert("提交成功！");
                     //提交成功后刷新数据

@@ -20,7 +20,7 @@ function getData(obj){
         },
         success: function (ret) {
             $("#loading").hide();
-            var ret = JSON.parse(ret);
+            ret = JSON.parse(ret);
             var res = ret.result;
             var room,phone,time,remark,memberInfo,schoolInfo;
             var total = res.total;
