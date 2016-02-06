@@ -82,6 +82,7 @@ function wageApply(obj,dataObj) {
         obj.data.name = name;
         obj.data.remark = remark;
         obj.data.addTime = d;
+        obj.data.number = number;
         if(!name || !d || !number || !remark){
             alert("有必填项未填！");
         }else {
