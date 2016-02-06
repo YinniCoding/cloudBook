@@ -48,6 +48,7 @@ function getData(obj){
                     trContent += "<td>" + type + "</td>";
                     trContent += "<td>" + account + "</td>";
                     trContent += "<td>" + balance + "</td>";
+                    trContent += "<td>" + remarkInfo + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
@@ -76,7 +77,7 @@ function filter(obj) {
         console.log(obj);
         var dataObj = obj;
         dataObj.data.addTime = date;
-        if(type !== "-1"){
+        if(type == "-1"){
             type = "";
         }
         dataObj.data.type = type;
