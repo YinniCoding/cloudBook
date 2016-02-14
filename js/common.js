@@ -57,7 +57,7 @@ if($("#datetimepicker").length){
     var cookie = document.cookie.split(";");
     var isLogin = false;
     //方便线下调试
-    var DEBUG = true;
+    var DEBUG = false;
     if(DEBUG){
         global.userInfo = 42;
     }else {

@@ -107,8 +107,8 @@ function filter(obj) {
         //重新组织筛选参数
         var dataObj = {domain:"",data:{}};
         dataObj.domain = obj.domain;
-        dataObj.page = obj.data.page;
-        dataObj.rows = obj.data.rows;
+        dataObj.data.page = obj.data.page;
+        dataObj.data.rows = obj.data.rows;
         dataObj.data.userInfo = obj.data.userInfo;
         dataObj.data.addTime = date;
         if(orderStatus == "-1"){
