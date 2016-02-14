@@ -112,7 +112,12 @@ function filter(obj) {
         var date = $("#datetimepicker").val();
         var orderStatus = $("#orderStatus option:selected").val();
         var query = $("#query").val();
-        var dataObj = obj;
+        var dataObj = {domain:"",data:{}};
+        dataObj.domain = obj.domain;
+        dataObj.data.page = obj.data.page;
+        dataObj.data.rows = obj.data.rows;
+        dataObj.data.userInfo = obj.data.userInfo;
+
         dataObj.data.addTime = date;
         if(orderStatus == "-1"){
             orderStatus = "";

@@ -104,17 +104,24 @@ function filter(obj) {
         var date = $("#datetimepicker").val().trim();
         var orderStatus = $("#orderStatus option:selected").val().trim();
         var query = $("#query").val().trim();
-        var dataObj = obj;
+        //重新组织筛选参数
+        var dataObj = {domain:"",data:{}};
+        dataObj.domain = obj.domain;
+        dataObj.page = obj.data.page;
+        dataObj.rows = obj.data.rows;
+        dataObj.data.userInfo = obj.data.userInfo;
         dataObj.data.addTime = date;
         if(orderStatus == "-1"){
             orderStatus = "";
         }
         dataObj.data.remarkInfo = orderStatus;
         //电话
-        if(/[0-9]{11}/.test(query)){
-            dataObj.data.phone = query;
-        }else {
-            dataObj.data.name = query;
+        if(query){
+            if(/[0-9]{11}/.test(query)){
+                dataObj.data.phone = query;
+            }else {
+                dataObj.data.name = query;
+            }
         }
         getData(dataObj);
     });

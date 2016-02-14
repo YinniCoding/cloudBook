@@ -12,6 +12,7 @@ function setDate(){
     }
     var day = d.getDate();
     $("#datetimepicker").val(year + "-" + month + "-" + day);
+    $("#datetimepicker2").val(year + "-" + month + "-" + day);
 }
 
 
@@ -79,7 +80,12 @@ function filter(obj) {
         var startTime = $("#datetimepicker").val().trim();
         var endTime = $("#datetimepicker2").val().trim();
         var query = $("#query").val().trim();
-        var dataObj = obj;
+        var dataObj = {domain:"",data:{}};
+        dataObj.domain = obj.domain;
+        dataObj.data.page = obj.data.page;
+        dataObj.data.rows = obj.data.rows;
+        dataObj.data.userInfo = obj.data.userInfo;
+
         dataObj.data.name = query;
         dataObj.data.startTime = startTime;
         dataObj.data.endTime = endTime;

@@ -74,8 +74,12 @@ function filter(obj) {
     $("#filter").on("click",function () {
         var date = $("#datetimepicker").val().trim();
         var type = $("#type").val().trim();
-        console.log(obj);
-        var dataObj = obj;
+        var dataObj = {domain:"",data:{}};
+        dataObj.domain = obj.domain;
+        dataObj.data.page = obj.data.page;
+        dataObj.data.rows = obj.data.rows;
+        dataObj.data.userInfo = obj.data.userInfo;
+
         dataObj.data.addTime = date;
         if(type == "-1"){
             type = "";
