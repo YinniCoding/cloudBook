@@ -171,7 +171,11 @@ function withdraw(obj,dataObj) {
         var withdrawCash = parseFloat($("#withdrawCash").text());
         //待提现金额
         var towithdraw = parseFloat($("#towithdraw").val());
-        if(!towithdraw || towithdraw > withdrawCash){
+        if(isNaN(towithdraw)){
+            alert("请输入合法数字!");
+            return;
+        }
+        if(towithdraw === 0 || towithdraw > withdrawCash){
             alert("可提现余额不足!");
         }else {
             withdraw({domain:global.domain,userInfo:global.userInfo,money:towithdraw},dataObj);
