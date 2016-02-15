@@ -44,13 +44,13 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.data.page,
-                    total:total,
-                    rows:obj.data.rows,
-                    userInfo:obj.data.userInfo,
-                    addTime:obj.data.addTime,
-                    remarkInfo:obj.data.remarkInfo,
-                    name:obj.data.name
+                    domain: obj.domain,
+                    total: total,
+                    data: {
+                        page: obj.data.page,
+                        rows: obj.data.rows,
+                        userInfo: obj.data.userInfo,
+                    }
                 });
                 setActive(obj.data.page,totalPage);
                 //definePageClick(obj);

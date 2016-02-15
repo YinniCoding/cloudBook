@@ -33,7 +33,7 @@ function getData(obj){
             $("#loading").hide();
             ret = JSON.parse(ret);
             var res = ret.result;
-            var addTime,type,account,balance,remarkInfo;
+            var addTime,type,account,balance,remark;
             var total = res.total;
             var totalPage = Math.ceil(total / obj.data.rows);
             var trContent = "<tr>";
@@ -43,22 +43,25 @@ function getData(obj){
                     type = res.rows[i].type;
                     account = res.rows[i].account;
                     balance = res.rows[i].balance;
-                    remarkInfo = res.rows[i].remark;
+                    remark = res.rows[i].remark;
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + type + "</td>";
                     trContent += "<td>" + account + "</td>";
                     trContent += "<td>" + balance + "</td>";
-                    trContent += "<td>" + remarkInfo + "</td>";
+                    trContent += "<td>" + remark + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.data.page,
-                    total:total,
-                    rows:obj.data.rows,
-                    userInfo:obj.data.userInfo,
-                    addTime:obj.data.addTime
+                    domain: obj.domain,
+                    total: total,
+                    data: {
+                        page: obj.data.page,
+                        rows: obj.data.rows,
+                        userInfo: obj.data.userInfo,
+
+                    }
                 });
                 setActive(obj.data.page,totalPage);
             }else {

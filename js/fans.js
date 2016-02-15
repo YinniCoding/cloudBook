@@ -57,12 +57,16 @@ function getData(obj){
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
                 setPagination({
-                    page:obj.data.page,
-                    total:total,
-                    rows:obj.data.rows,
-                    userInfo:obj.data.userInfo,
-                    addTime:obj.data.addTime,
-                    userName:obj.data.userName
+                    domain: obj.domain,
+                    total: total,
+                    data: {
+                        page: obj.data.page,
+                        rows: obj.data.rows,
+                        userInfo: obj.data.userInfo,
+                        startTime: obj.data.startTime,
+                        endTime: obj.data.endTime,
+                        name: obj.data.name
+                    }
                 });
                 setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
