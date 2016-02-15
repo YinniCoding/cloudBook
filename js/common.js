@@ -92,11 +92,11 @@ function changeColor(){
         "color": "#ffb000"
     });
 
-    $("#dataTable td:contains('配送完成')").css({
+    $("#dataTable td span:contains('配送完成')").css({
         "color": "#32a555"
     });
 
-    $("#dataTable td:contains('订单错误')").css({
+    $("#dataTable td span:contains('订单错误')").css({
         "color": "red"
     });
 }
@@ -121,9 +121,9 @@ function radioCheck(ele){
  * rows：每页多少条记录
 * */
 function setPagination(obj){
-    var page = obj.page;
+    var page = obj.data.page;
     var total = obj.total;
-    var rows = obj.rows;
+    var rows = obj.data.rows;
     var totalPage = Math.ceil(total / rows);
     var liContent = "";
 
@@ -196,7 +196,7 @@ function definePageClick(dataObj){
             $(ele).on("click",function () {
                 //非前翻页后翻页的普通翻页元素
                 page = parseInt($(ele).text());
-                dataObj.page = page;
+                dataObj.data.page = page;
                 $(ele).unbind("click");
                 getData(dataObj);
             });
@@ -210,7 +210,7 @@ function definePageClick(dataObj){
             curPage = $("#paginationPages > li.active > a").text();
             page = curPage - 1;
             //page = page <= 0 ? 1 : page;
-            dataObj.page = page;
+            dataObj.data.page = page;
             getData(dataObj);
         }
     });
@@ -220,9 +220,29 @@ function definePageClick(dataObj){
             curPage = $("#paginationPages > li.active > a").text();
             page = parseInt(curPage) + 1;
             //page = page >= totalPage ?
-            dataObj.page = page;
+            dataObj.data.page = page;
             getData(dataObj);
         }
     });
 }
 
+//改变订单状态
+function changeStatus() {
+    $("td.order ul.dropdown-menu a").each(function () {
+        $(this).on("click", function () {
+            var orderInfo = $(this).closest(".order").parent().children("td:nth-child(1)").attr("tradeid");
+            var orderStatus = $(this).attr("orderStatus");
+            $.ajax({
+                url: global.domain + "/ceo/updateRemarkInfo.htm",
+                data: {orderInfo: orderInfo,remarkInfo: orderStatus}
+            }).done(function (ret) {
+                ret = JSON.parse(ret);
+                if(ret.code !== 0){
+                    alert("修改状态失败:" + ret.msg);
+                }
+            }).fail(function () {
+                alert("请求失败!");
+            });
+        });
+    });
+}
