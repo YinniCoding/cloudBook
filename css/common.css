@@ -1,9 +1,9 @@
 /*
- * Des£º¹«¹²cssÑùÊ½
- * Author£º njhxzhangjihong@126.com
- * Date£º2016/1/13
+ * Desï¼šå…¬å…±cssæ ·å¼
+ * Authorï¼š njhxzhangjihong@126.com
+ * Dateï¼š2016/1/13
  */
-/*Í·²¿*/
+/*å¤´éƒ¨*/
 .wrap {
     margin: 0 auto;
     width: 90%;
@@ -55,7 +55,7 @@
     margin-bottom: 32px;
 }
 
-/*×ó²àµ¼º½*/
+/*å·¦ä¾§å¯¼èˆª*/
 #sidebar {
     background-color: white;
     width: 145px;
@@ -94,7 +94,7 @@ li.active > a {
     text-align: left;
 }
 
-/*ÄÚÈİÈİÆ÷*/
+/*å†…å®¹å®¹å™¨*/
 #infoWrap {
     padding: 20px;
     margin-left: 20px;
@@ -134,7 +134,7 @@ input[type='text'] {
     color: white;
 }
 
-/*ÊäÈë¿ò*/
+/*è¾“å…¥æ¡†*/
 .form-control {
     width: 45%;
     background-color: rgb(175,195,204);
@@ -143,7 +143,7 @@ input[type='text'] {
     margin: 2px;
 }
 
-/*Í¨¸æÀ¸*/
+/*é€šå‘Šæ */
 #notice {
     background-color: white;
     /*margin-left: 20%;*/
@@ -164,7 +164,7 @@ input[type='text'] {
     color: #27a3ff !important;
 }
 
-/*±í¸ñÈİÆ÷*/
+/*è¡¨æ ¼å®¹å™¨*/
 #tableWrap {
     margin-top: 30px;
     background-color: white;
@@ -182,6 +182,11 @@ td,th {
     word-break: break-all;
     /*min-width: 200px;*/
     /*max-width: 300px;*/
+}
+
+table span.glyphicon-edit {
+    color: #27a3ff !important;
+    cursor: pointer;
 }
 
 #loading {
@@ -213,7 +218,7 @@ td,th {
     float: right;
 }
 
-/*ËÑË÷À¸*/
+/*æœç´¢æ */
 #searchNav {
     margin: 10px;
 }
