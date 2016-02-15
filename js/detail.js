@@ -35,11 +35,19 @@ function getData(obj){
             
             if(ret.code == 0){
                 var res = ret.result;
-                var tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
+                var tradeId,tradeNumber,addTime,name,phone,address,message,inviteCode,remarkInfo;
                 var total = res.total;
                 var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
+                var statusDropdown = "<span class='glyphicon glyphicon-edit' data-toggle='dropdown'></span>" +
+                    "<ul class='dropdown-menu'>" +
+                    "<li><a href='javascript:;' orderStatus='2'>待配送</a></li>" +
+                    "<li><a href='javascript:;' orderStatus='3'>电话不通</a></li>" +
+                    "<li><a href='javascript:;' orderStatus='6'>不在寝室</a></li>" +
+                    "<li><a href='javascript:;' orderStatus='4'>配送完成</a></li>" +
+                    "</ul>";
                 for(var i in res.rows){
+                    tradeId = res.rows[i].order.id;
                     tradeNumber = res.rows[i].order.tradeNumber;
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].order.name;
@@ -48,45 +56,51 @@ function getData(obj){
                     message = res.rows[i].order.message;
                     remarkInfo = res.rows[i].remarkInfo;
                     inviteCode = "";
-                    trContent += "<td>" + tradeNumber + "</td>";
+                    trContent += "<td tradeid='" + tradeId + "'>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + phone + "</td>";
                     trContent += "<td>" + address + "</td>";
                     trContent += "<td>" + message + "</td>";
                     trContent += "<td>" + inviteCode + "</td>";
+
                     switch(remarkInfo){
                         case "1":
-                            trContent += "<td class='order'>未出库</td>";
+                            trContent += "<td class='order'><span>未出库</span></td>";
                             break;
                         case "2":
-                            trContent += "<td class='order'>待配送<span class='glyphicon glyphicon-edit'></span></td>";
+                            trContent += "<td class='order'><div class='dropdown'><span>待配送</span>" + statusDropdown + "</div></td>";
                             break;
                         case "3":
-                            trContent += "<td class='order'>电话不通<span class='glyphicon glyphicon-edit'></span></td>";
+                            trContent += "<td class='order'><div class='dropdown'><span>电话不通</span>" + statusDropdown + "</div></td>";
                             break;
                         case "4":
-                            trContent += "<td class='order'>配送完成</td>";
+                            trContent += "<td class='order'><span>配送完成</span></td>";
                             break;
                         case "5":
-                            trContent += "<td class='order'>订单错误<span class='glyphicon glyphicon-edit'></span></td>td>";
+                            trContent += "<td class='order'><div class='dropdown'><span>订单错误</span>" + statusDropdown + "</div></td>";
                             break;
                         case "6":
-                            trContent += "<td class='order'>不在寝室<span class='glyphicon glyphicon-edit'></span></td>td>";
+                            trContent += "<td class='order'><div class='dropdown'><span>不在寝室</span>" + statusDropdown + "</div></td>";
                             break;
                     }
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
                 changeColor();
+                changeStatus();
                 setPagination({
-                    page:obj.data.page,
-                    total:total,
-                    rows:obj.data.rows,
-                    userInfo:obj.data.userInfo,
-                    addTime:obj.data.addTime,
-                    remarkInfo:obj.data.remarkInfo,
-                    name:obj.name
+                    domain: obj.domain,
+                    total: total,
+                    data: {
+                        page: obj.data.page,
+                        rows: obj.data.rows,
+                        userInfo: obj.data.userInfo,
+                        addTime: obj.data.addTime,
+                        remarkInfo: obj.data.remarkInfo,
+                        name: obj.data.name,
+                        phone: obj.data.phone
+                    }
                 });
                 setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
