@@ -227,7 +227,7 @@ function definePageClick(dataObj){
 }
 
 //改变订单状态
-function changeStatus() {
+function changeStatus(obj) {
     $("td.order ul.dropdown-menu a").each(function () {
         $(this).on("click", function () {
             var orderInfo = $(this).closest(".order").parent().children("td:nth-child(1)").attr("tradeid");
@@ -239,6 +239,9 @@ function changeStatus() {
                 ret = JSON.parse(ret);
                 if(ret.code !== 0){
                     alert("修改状态失败:" + ret.msg);
+                }else {
+                    //异步刷新列表
+                    getData(obj);
                 }
             }).fail(function () {
                 alert("请求失败!");

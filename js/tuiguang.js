@@ -94,9 +94,7 @@ function getData(obj){
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);
-                changeColor();
-                changeStatus();
-                setPagination({
+                var updateObj = {
                     domain: obj.domain,
                     total: total,
                     data: {
@@ -108,7 +106,10 @@ function getData(obj){
                         name: obj.data.name,
                         phone: obj.data.phone
                     }
-                });
+                };
+                changeColor();
+                changeStatus(updateObj);
+                setPagination(updateObj);
                 setActive(obj.data.page,totalPage);
                 //definePageClick(obj);
             }else {
