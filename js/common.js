@@ -230,7 +230,7 @@ function definePageClick(dataObj){
 function changeStatus(obj) {
     $("td.order ul.dropdown-menu a").each(function () {
         $(this).on("click", function () {
-            var orderInfo = $(this).closest(".order").parent().children("td:nth-child(1)").attr("tradeid");
+            var orderInfo = $(this).closest(".order").parent().children("td:nth-child(1)").attr("orderinfo");
             var orderStatus = $(this).attr("orderStatus");
             $.ajax({
                 url: global.domain + "/ceo/updateRemarkInfo.htm",

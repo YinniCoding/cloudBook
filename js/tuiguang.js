@@ -42,7 +42,7 @@ function getData(obj){
             
             if(ret.code == 0){
                 var res = ret.result;
-                var tradeId,tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
+                var orderInfo,tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
                 var total = res.total;
                 var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
@@ -54,7 +54,7 @@ function getData(obj){
                     "<li><a href='javascript:;' orderStatus='4'>配送完成</a></li>" +
                     "</ul>";
                 for(var i in res.rows){
-                    tradeId = res.rows[i].id;
+                    orderInfo = res.rows[i].orderInfo;
                     tradeNumber = res.rows[i].tradeNumber;
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].name;
@@ -63,7 +63,7 @@ function getData(obj){
                     message = res.rows[i].message;
                     orderStatus = res.rows[i].orderStatus;
                     inviteCode = "";
-                    trContent += "<td tradeid='" + tradeId + "'>" + tradeNumber + "</td>";
+                    trContent += "<td orderinfo='" + orderInfo + "'>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + phone + "</td>";
