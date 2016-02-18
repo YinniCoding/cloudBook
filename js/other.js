@@ -36,10 +36,16 @@ function getData(obj){
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + promoteType + "</td>";
-                    if(valid){
-                        trContent += "<td style='color: #32a555'>审核通过</td>";
-                    }else {
-                        trContent += "<td style='color: #ffb000'>未审核</td>";
+                    switch (valid){
+                        case 0:
+                            trContent += "<td style='color: #ffb000'>未审核</td>";
+                            break;
+                        case 1:
+                            trContent += "<td style='color: #32a555'>审核通过</td>";
+                            break;
+                        case 2:
+                            trContent += "<td>审核未通过</td>";
+                            break;
                     }
                     trContent += "<td>" + remark + "</td>";
                     trContent += "</tr>";

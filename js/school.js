@@ -34,11 +34,11 @@ function getData(obj){
                     remark = res.rows[i].remark;
                     memberInfo = res.rows[i].memberInfo;
                     schoolInfo = res.rows[i].schoolInfo;
-                    trContent += "<td>" + room + "</td>";
+                    trContent += "<td>" + schoolInfo + "</td>";
                     trContent += "<td>" + memberInfo + "</td>";
                     trContent += "<td>" + phone + "</td>";
+                    trContent += "<td>" + room + "</td>";
                     trContent += "<td>" + remark + "</td>";
-                    trContent += "<td>" + schoolInfo + "</td>";
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);

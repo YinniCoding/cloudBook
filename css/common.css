@@ -32,6 +32,29 @@
     color: #27a3ff;
 }
 
+#rightNav .dropdown-menu {
+    color: white;
+    text-align: center;
+    right: 7% !important;
+    min-width: 150px;
+    background: #27a3ff;
+}
+
+#rightNav .dropdown-menu a {
+    color: white;
+}
+
+#rightNav .dropdown-menu a:hover {
+    background: #27a3ff;
+    color: #000;
+}
+
+#rightNav img {
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
 #leftNav {
     margin-left: 2%;
 }
@@ -58,7 +81,7 @@
 /*左侧导航*/
 #sidebar {
     background-color: white;
-    width: 145px;
+    width: 155px;
     /*margin-left: 40px;*/
     padding: 0 10px 0 10px;
     text-align: center;
@@ -92,6 +115,13 @@ li.active > a {
 
 #sidebar a {
     text-align: left;
+}
+
+/*徽章*/
+#sidebar .badge {
+    background: red;
+    color: white;
+    vertical-align: super;
 }
 
 /*内容容器*/

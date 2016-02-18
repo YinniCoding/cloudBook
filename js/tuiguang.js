@@ -42,10 +42,11 @@ function getData(obj){
             
             if(ret.code == 0){
                 var res = ret.result;
-                var orderInfo,tradeNumber,addTime,name,phone,address,message,inviteCode,orderStatus;
+                var orderInfo,tradeNumber,addTime,name,phone,address,message,inviteCode;
                 var total = res.total;
                 var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
+                /*
                 var statusDropdown = "<span class='glyphicon glyphicon-edit' data-toggle='dropdown'></span>" +
                     "<ul class='dropdown-menu'>" +
                     "<li><a href='javascript:;' orderStatus='2'>待配送</a></li>" +
@@ -53,6 +54,7 @@ function getData(obj){
                     "<li><a href='javascript:;' orderStatus='6'>不在寝室</a></li>" +
                     "<li><a href='javascript:;' orderStatus='4'>配送完成</a></li>" +
                     "</ul>";
+                */
                 for(var i in res.rows){
                     orderInfo = res.rows[i].orderInfo;
                     tradeNumber = res.rows[i].tradeNumber;
@@ -61,7 +63,7 @@ function getData(obj){
                     phone = res.rows[i].phone;
                     address = res.rows[i].address;
                     message = res.rows[i].message;
-                    orderStatus = res.rows[i].orderStatus;
+                    //orderStatus = res.rows[i].orderStatus;
                     inviteCode = "";
                     trContent += "<td orderinfo='" + orderInfo + "'>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
@@ -70,7 +72,7 @@ function getData(obj){
                     trContent += "<td>" + address + "</td>";
                     trContent += "<td>" + message + "</td>";
                     trContent += "<td>" + inviteCode + "</td>";
-                    trContent += "<td>" + orderStatus + "</td>";
+                    /*
                     switch(orderStatus){
                         case "1":
                             trContent += "<td class='order'>未出库</td>";
@@ -91,6 +93,7 @@ function getData(obj){
                             trContent += "<td class='order'><div class='dropdown'><span>不在寝室</span>" + statusDropdown + "</div></td>";
                             break;
                     }
+                    */
                     trContent += "</tr>";
                 }
                 $("#dataTable > tbody").html(trContent);

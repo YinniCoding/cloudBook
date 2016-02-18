@@ -57,9 +57,14 @@ if($("#datetimepicker").length){
     var cookie = document.cookie.split(";");
     var isLogin = false;
     //方便线下调试
-    var DEBUG = false;
+    var DEBUG = true;
     if(DEBUG){
         global.userInfo = 42;
+        //for(var i in cookie){
+        //    if(/userLoginName/.test(cookie[i])){
+        //        $("#headerName").text(cookie[i].split("=")[1]);
+        //    }
+        //}
     }else {
         for(var i in cookie){
             if(/isLogin/.test(cookie[i])){
@@ -75,6 +80,9 @@ if($("#datetimepicker").length){
                 //登录情况下从cookie获取用户id
                 if(/userId/.test(cookie[i])){
                     global.userInfo = cookie[i].split("=")[1];
+                }
+                if(/userLoginName/.test(cookie[i])){
+                    $("#headerName").text(cookie[i].split("=")[1]);
                 }
             }else {
                 window.location.href = "index.html";
@@ -249,3 +257,19 @@ function changeStatus(obj) {
         });
     });
 }
+
+function clearCookie(){
+    var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+    if (keys) {
+        for (var i = keys.length; i--;)
+            document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+    }
+}
+
+//点击头像效果
+(function () {
+    $("#logout").on("click", function () {
+        //清除cookie中登录状态
+        clearCookie();
+    });
+})();
