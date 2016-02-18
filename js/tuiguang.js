@@ -42,7 +42,7 @@ function getData(obj){
             
             if(ret.code == 0){
                 var res = ret.result;
-                var orderInfo,tradeNumber,addTime,name,phone,address,message,inviteCode;
+                var orderInfo,tradeNumber,addTime,name,phone,schoolInfo,address,message,inviteCode;
                 var total = res.total;
                 var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
@@ -61,6 +61,7 @@ function getData(obj){
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].name;
                     phone = res.rows[i].phone;
+                    schoolInfo = res.rows[i].schoolInfo;
                     address = res.rows[i].address;
                     message = res.rows[i].message;
                     //orderStatus = res.rows[i].orderStatus;
@@ -69,6 +70,7 @@ function getData(obj){
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
                     trContent += "<td>" + phone + "</td>";
+                    trContent += "<td>" + schoolInfo + "</td>";
                     trContent += "<td>" + address + "</td>";
                     trContent += "<td>" + message + "</td>";
                     trContent += "<td>" + inviteCode + "</td>";

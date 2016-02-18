@@ -54,7 +54,7 @@ function getData(obj){
                     addTime = res.rows[i].addTime;
                     name = res.rows[i].order.name;
                     phone = res.rows[i].order.phone;
-                    schoolInfo = res.rows[i].order.schoolInfo;
+                    schoolInfo = res.rows[i].schoolInfo;
                     address = res.rows[i].order.address;
                     message = res.rows[i].order.message;
                     remarkInfo = res.rows[i].remarkInfo;
