@@ -35,7 +35,7 @@ function getData(obj){
             
             if(ret.code == 0){
                 var res = ret.result;
-                var orderInfo,tradeNumber,addTime,name,phone,schoolInfo,address,message,inviteCode,remarkInfo;
+                var orderInfo,tradeNumber,addTime,name,phone,schoolInfo,address,message,inviteCode,remarkInfo,userInfo,id;
                 var total = res.total;
                 var totalPage = Math.ceil(total / obj.data.rows);
                 var trContent = "<tr>";
@@ -58,6 +58,11 @@ function getData(obj){
                     address = res.rows[i].order.address;
                     message = res.rows[i].order.message;
                     remarkInfo = res.rows[i].remarkInfo;
+
+                    //供修改订单状态用,区别开登录用户的userInfo
+                    userInfo = res.rows[i].userInfo;
+                    id = res.rows[i].id;
+
                     inviteCode = "";
                     trContent += "<td orderinfo='" + orderInfo + "'>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
@@ -105,7 +110,7 @@ function getData(obj){
                     }
                 };
                 changeColor();
-                changeStatus(updateObj);
+                changeStatus({userInfo: userInfo,id: id},updateObj);
                 setPagination(updateObj);
                 setActive(obj.data.page,totalPage);
                 //definePageClick(obj);

@@ -4,7 +4,7 @@
  */
 //全局变量区
 var global = {
-    domain: "http://test1.qess.me",
+    domain: "http://ceo.qess.me",
     userInfo: ""
 };
 
@@ -57,7 +57,7 @@ if($("#datetimepicker").length){
     var cookie = document.cookie.split(";");
     var isLogin = false;
     //方便线下调试
-    var DEBUG = true;
+    var DEBUG = false;
     if(DEBUG){
         global.userInfo = 42;
         //for(var i in cookie){
@@ -234,22 +234,27 @@ function definePageClick(dataObj){
     });
 }
 
-//改变订单状态
-function changeStatus(obj) {
+/*改变订单状态
+* obj为修改订单状态时所需的参数对象
+* updateObj供异步刷新用
+* */
+function changeStatus(obj,updateObj) {
     $("td.order ul.dropdown-menu a").each(function () {
         $(this).on("click", function () {
             var orderInfo = $(this).closest(".order").parent().children("td:nth-child(1)").attr("orderinfo");
             var orderStatus = $(this).attr("orderStatus");
+            //var _this = $(this);
             $.ajax({
                 url: global.domain + "/ceo/updateRemarkInfo.htm",
-                data: {orderInfo: orderInfo,remarkInfo: orderStatus}
+                data: {orderInfo: orderInfo,remarkInfo: orderStatus,userInfo: obj.userInfo,id: obj.id}
             }).done(function (ret) {
                 ret = JSON.parse(ret);
                 if(ret.code !== 0){
                     alert("修改状态失败:" + ret.msg);
                 }else {
-                    //异步刷新列表
-                    getData(obj);
+                    //异步刷新
+                    //_this.closest(".dropdown").children("span:first").text(_this.text());
+                    getData(updateObj);
                 }
             }).fail(function () {
                 alert("请求失败!");

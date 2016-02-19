@@ -10,7 +10,7 @@ function setBgdPic() {
 
 //全局变量区,index不引用common.js,重新定义
 var global = {
-    domain: "http://test1.qess.me"
+    domain: "http://ceo.qess.me"
 };
 
 (function () {
