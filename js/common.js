@@ -265,11 +265,19 @@ function changeStatus(obj,updateObj) {
 }
 
 function clearCookie(){
-    var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
-    if (keys) {
-        for (var i = keys.length; i--;)
-            document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
-    }
+    //var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+    //if (keys) {
+    //    for (var i = keys.length; i--;)
+    //        document.cookie=keys[i]+'=0;expires=' + new Date( 0).toUTCString()
+    //}
+    $.ajax({
+        url: global.domain + "/ceo/clearCookie.htm"
+    }).done(function (ret) {
+        ret = JSON.parse(ret);
+        if(ret.code !== 0){
+            alert(ret.msg);
+        }
+    });
 }
 
 //点击头像效果
