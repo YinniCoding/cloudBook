@@ -255,6 +255,7 @@ function changeStatus(obj,updateObj) {
                     //异步刷新
                     //_this.closest(".dropdown").children("span:first").text(_this.text());
                     getData(updateObj);
+                    setBadge();
                 }
             }).fail(function () {
                 alert("请求失败!");

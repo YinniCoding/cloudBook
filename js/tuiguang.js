@@ -65,7 +65,7 @@ function getData(obj){
                     address = res.rows[i].address;
                     message = res.rows[i].message;
                     //orderStatus = res.rows[i].orderStatus;
-                    inviteCode = "";
+                    inviteCode = res.rows[i].inviteCode;
                     trContent += "<td orderinfo='" + orderInfo + "'>" + tradeNumber + "</td>";
                     trContent += "<td>" + addTime + "</td>";
                     trContent += "<td>" + name + "</td>";
