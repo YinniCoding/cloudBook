@@ -283,3 +283,7 @@ table .dropdown-menu li > a:hover {
     width: 20%;
     height: 34px;
 }
+
+#qrcode {
+    width: 200px;
+}
