@@ -43,8 +43,9 @@ function getData(obj){
                     "<ul class='dropdown-menu'>" +
                     "<li><a href='javascript:;' orderStatus='2'>待配送</a></li>" +
                     "<li><a href='javascript:;' orderStatus='3'>电话不通</a></li>" +
-                    "<li><a href='javascript:;' orderStatus='6'>不在寝室</a></li>" +
                     "<li><a href='javascript:;' orderStatus='4'>配送完成</a></li>" +
+                    "<li><a href='javascript:;' orderStatus='5'>订单错误</a></li>" +
+                    "<li><a href='javascript:;' orderStatus='6'>不在寝室</a></li>" +
                     "</ul>";
                 //$("#sidebar li .badge").text("");
                 //$("#sidebar li.active .badge").text(total);
