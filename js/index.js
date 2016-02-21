@@ -55,7 +55,7 @@ function login() {
 
     //刷新验证码
     $("#code").on("click", function () {
-        $(this).find("img").attr("src",global.domain + "/veriCode.jpeg?id=" + Math.random())
+        $(this).find("img").attr("src",global.domain + "/veriCode.jpeg?id=" + Math.random());
     });
 
     //右侧图片自动拉伸
@@ -65,4 +65,6 @@ function login() {
     $(window).resize(function () {
         setBgdPic();
     });
+
+    $("#code > img").attr("src",global.domain + "/veriCode.jpeg");
 })();
