@@ -46,8 +46,8 @@ function getData(obj){
                     "<li><a href='javascript:;' orderStatus='6'>不在寝室</a></li>" +
                     "<li><a href='javascript:;' orderStatus='4'>配送完成</a></li>" +
                     "</ul>";
-                $("#sidebar li .badge").text("");
-                $("#sidebar li.active .badge").text(total);
+                //$("#sidebar li .badge").text("");
+                //$("#sidebar li.active .badge").text(total);
                 for(var i in res.rows){
                     orderInfo = res.rows[i].orderInfo;
                     tradeNumber = res.rows[i].order.tradeNumber;
@@ -179,6 +179,34 @@ function sidebar(obj) {
     });
 }
 
+//左侧菜单栏徽章
+function setBadge() {
+    var url = global.domain + "/ceo/getAssignmentList.htm";
+    var data = {page:1,rows:16,userInfo:global.userInfo,remarkInfo:1};
+    var res = "";
+    $.ajax({
+        url: url,
+        data: data
+    }).done(function (ret) {
+        res = JSON.parse(ret).result;
+        if(res.total){
+            $("#sidebar li:nth-child(1) .badge").text(res.total);
+        }
+    });
+
+    delete data.remarkInfo;
+    data.remarkInfo = 2;
+    $.ajax({
+        url: url,
+        data: data
+    }).done(function (ret) {
+        res = JSON.parse(ret).result;
+        if(res.total){
+            $("#sidebar li:nth-child(2) .badge").text(res.total);
+        }
+    });
+}
+
 (function main() {
     setDate();
     //默认展示第一页，每页16条，待配送状态
@@ -192,5 +220,6 @@ function sidebar(obj) {
     getData({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo}});
     filter({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo}});
     sidebar({domain:global.domain,data:{page:page,rows:rows,userInfo:global.userInfo,remarkInfo:statusNo}});
+    setBadge();
 })();
 
