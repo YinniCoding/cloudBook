@@ -38,3 +38,11 @@ select {
 	width: 40%;
 	margin: 0 auto;
 }
+
+#modifyBtn {
+	margin: 50px 0 0 120px !important;
+}
+
+#modifyBtn button {
+	width: 150px;
+}

@@ -41,11 +41,40 @@ function getUserInfo(obj) {
     });
 }
 
+function updateInfo(domain,userInfo) {
+    var name = $("#name input").val(),
+        gender = $("#gender input").val(),
+        phone = $("#phone input").val(),
+        addr = $("#addr input").val(),
+        bank = $("#bank input").val(),
+        branch = $("#branch input").val(),
+        city = $("#city input").val(),
+        cardNo = $("#cardNo input").val();
+    $.ajax({
+        url: domain + "/ceo/updateCeoInfo.htm",
+        data: {userInfo: userInfo,name: name,gender: gender,phone: phone,address: addr,bank: bank,branch: branch,city: city,cardNo: cardNo}
+    }).done(function (ret) {
+        ret = JSON.parse(ret);
+        if(ret.code === 0){
+            alert("修改成功！");
+            window.location.reload();
+        }else {
+            alert("修改失败： " + ret.msg);
+        }
+    }).fail(function () {
+        alert("请求失败！");
+    });
+}
+
 (function (){
     getUserInfo({domain:global.domain,data:{userInfo:global.userInfo}});
 
     $("#gender > input[type='radio']").each(function () {
         radioCheck($(this));
-    });   
+    });
+
+    $("#modifyBtn button").on("click", function () {
+        updateInfo(global.domain,global.userInfo);
+    })
 })();
 
