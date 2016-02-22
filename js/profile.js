@@ -29,6 +29,7 @@ function getUserInfo(obj) {
             $("#phone > input").val(phone);
             $("#addr > input").val(addr);
             $("#bank > input").val(bank);
+            $("#branch > input").val(branch);
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
             $("#inviteCode").text(inviteCode);
@@ -43,7 +44,7 @@ function getUserInfo(obj) {
 
 function updateInfo(domain,userInfo) {
     var name = $("#name input").val(),
-        gender = $("#gender input").val(),
+        gender = $("#gender input:checked").val(),
         phone = $("#phone input").val(),
         addr = $("#addr input").val(),
         bank = $("#bank input").val(),
@@ -51,13 +52,13 @@ function updateInfo(domain,userInfo) {
         city = $("#city input").val(),
         cardNo = $("#cardNo input").val();
     $.ajax({
-        url: domain + "/ceo/updateCeoInfo.htm",
+        url: domain + "/ceo/updateBasicInfo.htm",
         data: {userInfo: userInfo,name: name,gender: gender,phone: phone,address: addr,bank: bank,branch: branch,city: city,cardNo: cardNo}
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(ret.code === 0){
             alert("修改成功！");
-            window.location.reload();
+            //window.location.reload();
         }else {
             alert("修改失败： " + ret.msg);
         }

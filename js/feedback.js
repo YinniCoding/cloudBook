@@ -2,14 +2,22 @@
  * Author：njhxzhangjihong@126.com
  * Date：2016/1/22.
  */
-function doSubmit(contentEle,reqUrl) {
-    var content = encodeURIComponent($(contentEle).val());
-    if(!content){
+function doSubmit(obj) {
+    var data = {};
+
+    if(!obj.content){
         alert("请输入具体说明！");
+        return;
     }else {
+        if(obj.des === "problem"){
+            data.problem = obj.content;
+        }else {
+            data.advice = obj.content;
+        }
+        data.userInfo = obj.userInfo;
         $.ajax({
-            url: reqUrl,
-            data: {userInfo: global.userInfo}
+            url: obj.url,
+            data: data
         }).done(function (ret) {
             ret = JSON.parse(ret);
             if(ret.code == 0){
@@ -25,12 +33,14 @@ function doSubmit(contentEle,reqUrl) {
 
 (function () {
     //提交问题
+    var content = "";
     $("#submitQuestion").on('click', function () {
-        doSubmit("#question",global.domain + "/ceo/insertProblem.htm");
+        content = encodeURIComponent($("#question").val());
+        doSubmit({url: global.domain + "/ceo/insertProblem.htm",userInfo: global.userInfo,content: content,des: "problem"});
     });
     
     //提交建议
     $("#submitSuggestiong").on('click', function () {
-        doSubmit("#suggestion",global.domain + "/ceo/insertAdvice.htm");
+        doSubmit({url: global.domain + "/ceo/insertAdvice.htm",userInfo: global.userInfo,content: content,des: "advice"});
     });
 })();
