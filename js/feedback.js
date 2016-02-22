@@ -41,6 +41,7 @@ function doSubmit(obj) {
     
     //提交建议
     $("#submitSuggestiong").on('click', function () {
+        content = encodeURIComponent($("#question").val());
         doSubmit({url: global.domain + "/ceo/insertAdvice.htm",userInfo: global.userInfo,content: content,des: "advice"});
     });
 })();
