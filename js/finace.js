@@ -173,11 +173,13 @@ function withdraw(obj,dataObj) {
         //可提现金额
         var withdrawCash = parseFloat($("#withdrawCash").text());
         //待提现金额
-        var towithdraw = parseFloat($("#towithdraw").val());
-        if(isNaN(towithdraw)){
+        var towithdraw = $("#towithdraw").val();
+        //只允许输入数字或小数点,小数点在最后也不合法
+        if(!/^[\d|\.]+$/.test(towithdraw) || /\.$/.test(towithdraw)){
             alert("请输入合法数字!");
             return;
         }
+        towithdraw = parseFloat($("#towithdraw").val());
         if(towithdraw === 0 || towithdraw > withdrawCash){
             alert("可提现余额不足!");
         }else {
