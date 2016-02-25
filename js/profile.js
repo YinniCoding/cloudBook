@@ -32,13 +32,46 @@ function getUserInfo(obj) {
             $("#branch > input").val(branch);
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
-            $("#inviteCode").text(inviteCode);
-            $("#qrcode").attr("src",qrcode);
+            //$("#inviteCode").text(inviteCode);
+            //$("#qrcode").attr("src",qrcode);
         }else {
             alert(ret.msg);
+            //清空默认的二维码和邀请吗
+            getCode(obj);
         }
     }).fail(function (){
         alert("请求失败！");
+    });
+}
+
+//获取邀请码和二维码
+function getCode(obj) {
+    $.ajax({
+        url: obj.domain + "/ceo/getQrcode.htm",
+        data: obj.data
+    }).done(function (ret) {
+        ret = JSON.parse(ret);
+        if(ret.code == 0){
+            $("#qrcode").attr("src",qrcode);
+        }else {
+            $("#qrcode").parent().html("无");
+        }
+    }).fail(function () {
+        $("#qrcode").parent().html("无");
+    });
+
+    $.ajax({
+        url: obj.domain + "/ceo/getInviteCode.htm",
+        data: obj.data
+    }).done(function (ret) {
+        ret = JSON.parse(ret);
+        if(ret.code == 0){
+            $("#inviteCode").text(ret.result)
+        }else {
+            $("#inviteCode").text("无");
+        }
+    }).fail(function () {
+        $("#inviteCode").text("无");
     });
 }
 
