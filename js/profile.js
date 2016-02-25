@@ -52,7 +52,7 @@ function getCode(obj) {
     }).done(function (ret) {
         ret = JSON.parse(ret);
         if(ret.code == 0){
-            $("#qrcode").attr("src",qrcode);
+            $("#qrcode").attr("src",ret.result);
         }else {
             $("#qrcode").parent().html("无");
         }
