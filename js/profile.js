@@ -32,8 +32,8 @@ function getUserInfo(obj) {
             $("#branch > input").val(branch);
             $("#city > input").val(city);
             $("#cardNo > input").val(cardNo);
-            //$("#inviteCode").text(inviteCode);
-            //$("#qrcode").attr("src",qrcode);
+            $("#inviteCode").text(inviteCode);
+            $("#qrcode").attr("src",qrcode);
         }else {
             alert(ret.msg);
             //清空默认的二维码和邀请吗
