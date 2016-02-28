@@ -15,7 +15,7 @@ var global = {
 
 //根据cookie判断是否已经登录
 function autoLogin(){
-    if(/index.html/.test(window.location.pathname)){
+    if(/index.html|\//.test(window.location.pathname)){
         var cookie = document.cookie.split(";");
         var base = $("base").attr("href");
         for(var k in cookie){
