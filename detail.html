@@ -3,13 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>云书管理后台</title>
+	<base href="/cloudBook/">
 	<link href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/base.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/detail.css">
 	<link href="//cdn.bootcss.com/jquery-datetimepicker/2.4.5/jquery.datetimepicker.min.css" rel="stylesheet">
-
-	<base href="/cloudBook/">
 </head>
 <body>
 	<div class="wrap">
@@ -18,20 +17,20 @@
 				<div class="navbar-header" id="leftNav">
 					<img src="./img/logo.jpg" alt="云书logo" width="100px">
 					<span> | </span>
-					<a class="navbar-brand" href="/cloudBook/summary.html">校园CEO管理系统</a>
+					<a class="navbar-brand" href="./summary.html">校园CEO管理系统</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="rightNav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="summary.html" class="" role="button">首页</a></li>
-						<li><a href="detail.html" class="" role="button">配单</a></li>
-						<li><a href="tuiguang.html" class="" role="button">推广</a></li>
-						<li><a href="collect.html" class="" role="button">收书</a></li>
-						<li><a href="profile.html" class="" role="button">我的</a></li>
+						<li><a href="./summary.html" class="" role="button">首页</a></li>
+						<li><a href="./detail.html" class="active" role="button">配单</a></li>
+						<li><a href="./tuiguang.html" class="" role="button">推广</a></li>
+						<li><a href="./collect.html" class="" role="button">收书</a></li>
+						<li><a href="./profile.html" class="" role="button">我的</a></li>
                         <img src="./img/header.png" alt="头像" data-toggle="dropdown">
                         <ul class="dropdown-menu">
                             <li id="headerName">姓名</li>
-                            <li><a href="index.html" id="logout">退出</a></li>
+                            <li><a href="./index.html" id="logout">退出</a></li>
                         </ul>
 					</ul>
 				</div>
@@ -104,7 +103,7 @@
 					</table>
 					<div id="loading">
 						查询需要一段时间，请稍等....
-						<img src="img/loading.gif" alt="">
+						<img src="./img/loading.gif" alt="">
 					</div>
 					<div class="row" id="pageNav">
 						<div id="total">

@@ -3,12 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>云书管理后台</title>
+	<base href="/cloudBook/">
 	<link href="http://apps.bdimg.com/libs/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="./css/base.css">
 	<link rel="stylesheet" href="./css/common.css">
 	<link rel="stylesheet" href="./css/summary.css">
 	<link rel="stylesheet" href="./css/luara.left.css"/>
-	<base href="/cloudBook/">
 </head>
 <body>
 	<div class="wrap">
@@ -17,20 +17,20 @@
 				<div class="navbar-header" id="leftNav">
                     <img src="./img/logo.jpg" alt="云书logo" width="100px">
 					<span> | </span>
-					<a class="navbar-brand" href="/cloudBook/summary.html">校园CEO管理系统</a>
+					<a class="navbar-brand" href="./summary.html">校园CEO管理系统</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="rightNav">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="summary.html" class="" role="button">首页</a></li>
-						<li><a href="detail.html" class="" role="button">配单</a></li>
-						<li><a href="tuiguang.html" class="" role="button">推广</a></li>
-						<li><a href="collect.html" class="" role="button">收书</a></li>
-						<li><a href="profile.html" class="" role="button">我的</a></li>
+						<li><a href="./summary.html" class="active" role="button">首页</a></li>
+						<li><a href="./detail.html" class="" role="button">配单</a></li>
+						<li><a href="./tuiguang.html" class="" role="button">推广</a></li>
+						<li><a href="./collect.html" class="" role="button">收书</a></li>
+						<li><a href="./profile.html" class="" role="button">我的</a></li>
                         <img src="./img/header.png" alt="头像" data-toggle="dropdown">
                         <ul class="dropdown-menu">
                             <li id="headerName">姓名</li>
-                            <li><a href="index.html" id="logout">退出</a></li>
+                            <li><a href="javascript:;" id="logout">退出</a></li>
                         </ul>
 					</ul>
 				</div>
@@ -54,7 +54,7 @@
 					<div class="thumbnail">
 						<div class="caption">
 							<p>待配送订单</p>
-							<a href="detail.html?status=2"><span id="waitForSend">00</span>单</a>
+							<a href="./detail.html?status=2"><span id="waitForSend">00</span>单</a>
 						</div>
 					</div>
 				</div>
@@ -62,7 +62,7 @@
 					<div class="thumbnail">
 						<div class="caption">
 							<p>待出库订单</p>
-							<a href="detail.html?status=1"><span id="waitForPop">00</span>单</a>
+							<a href="./detail.html?status=1"><span id="waitForPop">00</span>单</a>
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 					<div class="thumbnail">
 						<div class="caption">
 							<p>可提现工资</p>
-							<a href="finace.html"><span id="salary">00</span>元</a>
+							<a href="./finace.html"><span id="salary">00</span>元</a>
 						</div>
 					</div>
 				</div>

@@ -17,11 +17,12 @@ var global = {
 function autoLogin(){
     if(/index.html/.test(window.location.pathname)){
         var cookie = document.cookie.split(";");
+        var base = $("base").attr("href");
         for(var k in cookie){
             if(/isLogin/.test(cookie[k])){
                 var v = cookie[k].split("=")[1];
                 if(v){
-                    window.location.href = "./summary.html";
+                    window.location.href = base + "./summary.html";
                 }
             }
         }
@@ -51,7 +52,8 @@ function login() {
                 if(ret.code != 0){
                     $("#loginInfo").text(ret.msg);
                 }else {
-                    window.location.href = "./summary.html";
+                    var base = $("base").attr("href");
+                    window.location.href = base + "./summary.html";
                 }
             }
         });
@@ -59,7 +61,7 @@ function login() {
 }
 
 (function () {
-    //autoLogin();
+    autoLogin();
 
     //点击登录
     $("#loginBtn").on("click", function () {

@@ -66,12 +66,13 @@ if($("#datetimepicker").length){
         //    }
         //}
     }else {
+        var base = $("base").attr("href");
         for(var i in cookie){
             if(/isLogin/.test(cookie[i])){
                 var v = cookie[i].split("=")[1];
                 if(!v){
                     //未登录则跳转登录页
-                    window.location.href = "index.html";
+                    window.location.href = base + "./index.html";
                 }else {
                     isLogin = true;
                 }
@@ -85,7 +86,7 @@ if($("#datetimepicker").length){
                     $("#headerName").text(cookie[i].split("=")[1]);
                 }
             }else {
-                window.location.href = "index.html";
+                window.location.href = base + "./index.html";
             }
         }
     }
@@ -276,6 +277,8 @@ function clearCookie(){
         ret = JSON.parse(ret);
         if(ret.code !== 0){
             alert(ret.msg);
+        }else {
+            window.location.href = $("base").attr("href") + "./index.html";
         }
     });
 }
