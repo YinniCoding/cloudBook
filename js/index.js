@@ -10,25 +10,48 @@ function setBgdPic() {
 
 //全局变量区,index不引用common.js,重新定义
 var global = {
-    domain: "http://ceo.qess.me"
+    domain: "http://test1.qess.me"
 };
+
+//根据cookie判断是否已经登录
+function autoLogin(){
+    if(/index.html/.test(window.location.pathname)){
+        var cookie = document.cookie.split(";");
+        for(var k in cookie){
+            if(/isLogin/.test(cookie[k])){
+                var v = cookie[k].split("=")[1];
+                if(v){
+                    window.location.href = "./summary.html";
+                }
+            }
+        }
+    }
+}
 
 function login() {
     var loginName = $("#userName").val();
     var passwd = $("input[name='passwd']").val();
+    var data = {};
+    data.loginName = loginName;
+    data.password = passwd;
+    data.veriCode = $("#codeInput").val();
+    //自动登录
+    if($("#autoChecked").attr("style")){
+        data.autoLogin = true;
+    }
     if(!loginName || !passwd){
-        alert("请输入用户名、密码!");
+    alert("请输入用户名、密码!");
     }else {
         $.ajax({
             type: "POST",
             url: global.domain + "/ceo/userLogin.htm",
-            data: {loginName: $("#userName").val(),password: $("input[name='passwd']").val(),veriCode:$("#codeInput").val()},
+            data: data,
             success: function (ret) {
                 ret = JSON.parse(ret);
                 if(ret.code != 0){
                     $("#loginInfo").text(ret.msg);
                 }else {
-                    window.location.href = "summary.html";
+                    window.location.href = "./summary.html";
                 }
             }
         });
@@ -36,6 +59,8 @@ function login() {
 }
 
 (function () {
+    //autoLogin();
+
     //点击登录
     $("#loginBtn").on("click", function () {
         login();
@@ -46,7 +71,6 @@ function login() {
         if(e.keyCode === 13){
             login();
         }
-
     });
 
     $("#autoLogin").on("click", function () {
